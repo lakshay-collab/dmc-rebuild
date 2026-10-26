@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 30% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 30% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 30% 10%;
+    --primary: 200 55% 22%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 97%;
+    --secondary-foreground: 210 30% 10%;
+    --muted: 210 20% 97%;
+    --muted-foreground: 210 10% 45%;
+    --accent: 200 40% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 92%;
+    --input: 210 20% 92%;
+    --ring: 200 55% 22%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; font-family: 'Manrope', sans-serif; }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; }
+}
+
+@layer base {
+  [data-debug-wrapper="true"] { display: contents !important; }
+}
+
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F8FAFB; }
+::-webkit-scrollbar-thumb { background: #C4D0DA; border-radius: 3px; }
+::selection { background: rgba(23,67,88,0.12); color: #0D1B2A; }
+
+/* Blog filter tab rows: allow horizontal scroll without a visible scrollbar */
+.blog-tabs-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+.blog-tabs-scroll::-webkit-scrollbar { height: 0; width: 0; display: none; }

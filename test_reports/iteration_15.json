@@ -1,0 +1,33 @@
+{
+  "summary": "Frontend-only test of the RichContent markdown renderer on /blog/:slug. Tested 3 posts (must-try-street-foods-delhi, santorini-boutique-hotels-honeymoon, kerala-backwater-houseboats-guide). The API returns the updated markdown content for all 3. Every element renders correctly: h2 (Cormorant Garamond 30px/600 with border-bottom), h3 (Cormorant 24px/600), blockquote (4px left border, #F8FAFB bg, italic p), ul with 6px round bullet dots, ol with 1..N numbers, strong and em, hr. No raw markdown markers (**, ##, >, -) leak into the rendered text. post-title and back-to-blog (navigates to /blog) work. Two styling defects: (1) vertical spacing on headings and hr is wiped out; (2) the ordered-list circle badges have no background.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "RichContent wrapper (BlogPostPage.js line 220)", "issue": "The wrapper <div className='space-y-0'> sets margin-top:0 on every child, and its selector (> :not([hidden]) ~ :not([hidden])) is more specific than mt-12 on h2, mt-10 on h3 and my-10 on hr. Measured computed hr margin-top is 0px. Result: headings sit right under the paragraphs above them, and hr/blockquote spacing is lost, so the article reads as cramped. See screenshots: 'The Complete Hit List' h3 sits directly under the paragraph.", "selector": ".blog-content > div.space-y-0", "priority": "MEDIUM"},
+      {"component": "Ordered list number badge (line 204)", "issue": "bg-[#174358]/08 is not a valid Tailwind opacity modifier, so no class is generated. The computed background is rgba(0,0,0,0), so the badge renders as a bare number with no circle. This misses the 'numbered circle badges' requirement.", "selector": ".blog-content ol li > span:first-child", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Blog post article", "issues": ["border-[#0D1B2A]/08 on h2 and hr is also an invalid opacity value. Borders still show only because of the default border color (rgb(231,235,239)). Use /[0.08] or /10 so the color is what was intended.", "Headings need clear top margin to separate sections; currently h2/h3 almost touch the previous paragraph or list."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "BlogPostPage.js line 220: remove 'space-y-0' from the RichContent wrapper (use a plain <div>) so mt-12/mt-10/my-10/my-8/my-5 apply.",
+    "BlogPostPage.js line 204: change bg-[#174358]/08 to bg-[#174358]/[0.08] (or bg-[#174358]/10) so the ordered-list circle badge is visible.",
+    "BlogPostPage.js lines 145 and 152: change border-[#0D1B2A]/08 to border-[#0D1B2A]/[0.08] or /10."
+  ],
+  "critical_code_review_comments": [
+    "The formatInline regex handles *italic* inside **bold** only partially: nested '**a *b* c**' renders the inner asterisks as literal text. Acceptable for the current seed data.",
+    "Lines starting with '>' but no following space, or '-' with no space, fall through to a paragraph. Fine for controlled seed content.",
+    "The same invalid '/06' and '/05' opacity pattern appears elsewhere (border-[#0D1B2A]/06 on the meta section, /05 on the CTA section). /05 is valid, /06 is not."
+  ],
+  "updated_files": ["/app/test_reports/iteration_15.json"],
+  "success_rate": {"backend": "N/A", "frontend": "80% (all 8 element types render correctly; 2 styling defects: spacing and OL badge background)"},
+  "test_credentials": "Not needed (public blog pages)",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Content is in blog_seed.py. On startup, server.py runs update_one on content and excerpt by slug. Verify with page.evaluate on .blog-content: count h2/h3/blockquote/ul/ol/strong/em/hr and read computed styles (marginTop on h2/hr, backgroundColor of the ol li > span).",
+  "rca of the issue": "Spacing: Tailwind's space-y-0 utility uses a child-combinator selector with higher specificity than single-class margin utilities, so it overrides every child's margin-top to 0. OL badge: Tailwind's opacity modifier '/08' is not in the default opacity scale, so no CSS is emitted. Use the arbitrary form '/[0.08]'."
+}

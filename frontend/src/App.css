@@ -1,0 +1,71 @@
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(13, 27, 42, 0.15) 0%,
+    rgba(13, 27, 42, 0.45) 50%,
+    rgba(13, 27, 42, 0.85) 100%
+  );
+}
+
+/* Zoom on hover for image containers */
+.img-zoom img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Fade in up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Float animation for scroll indicator */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.animate-float {
+  animation: float 2.5s ease-in-out infinite;
+}
+
+/* Glass morphism for navbar */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(13, 27, 42, 0.06);
+}
+
+/* Testimonial scroll */
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll-testimonials {
+  animation: scrollTestimonials 60s linear infinite;
+}
+.animate-scroll-testimonials:hover {
+  animation-play-state: paused;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(23, 67, 88, 0.15);
+  color: #0D1B2A;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section divider accent */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(23, 67, 88, 0.08) 30%, rgba(23, 67, 88, 0.08) 70%, transparent 100%);
+}

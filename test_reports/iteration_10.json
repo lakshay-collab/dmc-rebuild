@@ -1,0 +1,59 @@
+{
+  "summary": "Tested rebuilt Egypt PackageDetailPage (Maharaja-style). Backend: 9/9 pytest tests pass validating new structure (stays/hotels/experiences/pricing/things_to_know/includes/highlights) across all 6 Egypt slugs + 404. Frontend: 40/40 critical UI checks pass — hero (title, EGYPT · 8 DAYS, ₹85,000, INQUIRE NOW), 4 sticky tabs (visually uppercase via CSS class), 7 Highlights bullets, sticky 'Speak to a specialist' sidebar with working inquiry form (submits successfully → Thank you state), Itinerary with Expand-All btn and timeline transport markers, first stay 'Cairo: Land of the Pyramids' (Day 1-3) expanded by default with Marriott Mena House hotel cards + experience cards, NO 'Add to Inquiry/Cart' buttons on hotel/experience cards (verified), second stay (Day 4-5) expands on click and reveals hotels/experiences, Pricing table with 7 monthly rows each having 'Inquire' button, FAQ accordion expands on click, 'What we include' shows 5 features, Other Egypt tours carousel shows 5 cards, bottom CTA shows ₹85,000 pp + Enquire button, navigation from /destination/Egypt → package detail works (6 View Itinerary links), honeymoon-on-the-nile loads correctly with ₹1,45,000. One real UI bug found: 'Other amazing Egypt tours' carousel uses pkg.hero_image (current package's image) for ALL other-tour cards instead of each tour's own hero — all cards display the same image.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "PackageDetailPage 'Other amazing Egypt tours you may like' carousel",
+        "issue": "All other-tour cards use the CURRENT package's hero_image as their thumbnail (line 467 of PackageDetailPage.js: <img src={pkg.hero_image} ...>). Result: on /classic-egypt-cairo-nile all 5 other-tour cards (Pyramids & Red Sea, Grand Egypt Explorer, Desert Oasis, Luxury Heritage, Honeymoon) display the same Abu Simbel image. Should use op.hero_image or op.image from the destination /detail packages list.",
+        "selector": "[data-testid=\"pkg-other-tours\"] a img",
+        "priority": "MEDIUM"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_egypt_packages_maharaja.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "passed_highlights": [
+    "All 6 Egypt slugs return new Maharaja structure (stays, pricing, things_to_know, includes, highlights)",
+    "Nonexistent slug returns 404, no MongoDB _id leaked",
+    "Hero shows title, EGYPT · 8 DAYS, ₹85,000, INQUIRE NOW button",
+    "4 sticky tabs render visually uppercase via Tailwind 'uppercase' + tracking-[0.2em] (text content keeps title case — correct UX pattern)",
+    "Sticky sidebar 'Speak to a specialist' form submits successfully → sidebar-success 'Thank you!' state",
+    "Highlights section: 7 bullets exactly",
+    "Itinerary expand-all-btn present; timeline shows transport markers + final 'Fly Home' marker",
+    "First stay (Day 1-3 'Cairo: Land of the Pyramids') expanded by default with At-a-Glance bullets, Marriott Mena House hotel card, experience cards",
+    "Hotel and experience cards contain NO 'Add to Inquiry' or 'Add to Cart' text/buttons",
+    "Second stay (Day 4-5) collapses initially and expands on click revealing hotels + experiences",
+    "Pricing has 7 monthly rows each with season label and 'Inquire' button",
+    "Things-to-Know FAQ accordion expands on click",
+    "What-we-include shows exactly 5 feature items",
+    "Other-tours carousel shows 5 sibling package cards with navigation",
+    "Bottom CTA shows ₹85,000 pp + 'Enquire now' button",
+    "/destination/Egypt has 6 View Itinerary links navigating to detail pages",
+    "honeymoon-on-the-nile loads with title 'Honeymoon on the Nile' and price ₹1,45,000"
+  ],
+  "action_items": [
+    "Fix 'Other amazing Egypt tours' carousel image: replace <img src={pkg.hero_image}> on line 467 of /app/frontend/src/components/PackageDetailPage.js with op.hero_image (or whichever image field /api/destinations/detail/{name} returns for each package). Currently every other-tour card shows the active package's hero image — visually misleading.",
+    "Optional: tab text content is 'At a Glance', 'Itinerary', 'Pricing', 'Things to Know' with CSS uppercase styling. This is fine for accessibility (screen readers prefer title case). If a strict text-content uppercase audit is desired, the source strings can be capitalised; currently they're visually correct."
+  ],
+  "critical_code_review_comments": [
+    "PackageDetailPage.js: other-tours carousel passes pkg.hero_image (current package) to <img> for every other-tour card — bug.",
+    "stay data-testid uses replaced day_range like 'stay-day-1---3' (triple dash from ' - '). Works but is brittle; consider stable index-based id (e.g., stay-0, stay-1).",
+    "Inquiry form pushes '/thank-you' onto window.history but does not navigate away — slight URL inconsistency; works because the success UI state is local.",
+    "Backend egypt_packages.py: 6 Unsplash IDs reused for both hotel and experience images; if any photographer reuploads, multiple cards break together. Consider hosting on emergentagent CDN as already done for camel/bazaar/desert_camp/mosque."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_egypt_packages_maharaja.py (new pytest suite for new Maharaja structure)"
+  ],
+  "success_rate": { "backend": "100% (9/9)", "frontend": "97.5% (40/41 — only the other-tours image bug)" },
+  "test_credentials": "Not required — public pages",
+  "seed_data_creation": "None — used existing seeded package_itineraries (6 Egypt slugs auto-loaded by backend startup)",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Egypt PackageDetailPage rebuilt to Maharaja Experiences design. Backend GET /api/destinations/{name}/packages/{slug} returns new structure (stays[].hotels/experiences/glance, pricing[], things_to_know[], includes[], highlights[]). Tests at /app/backend/tests/test_egypt_packages_maharaja.py. Old test_package_itinerary.py is now stale (expected old keys: itinerary, inclusions, exclusions, gallery) — can be removed or skipped. The one open bug: other-tours carousel reuses current package hero_image for all sibling cards (PackageDetailPage.js line ~467).",
+  "rca_of_the_issue": "Other-tours carousel image bug RCA: In /app/frontend/src/components/PackageDetailPage.js line 467, the carousel maps over otherPkgs (fetched from /api/destinations/detail/{name}) but renders <img src={pkg.hero_image} ...> where pkg is the CURRENT package, not the iteration variable 'op'. Since op contains the sibling package data (with op.title, op.duration etc.), it likely also has op.hero_image or op.image — using op.hero_image (or whichever image field that endpoint returns) will fix all 5 cards to show distinct images. Mitigation: change line 467 to <img src={op.hero_image || op.image || pkg.hero_image} alt={op.title} ... /> for safe fallback."
+}

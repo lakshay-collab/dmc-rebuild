@@ -1,0 +1,133 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "Lumina DMC",
+      "tagline": "The Future of Destination Management",
+      "tone": "Visionary, Exclusive, Precision-Engineered",
+      "archetype": "Jewel & Luxury Tech",
+      "theme_strategy": "dark_mode_primary"
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Cormorant Garamond, serif",
+        "body": "Manrope, sans-serif",
+        "accent": "Playfair Display, serif"
+      },
+      "scale": {
+        "display": "text-6xl md:text-8xl tracking-tight leading-none font-light italic",
+        "h1": "text-5xl md:text-7xl tracking-tight font-light",
+        "h2": "text-4xl md:text-5xl tracking-tight font-regular",
+        "h3": "text-2xl md:text-3xl tracking-normal font-medium",
+        "body_lg": "text-lg md:text-xl leading-relaxed text-muted-foreground",
+        "body": "text-base leading-relaxed text-muted-foreground",
+        "caption": "text-xs tracking-[0.2em] uppercase font-semibold text-accent"
+      },
+      "imports": [
+        "@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');"
+      ]
+    },
+    "colors": {
+      "palette": {
+        "background": "#0B1120",
+        "foreground": "#F8FAFC",
+        "card": "rgba(15, 23, 42, 0.6)",
+        "card_border": "rgba(255, 255, 255, 0.1)",
+        "primary": "#FCD34D",
+        "primary_foreground": "#0B1120",
+        "secondary": "#1E293B",
+        "secondary_foreground": "#F8FAFC",
+        "accent": "#38BDF8",
+        "muted": "#94A3B8",
+        "success": "#10B981",
+        "warning": "#F59E0B"
+      },
+      "gradients": {
+        "hero_overlay": "linear-gradient(to bottom, rgba(11, 17, 32, 0.3), #0B1120)",
+        "gold_text": "linear-gradient(135deg, #FCD34D 0%, #D97706 100%)",
+        "tech_glow": "conic-gradient(from 90deg at 50% 50%, #0B1120 0%, #38BDF8 50%, #0B1120 100%)"
+      }
+    },
+    "spacing": {
+      "container_padding": "px-6 md:px-12 lg:px-24",
+      "section_gap": "py-24 md:py-32",
+      "element_gap": "gap-8"
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-primary text-primary-foreground hover:bg-white transition-all duration-300 rounded-full px-8 py-6 text-lg font-medium tracking-wide shadow-[0_0_20px_rgba(252,211,77,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]",
+        "secondary": "bg-transparent border border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300 rounded-full px-8 py-6 text-lg backdrop-blur-md",
+        "ghost": "text-muted-foreground hover:text-white transition-colors uppercase tracking-widest text-sm"
+      },
+      "cards": {
+        "glass": "bg-card backdrop-blur-xl border border-card_border rounded-2xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 group relative overflow-hidden",
+        "feature": "bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all duration-300"
+      },
+      "inputs": {
+        "default": "bg-white/5 border-white/10 focus:border-primary/50 text-white placeholder:text-white/30 rounded-lg h-12 px-4 transition-all"
+      }
+    },
+    "layout_strategies": {
+      "hero": "Full-screen cinematic background (video/image) with heavy bottom gradient. Centered typography. 'Scroll to explore' indicator.",
+      "bento_grid": "Asymmetric grid (12 cols). Span-8 for hero images, Span-4 for details. Gap-4 or Gap-6.",
+      "tracing_beam": "Use for the 'Trip Builder' tech section. A glowing line that follows the scroll path connecting features.",
+      "parallax": "Subtle y-axis movement on background images and floating decorative elements."
+    },
+    "motion": {
+      "entrance": "opacity-0 translate-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-forwards",
+      "hover": "scale-[1.02] transition-transform duration-300 ease-out",
+      "stagger_delay": "data-[index]:delay-[100ms]"
+    },
+    "assets": {
+      "images": {
+        "hero_bg": "https://images.unsplash.com/photo-1613488328514-e424950c0b0d?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "santorini_luxury": "https://images.pexels.com/photos/1010640/pexels-photo-1010640.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "tokyo_neon": "https://images.pexels.com/photos/36608670/pexels-photo-36608670.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "hotel_lobby": "https://images.unsplash.com/photo-1768346564825-6f90c0b89e2e?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "business_traveler": "https://images.pexels.com/photos/6050125/pexels-photo-6050125.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "tech_dashboard": "https://images.unsplash.com/photo-1771787647730-f80d3af1db3a?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "airport_lounge": "https://images.unsplash.com/photo-1535078035266-a0fa7d3b8f65?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "private_transfer": "https://images.unsplash.com/photo-1758194090785-8e09b7288199?crop=entropy&cs=srgb&fm=jpg&q=85"
+      },
+      "icons": "Use 'lucide-react' with thin stroke widths (1.5px) to match the elegance.",
+      "logo_placeholder": "Text logo using 'Cormorant Garamond' Italic"
+    },
+    "accessibility": {
+      "contrast_check": "Ensure gold text is only used on very dark backgrounds. Use white for body text.",
+      "focus_states": "Visible ring-2 ring-primary ring-offset-2 ring-offset-background",
+      "reduced_motion": "Disable parallax and smooth scroll if preferred-reduced-motion is true."
+    }
+  },
+  "instructions_to_main_agent": {
+    "workflow": [
+      "1. Setup Tailwind config with the specified colors and fonts.",
+      "2. Create the 'Navbar' with a glass effect (backdrop-blur-md).",
+      "3. Build the 'Hero' section using the Tokyo Neon image with a heavy dark overlay.",
+      "4. Implement the 'Trending Destinations' using a Bento Grid layout.",
+      "5. Build 'Trip Builder' tech section using the 'Tracing Beam' concept (or vertical timeline) with the abstract tech images.",
+      "6. Create 'Services' section using a horizontal scroll or grid of Glass Cards.",
+      "7. Add 'Stats' section with large animated numbers.",
+      "8. Footer with simple elegance."
+    ],
+    "critical_rules": [
+      "DO NOT use generic travel templates.",
+      "DO NOT use 'Inter' font for headings. Use Cormorant Garamond.",
+      "Keep the dark mode enabled by default.",
+      "Ensure all images have alt text.",
+      "Use 'sonner' for toasts.",
+      "Add 'data-testid' to all interactive elements."
+    ]
+  },
+  "universal_guidelines": {
+    "general": [
+      "Use 2-3x more spacing than typical designs.",
+      "Never use pure black (#000000). Use #0B1120.",
+      "Text hierarchy is created by weight and family contrast (Serif Headings vs Sans Body).",
+      "Interactive elements must have immediate feedback (hover scale, brightness)."
+    ],
+    "components": [
+      "Use Shadcn UI for complex interactives (Forms, Dialogs).",
+      "Use Custom HTML/Tailwind for layout structures (Grids, Heros).",
+      "Override Shadcn defaults to match the 'Jewel & Luxury' theme (e.g., rounded-none or rounded-2xl, not rounded-md)."
+    ]
+  }
+}
