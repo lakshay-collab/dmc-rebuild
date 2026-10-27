@@ -54,8 +54,24 @@ const Home = () => {
     }
   }, [location.state]);
 
+  // Apply a gentle scroll-reveal to each homepage section (skips the hero and the
+  // destinations section, whose cards already reveal individually). Progressive
+  // enhancement: no-ops on browsers without scroll-driven animations.
+  useEffect(() => {
+    const root = document.querySelector("[data-home-root]");
+    if (!root) return;
+    const tag = () => root.querySelectorAll(":scope > section").forEach((s) => {
+      if (s.id !== "hero" && s.id !== "destinations") s.classList.add("sd-rise");
+    });
+    tag();
+    const mo = new MutationObserver(tag);
+    mo.observe(root, { childList: true });
+    const t = setTimeout(tag, 1500);
+    return () => { mo.disconnect(); clearTimeout(t); };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" data-home-root>
       <Navbar />
       <Hero />
       <Stats />
