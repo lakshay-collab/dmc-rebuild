@@ -39,9 +39,7 @@ export default function Hero() {
         <h1 data-testid="hero-heading" className="font-['Manrope'] font-bold tracking-tight text-white text-4xl sm:text-5xl md:text-6xl leading-[1.08] max-w-4xl">
           You sell the world, we handle <span className="text-white/70">the destination.</span>
         </h1>
-        <p data-testid="hero-subcopy" className="font-['Manrope'] text-sm md:text-base text-white/65 max-w-xl mt-5 mb-8 leading-relaxed">
-          Your Global DMC for the travel trade — book destination products in the agent portal, or brief our specialist team for FIT, groups & MICE.
-        </p>
+        <div className="mb-8" />
 
         {/* Search */}
         <form onSubmit={submitSearch} className="w-full max-w-2xl flex items-center gap-2 bg-white/90 backdrop-blur-md rounded-full p-2 pl-5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)]">

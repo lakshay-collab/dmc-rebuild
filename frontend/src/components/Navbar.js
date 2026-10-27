@@ -33,7 +33,7 @@ export default function Navbar({ forceLight = false }) {
   const location = useLocation();
   const navigate = useNavigate();
   const { config } = useRegion();
-  const isLight = forceLight || scrolled || location.pathname === "/";
+  const isLight = forceLight || scrolled;
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 50);
@@ -98,8 +98,8 @@ export default function Navbar({ forceLight = false }) {
   };
 
   return (
-    <nav data-testid="navbar" ref={ref} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isLight ? "glass-nav py-1.5" : "py-3 bg-transparent"}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+    <nav data-testid="navbar" ref={ref} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${scrolled ? "py-2 px-4" : "py-3 bg-transparent px-0"}`}>
+      <div className={`mx-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${scrolled ? "max-w-5xl rounded-full bg-white/90 backdrop-blur-xl shadow-[0_18px_44px_-18px_rgba(13,27,42,0.32)] border border-white/50 px-5 md:px-7 py-1.5" : "max-w-7xl px-6 md:px-12 py-0"}`}>
         <Link to="/" data-testid="navbar-logo" className="flex items-center flex-shrink-0">
           <img src={isLight ? "/hidmc-logo-color.png" : "/hidmc-logo-white.png"} alt="Hi DMC" className="transition-all duration-300 h-10" />
         </Link>

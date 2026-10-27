@@ -9,6 +9,16 @@ const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const FEATURED_DESTINATIONS = ["Egypt", "Japan", "Sri Lanka", "Vietnam", "Bhutan", "Kazakhstan"];
 const EUROPE_IMG = "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=80";
 
+// Iconic Unsplash photo per destination (same approach as the blog) — falls back to the API image.
+const DEST_IMG = {
+  "Egypt": "1503177119275-0aa32b3a9368",
+  "Japan": "1540959733332-eab4deabeeaf",
+  "Sri Lanka": "1566296314736-6eaac1ca0cb9",
+  "Vietnam": "1528127269322-539801943592",
+  "Bhutan": "1558005530-a7958896ec60",
+};
+const destImg = (d) => (DEST_IMG[d.name] ? `https://images.unsplash.com/photo-${DEST_IMG[d.name]}?w=1100&q=80&auto=format&fit=crop` : d.image_url);
+
 export default function TrendingDestinations() {
   const [destinations, setDestinations] = useState([]);
   const { config } = useRegion();
@@ -42,8 +52,8 @@ export default function TrendingDestinations() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-5">
         {destinations[0] && (
           <Link to={`/destination/${encodeURIComponent(destinations[0].name)}`} data-testid={`destination-card-${destinations[0].name.toLowerCase()}`}
-            className="md:col-span-7 md:row-span-2 relative group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-pointer block" style={{ minHeight: "460px" }}>
-            <img src={destinations[0].image_url} alt={destinations[0].name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            className="md:col-span-7 md:row-span-2 relative group sd-rise rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-pointer block" style={{ minHeight: "460px" }}>
+            <img src={destImg(destinations[0])} alt={destinations[0].name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/40 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 z-10">
               <span className="text-[11px] tracking-[0.2em] uppercase text-white/70 font-semibold">{destinations[0].region}</span>
@@ -54,8 +64,8 @@ export default function TrendingDestinations() {
         )}
         {destinations.slice(1, 3).map((d) => (
           <Link to={`/destination/${encodeURIComponent(d.name)}`} key={d.name} data-testid={`destination-card-${d.name.toLowerCase()}`}
-            className="md:col-span-5 relative group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-pointer block" style={{ minHeight: "222px" }}>
-            <img src={d.image_url} alt={d.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            className="md:col-span-5 relative group sd-rise rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-pointer block" style={{ minHeight: "222px" }}>
+            <img src={destImg(d)} alt={d.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/40 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
               <span className="text-[10px] tracking-[0.2em] uppercase text-white/65 font-semibold">{d.region}</span>
@@ -66,8 +76,8 @@ export default function TrendingDestinations() {
         ))}
         {destinations.slice(3, 6).map((d) => (
           <Link to={`/destination/${encodeURIComponent(d.name)}`} key={d.name} data-testid={`destination-card-${d.name.toLowerCase()}`}
-            className="md:col-span-4 relative group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-pointer block" style={{ minHeight: "240px" }}>
-            <img src={d.image_url} alt={d.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            className="md:col-span-4 relative group sd-rise rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-pointer block" style={{ minHeight: "240px" }}>
+            <img src={destImg(d)} alt={d.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/40 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
               <span className="text-[10px] tracking-[0.2em] uppercase text-white/65 font-semibold">{d.region}</span>
@@ -79,7 +89,7 @@ export default function TrendingDestinations() {
         {/* Europe featured card */}
         {showEurope && (
         <Link to="/destination/Europe" data-testid="destination-card-europe"
-          className="md:col-span-12 relative group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-pointer block" style={{ minHeight: "200px" }}>
+          className="md:col-span-12 relative group sd-rise rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500 cursor-pointer block" style={{ minHeight: "200px" }}>
           <img src={EUROPE_IMG} alt="Europe" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A] via-[#0D1B2A]/50 to-[#0D1B2A]/10" />
           <div className="absolute inset-0 flex items-center px-8 md:px-12 z-10">
