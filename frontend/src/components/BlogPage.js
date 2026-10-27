@@ -151,7 +151,6 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true);
   const [floating, setFloating] = useState(false);
   const [destMenu, setDestMenu] = useState(false);
-  const [catMenu, setCatMenu] = useState(false);
   const resultsRef = useRef(null);
   const restoreScroll = useRef(isBack ? (typeof saved.scrollY === "number" ? saved.scrollY : null) : null);
 
@@ -284,7 +283,7 @@ export default function BlogPage() {
       >
         <div className="max-w-none mx-auto px-6 md:px-12 py-3 flex items-center gap-2.5 sm:gap-3">
           {/* Search */}
-          <div className="relative flex-1 min-w-0">
+          <div className="relative shrink-0 w-40 sm:w-56">
             <Search size={17} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#0D1B2A]/30" />
             <input
               data-testid="blog-search"
@@ -300,11 +299,28 @@ export default function BlogPage() {
             )}
           </div>
 
+          {/* Category nav bar — horizontal tabs (not a dropdown) */}
+          <div className="blog-tabs-scroll flex-1 min-w-0 overflow-x-auto flex items-center gap-1.5 sm:gap-2">
+            <button
+              data-testid="cat-tab-all"
+              onClick={() => { setActiveCategory(""); scrollToTop(); }}
+              className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-semibold transition-colors ${!activeCategory ? "bg-[#174358] text-white" : "text-[#0D1B2A]/60 hover:text-[#174358] hover:bg-[#174358]/08"}`}
+            >All</button>
+            {availableCategories.map((c) => (
+              <button
+                key={c}
+                data-testid={`cat-tab-${c.toLowerCase()}`}
+                onClick={() => { setActiveCategory(c); scrollToTop(); }}
+                className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-semibold transition-colors ${activeCategory === c ? "bg-[#174358] text-white" : "text-[#0D1B2A]/60 hover:text-[#174358] hover:bg-[#174358]/08"}`}
+              >{c}</button>
+            ))}
+          </div>
+
           {/* Destination filter */}
           <div className="relative shrink-0">
             <button
               data-testid="dest-filter-btn"
-              onClick={() => { setDestMenu((v) => !v); setCatMenu(false); }}
+              onClick={() => setDestMenu((v) => !v)}
               className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 sm:px-4 py-2.5 text-[13px] font-semibold transition-colors ${activeDestination ? "bg-[#174358] text-white border-[#174358]" : "bg-white text-[#0D1B2A]/70 border-[#0D1B2A]/12 hover:border-[#174358]/40"}`}
             >
               <span className="hidden sm:inline">{activeDestination || "Destination"}</span>
@@ -320,32 +336,6 @@ export default function BlogPage() {
                   {destinations.map((d) => (
                     <button key={d} data-testid={`dest-opt-${d.toLowerCase()}`} onClick={() => { setActiveDestination(d); setDestMenu(false); scrollToTop(); }}
                       className={`w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium transition-colors ${activeDestination === d ? "bg-[#174358]/10 text-[#174358]" : "text-[#0D1B2A]/70 hover:bg-[#0D1B2A]/05"}`}>{d}</button>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-
-          {/* Category filter */}
-          <div className="relative shrink-0">
-            <button
-              data-testid="cat-filter-btn"
-              onClick={() => { setCatMenu((v) => !v); setDestMenu(false); }}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 sm:px-4 py-2.5 text-[13px] font-semibold transition-colors ${activeCategory ? "bg-[#174358] text-white border-[#174358]" : "bg-white text-[#0D1B2A]/70 border-[#0D1B2A]/12 hover:border-[#174358]/40"}`}
-            >
-              <span className="hidden sm:inline">{activeCategory || "Categories"}</span>
-              <span className="sm:hidden">{activeCategory || "Cat."}</span>
-              <ChevronDown size={14} className={`transition-transform ${catMenu ? "rotate-180" : ""}`} />
-            </button>
-            {catMenu && (
-              <>
-                <button aria-hidden className="fixed inset-0 z-40 cursor-default" onClick={() => setCatMenu(false)} />
-                <div className="absolute right-0 mt-2 z-50 w-52 max-h-72 overflow-y-auto rounded-2xl bg-white border border-[#0D1B2A]/08 shadow-xl p-1.5">
-                  <button data-testid="cat-opt-all" onClick={() => { setActiveCategory(""); setCatMenu(false); scrollToTop(); }}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium transition-colors ${!activeCategory ? "bg-[#174358]/10 text-[#174358]" : "text-[#0D1B2A]/70 hover:bg-[#0D1B2A]/05"}`}>All categories</button>
-                  {availableCategories.map((c) => (
-                    <button key={c} data-testid={`cat-opt-${c.toLowerCase()}`} onClick={() => { setActiveCategory(c); setCatMenu(false); scrollToTop(); }}
-                      className={`w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium transition-colors ${activeCategory === c ? "bg-[#174358]/10 text-[#174358]" : "text-[#0D1B2A]/70 hover:bg-[#0D1B2A]/05"}`}>{c}</button>
                   ))}
                 </div>
               </>
