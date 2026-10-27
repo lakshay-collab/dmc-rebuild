@@ -24,25 +24,24 @@ export default function TravelThemes() {
   const themes = isUsUk ? usUkThemes : indiaThemes;
 
   return (
-    <section id="themes" data-testid="travel-themes-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
+    <section id="themes" data-testid="travel-themes-section" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3">Curated Experiences</p>
-          <h2 data-testid="themes-heading" className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-4">
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">Curated Experiences</p>
+          <h2 data-testid="themes-heading" className="font-['Cormorant_Garamond'] text-3xl md:text-4xl lg:text-5xl font-light text-[#0D1B2A] mb-4 leading-tight">
             Travel <em className="text-[#174358]">Styles</em>
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {themes.map((t) => (
             <div key={t.title} data-testid={`theme-${t.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
-              className="group bg-white rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer">
-              <div className="h-48 img-zoom">
-                <img src={t.image} alt={t.title} className="w-full h-full object-cover" />
-              </div>
-              <div className="p-5">
-                <h3 className="font-['Cormorant_Garamond'] text-xl font-medium text-[#0D1B2A] mb-1.5">{t.title}</h3>
-                <p className="text-xs text-[#0D1B2A]/35 mb-3">{t.desc}</p>
-                <p className="text-[10px] text-[#174358]/50 font-semibold uppercase tracking-wider">{t.countries}</p>
+              className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer h-80">
+              <img src={t.image} alt={t.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/40 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6 font-['Manrope']">
+                <p className="text-[11px] text-white/70 font-semibold uppercase tracking-[0.2em] mb-2">{t.countries}</p>
+                <h3 className="font-['Cormorant_Garamond'] text-2xl font-light text-white mb-1.5">{t.title}</h3>
+                <p className="text-xs text-white/60 leading-relaxed">{t.desc}</p>
               </div>
             </div>
           ))}

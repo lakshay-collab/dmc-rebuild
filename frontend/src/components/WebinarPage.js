@@ -97,9 +97,9 @@ function formatDate(dateStr) {
 
 const typeColors = {
   "Product Showcase": "bg-[#174358]/10 text-[#174358]",
-  "Platform Training": "bg-emerald-50 text-emerald-700",
-  "Case Study": "bg-amber-50 text-amber-700",
-  "Destination Briefing": "bg-sky-50 text-sky-700",
+  "Platform Training": "bg-[#0D1B2A]/08 text-[#0D1B2A]/70",
+  "Case Study": "bg-[#174358]/06 text-[#174358]/80",
+  "Destination Briefing": "bg-[#0D1B2A]/05 text-[#0D1B2A]/60",
 };
 
 export default function WebinarPage() {
@@ -142,7 +142,7 @@ export default function WebinarPage() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl">
-            <p className="text-xs tracking-[0.25em] uppercase font-semibold text-white/30 mb-5">Webinars & Events</p>
+            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-5 font-['Manrope']">Webinars & Events</p>
             <h1 data-testid="webinar-hero-heading" className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl lg:text-6xl font-light text-white leading-[1.1] mb-6">
               Learn, Connect, <em className="text-white/50">Grow.</em>
             </h1>
@@ -154,7 +154,7 @@ export default function WebinarPage() {
       </section>
 
       {/* Month Selector */}
-      <section data-testid="webinar-month-selector" className="py-10 px-6 md:px-12 lg:px-24 bg-[#FAFAFA] border-b border-[#0D1B2A]/06">
+      <section data-testid="webinar-month-selector" className="py-10 px-6 md:px-12 lg:px-24 bg-[#F8FAFB] border-b border-[#0D1B2A]/06">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-light text-[#0D1B2A]">
@@ -212,7 +212,7 @@ export default function WebinarPage() {
           </p>
 
           {filteredWebinars.length === 0 ? (
-            <div data-testid="webinar-empty-state" className="text-center py-20 bg-[#FAFAFA] rounded-2xl border border-[#0D1B2A]/06">
+            <div data-testid="webinar-empty-state" className="text-center py-20 bg-[#F8FAFB] rounded-2xl border border-[#0D1B2A]/06">
               <div className="w-16 h-16 rounded-full bg-[#174358]/06 flex items-center justify-center mx-auto mb-5">
                 <Calendar size={28} strokeWidth={1.5} className="text-[#174358]/30" />
               </div>
@@ -227,7 +227,7 @@ export default function WebinarPage() {
                 <div
                   key={w.id}
                   data-testid={`webinar-card-${w.id}`}
-                  className={`rounded-2xl border transition-all ${isPast(w.date) ? "border-[#0D1B2A]/06 bg-[#FAFAFA]/60 opacity-70" : "border-[#0D1B2A]/08 bg-white hover:border-[#174358]/20 hover:shadow-lg"}`}
+                  className={`rounded-2xl border transition-all duration-500 ${isPast(w.date) ? "border-[#0D1B2A]/06 bg-[#F8FAFB]/60 opacity-70" : "border-[#0D1B2A]/06 bg-white shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] hover:border-[#174358]/20 hover:shadow-xl"}`}
                 >
                   <div className="p-6 md:p-8">
                     <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -282,10 +282,10 @@ export default function WebinarPage() {
       </section>
 
       {/* Registration Form (Zoho Embed Placeholder) */}
-      <section id="register" data-testid="webinar-register-section" className="py-16 md:py-20 px-6 md:px-12 lg:px-24 bg-[#FAFAFA]">
+      <section id="register" data-testid="webinar-register-section" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/30 mb-3">Register</p>
+            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Register</p>
             <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-4">
               Sign Up for <em className="text-[#174358]/50">Upcoming Webinars</em>
             </h2>

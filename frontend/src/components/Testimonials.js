@@ -14,31 +14,31 @@ const testimonials = [
 export default function Testimonials() {
   const doubled = [...testimonials, ...testimonials];
   return (
-    <section data-testid="testimonials-section" className="py-20 md:py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-10">
+    <section data-testid="testimonials-section" className="py-16 md:py-24 overflow-hidden bg-[#F4F1E8]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-14">
         <div className="text-center">
-          <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3">Testimonials</p>
-          <h2 data-testid="testimonials-heading" className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-3">
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">Testimonials</p>
+          <h2 data-testid="testimonials-heading" className="font-['Cormorant_Garamond'] text-3xl md:text-4xl lg:text-5xl font-light text-[#0D1B2A] leading-tight">
             What Our <em className="text-[#174358]">Partners</em> Say
           </h2>
         </div>
       </div>
       <div className="relative">
-        <div className="flex gap-5 animate-scroll-testimonials" style={{ width: "max-content" }}>
+        <div className="flex gap-6 animate-scroll-testimonials" style={{ width: "max-content" }}>
           {doubled.map((t, i) => (
             <div key={`${t.name}-${i}`} data-testid={i < testimonials.length ? `testimonial-${i}` : undefined}
-              className="w-[360px] flex-shrink-0 bg-[#F8FAFB] rounded-xl p-6 hover:bg-white hover:shadow-sm transition-all">
-              <Quote size={18} className="text-[#174358]/15 mb-3" strokeWidth={1.5} />
-              <p className="text-sm text-[#0D1B2A]/60 leading-relaxed mb-5">&ldquo;{t.quote}&rdquo;</p>
-              <div className="border-t border-[#0D1B2A]/08 pt-3">
-                <p className="text-sm font-semibold text-[#0D1B2A]">{t.name}</p>
-                <p className="text-[11px] text-[#0D1B2A]/40 mt-0.5">{t.role} at {t.company}</p>
+              className="w-[360px] flex-shrink-0 bg-white rounded-2xl p-8 shadow-sm hover:shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] transition-all duration-300">
+              <Quote size={24} className="text-[#174358]/20 mb-4" strokeWidth={1.5} />
+              <p className="font-['Manrope'] text-sm text-[#0D1B2A]/65 leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
+              <div className="border-t border-[#0D1B2A]/[0.08] pt-4">
+                <p className="font-['Manrope'] text-sm font-semibold text-[#0D1B2A]">{t.name}</p>
+                <p className="font-['Manrope'] text-[11px] text-[#0D1B2A]/45 mt-0.5">{t.role} at {t.company}</p>
               </div>
             </div>
           ))}
         </div>
-        <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
-        <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+        <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-[#F4F1E8] to-transparent pointer-events-none z-10" />
+        <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-[#F4F1E8] to-transparent pointer-events-none z-10" />
       </div>
     </section>
   );

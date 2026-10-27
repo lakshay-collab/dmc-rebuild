@@ -72,7 +72,7 @@ const partnerLogos = [
   { name: "Travelife", src: "https://customer-assets.emergentagent.com/job_9a57b70a-7fda-4e0f-8fd3-cbc57f5e99da/artifacts/smw07n0z_Image%20290x174.jpeg" },
 ];
 
-const inputClass = "bg-white border-[#0D1B2A]/10 text-[#0D1B2A] placeholder:text-[#0D1B2A]/30 h-11 rounded-lg focus:border-[#174358]/40 focus:ring-1 focus:ring-[#174358]/20";
+const inputClass = "bg-[#F8FAFB] border-[#0D1B2A]/08 text-[#0D1B2A] placeholder:text-[#0D1B2A]/40 h-12 px-5 rounded-full focus:border-[#174358]/30 focus:bg-white transition-colors";
 
 export default function SignupPage() {
   const [form, setForm] = useState({ first_name: "", last_name: "", agency_name: "", email: "", phone_code: "+91", phone: "", state: "" });
@@ -173,7 +173,7 @@ export default function SignupPage() {
             {/* Right — Form */}
             <div>
               {submitted ? (
-                <div data-testid="signup-success" className="bg-white rounded-2xl p-10 text-center shadow-2xl">
+                <div data-testid="signup-success" className="bg-white rounded-3xl p-10 text-center border border-[#0D1B2A]/06 shadow-[0_24px_60px_-24px_rgba(13,27,42,0.35)]">
                   <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-5">
                     <Check size={28} className="text-emerald-500" />
                   </div>
@@ -183,30 +183,30 @@ export default function SignupPage() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} data-testid="signup-form" className="bg-white rounded-2xl p-7 space-y-4 shadow-2xl">
+                <form onSubmit={handleSubmit} data-testid="signup-form" className="bg-white rounded-3xl p-7 md:p-8 space-y-4 border border-[#0D1B2A]/06 shadow-[0_24px_60px_-24px_rgba(13,27,42,0.35)]">
                   <div className="mb-1">
                     <h3 className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A] mb-0.5">Sign Up for Agent Access</h3>
                     <p className="text-[11px] text-[#0D1B2A]/40">Free account setup. Start booking in minutes.</p>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">First Name *</label>
+                      <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">First Name *</label>
                       <Input data-testid="signup-first-name" placeholder="First name" value={form.first_name} onChange={(e) => update("first_name", e.target.value)} className={inputClass} />
                     </div>
                     <div>
-                      <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Last Name *</label>
+                      <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Last Name *</label>
                       <Input data-testid="signup-last-name" placeholder="Last name" value={form.last_name} onChange={(e) => update("last_name", e.target.value)} className={inputClass} />
                     </div>
                   </div>
                   <div>
-                    <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Agency Name *</label>
+                    <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Agency Name *</label>
                     <Input data-testid="signup-agency-name" placeholder="Your travel agency" value={form.agency_name} onChange={(e) => update("agency_name", e.target.value)} className={inputClass} />
                   </div>
                   <div>
-                    <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Phone Number *</label>
+                    <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Phone Number *</label>
                     <div className="flex gap-2">
                       <Select value={form.phone_code} onValueChange={(v) => { update("phone_code", v); if (v !== "+91") update("state", ""); }}>
-                        <SelectTrigger data-testid="signup-phone-code" className="bg-white border-[#0D1B2A]/10 text-[#0D1B2A] h-11 rounded-lg w-[130px] flex-shrink-0">
+                        <SelectTrigger data-testid="signup-phone-code" className="bg-[#F8FAFB] border-[#0D1B2A]/08 text-[#0D1B2A] h-12 rounded-full px-5 w-[130px] flex-shrink-0">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent className="bg-white border-[#0D1B2A]/10 max-h-[250px]">
@@ -222,9 +222,9 @@ export default function SignupPage() {
                   </div>
                   {isIndia && (
                     <div>
-                      <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">State *</label>
+                      <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">State *</label>
                       <Select value={form.state} onValueChange={(v) => update("state", v)}>
-                        <SelectTrigger data-testid="signup-state" className="bg-white border-[#0D1B2A]/10 text-[#0D1B2A] h-11 rounded-lg w-full">
+                        <SelectTrigger data-testid="signup-state" className="bg-[#F8FAFB] border-[#0D1B2A]/08 text-[#0D1B2A] h-12 rounded-full px-5 w-full">
                           <SelectValue placeholder="Select your state" />
                         </SelectTrigger>
                         <SelectContent className="bg-white border-[#0D1B2A]/10 max-h-[250px]">
@@ -236,11 +236,11 @@ export default function SignupPage() {
                     </div>
                   )}
                   <div>
-                    <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Email *</label>
+                    <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Email *</label>
                     <Input data-testid="signup-email" type="email" placeholder="email@agency.com" value={form.email} onChange={(e) => update("email", e.target.value)} className={inputClass} />
                   </div>
                   <Button type="submit" data-testid="signup-submit-btn" disabled={loading}
-                    className="w-full bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full py-5 text-sm font-semibold shadow-md transition-all disabled:opacity-50">
+                    className="w-full bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full py-5 text-sm font-semibold shadow-sm transition-colors disabled:opacity-50">
                     {loading ? "Submitting..." : (<>Sign Up for Agent Login <ArrowRight size={14} className="ml-1.5" /></>)}
                   </Button>
                 </form>
@@ -265,11 +265,11 @@ export default function SignupPage() {
       </section>
 
       {/* Testimonials Scroller */}
-      <section data-testid="signup-testimonials" className="py-14 md:py-20 px-6 md:px-12 lg:px-24 bg-[#FAFAFA]">
+      <section data-testid="signup-testimonials" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-end justify-between mb-10">
             <div>
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/30 mb-2">What Agents Say</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-2">What Agents Say</p>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">
                 Trusted by <em className="text-[#174358]/50">850+ Travel Agents</em>
               </h2>
@@ -293,7 +293,7 @@ export default function SignupPage() {
             >
               {testimonials.map((t) => (
                 <div key={t.name} data-testid={`signup-testimonial-${t.name.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="min-w-[calc(33.333%-14px)] bg-white rounded-xl p-6 border border-[#0D1B2A]/06 hover:border-[#174358]/15 hover:shadow-md transition-all flex-shrink-0 hidden md:block">
+                  className="min-w-[calc(33.333%-14px)] bg-white rounded-2xl p-6 border border-[#0D1B2A]/06 hover:border-[#174358]/15 hover:shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] transition-all flex-shrink-0 hidden md:block">
                   <div className="flex gap-0.5 mb-3">
                     {Array.from({ length: t.rating }).map((_, j) => (
                       <Star key={j} size={13} fill="#174358" className="text-[#174358]/80" />
@@ -311,7 +311,7 @@ export default function SignupPage() {
             {/* Mobile: stack cards */}
             <div className="md:hidden space-y-4">
               {testimonials.slice(0, 4).map((t) => (
-                <div key={t.name} className="bg-white rounded-xl p-5 border border-[#0D1B2A]/06">
+                <div key={t.name} className="bg-white rounded-2xl p-5 border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)]">
                   <div className="flex gap-0.5 mb-2">
                     {Array.from({ length: t.rating }).map((_, j) => (
                       <Star key={j} size={12} fill="#174358" className="text-[#174358]/80" />

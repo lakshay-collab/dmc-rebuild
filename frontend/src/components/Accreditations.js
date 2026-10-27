@@ -17,12 +17,12 @@ export default function Accreditations() {
   const logos = isUsUk ? allLogos.filter(l => !l.hideForUsUk) : allLogos;
 
   return (
-    <section id="credentials" data-testid="accreditations-section" className="bg-[#FAFAFA] py-10 px-6 border-y border-[#0D1B2A]/05">
+    <section id="credentials" data-testid="accreditations-section" className="bg-white py-14 px-6 border-y border-[#0D1B2A]/[0.06]">
       <div className="max-w-7xl mx-auto">
-        <p className="text-[10px] tracking-[0.25em] uppercase font-semibold text-[#0D1B2A]/20 text-center mb-8">Trusted Supply Partners & Certifications</p>
-        <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+        <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 text-center mb-10">Trusted Supply Partners & Certifications</p>
+        <div className="flex items-center justify-center gap-10 md:gap-16 flex-wrap">
           {logos.map((p) => (
-            <div key={p.name} data-testid={`partner-${p.name.toLowerCase().replace(/\s+/g, "-")}`} className="flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+            <div key={p.name} data-testid={`partner-${p.name.toLowerCase().replace(/\s+/g, "-")}`} className="flex items-center justify-center grayscale opacity-45 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300">
               <img src={p.src} alt={p.name} className="h-9 md:h-11 w-auto object-contain" />
             </div>
           ))}

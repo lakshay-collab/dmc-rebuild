@@ -23,7 +23,7 @@ export default function Hero() {
       {/* Background carousel */}
       {banners.map((b, i) => (
         <div key={i} className={`absolute inset-0 transition-opacity duration-[1200ms] ${i === bIdx ? "opacity-100" : "opacity-0"}`}>
-          <img src={b.image} alt={b.title} className="w-full h-full object-cover" />
+          <img src={b.image} alt={b.title} className={`w-full h-full object-cover transition-transform ease-out duration-[6500ms] ${i === bIdx ? "scale-105" : "scale-100"}`} />
         </div>
       ))}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A]/95 via-[#0D1B2A]/75 to-[#0D1B2A]/25" />

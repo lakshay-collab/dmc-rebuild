@@ -67,7 +67,7 @@ export default function GlobalDestinations() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
-            <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3">Discover</p>
+            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Discover</p>
             <h2 data-testid="global-destinations-heading" className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-3">
               More Destinations. <em className="text-[#174358]">One DMC Relationship.</em>
             </h2>
@@ -80,7 +80,7 @@ export default function GlobalDestinations() {
             <div className="relative">
               <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#0D1B2A]/30" />
               <input data-testid="destination-search" type="text" placeholder="Search destinations..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full md:w-[280px] pl-10 pr-4 py-2.5 rounded-full bg-white border border-[#0D1B2A]/10 text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/30 focus:outline-none focus:border-[#174358]/30 transition-colors" />
+                className="w-full md:w-[280px] pl-10 pr-4 py-2.5 rounded-full bg-[#F8FAFB] border border-[#0D1B2A]/08 text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/30 focus:outline-none focus:border-[#174358]/30 transition-colors" />
             </div>
           )}
         </div>
@@ -89,8 +89,8 @@ export default function GlobalDestinations() {
         <div className="hidden md:flex items-center gap-2 flex-wrap mb-8">
           {availableRegions.map((r) => (
             <button key={r} data-testid={`region-filter-${r.toLowerCase().replace(/ /g, '-')}`} onClick={() => setActiveRegion(r)}
-              className={`px-4 py-2 rounded-full text-xs tracking-wide font-semibold transition-all ${
-                activeRegion === r ? "bg-[#174358] text-white" : "text-[#0D1B2A]/40 hover:bg-[#0D1B2A]/05 hover:text-[#0D1B2A]/60"
+              className={`px-4 py-2 rounded-full text-[13px] tracking-wide font-semibold transition-all ${
+                activeRegion === r ? "bg-[#174358] text-white shadow-sm" : "bg-[#F8FAFB] text-[#0D1B2A]/55 hover:text-[#0D1B2A]/80"
               }`}>{r}</button>
           ))}
         </div>
@@ -124,9 +124,9 @@ export default function GlobalDestinations() {
 function DestCard({ d }) {
   return (
     <Link to={`/destination/${encodeURIComponent(d.name)}`} data-testid={`global-dest-${d.name.toLowerCase().replace(/ /g, '-')}`}
-      className="bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 group cursor-pointer block border border-[#0D1B2A]/04 hover:border-[#174358]/10">
-      <div className="h-48 img-zoom">
-        <img src={d.image_url} alt={d.name} className="w-full h-full object-cover" />
+      className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group cursor-pointer block border border-[#0D1B2A]/05">
+      <div className="h-48 overflow-hidden">
+        <img src={d.image_url} alt={d.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
       </div>
       <div className="p-5">
         <div className="flex items-center justify-between mb-2">

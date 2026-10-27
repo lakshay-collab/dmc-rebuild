@@ -24,18 +24,18 @@ export default function HomeBlogPreview() {
   if (!posts.length) return null;
 
   return (
-    <section data-testid="home-blog-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24">
+    <section data-testid="home-blog-section" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-14">
           <div>
-            <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3 flex items-center gap-2">
+            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4 flex items-center gap-2">
               <BookOpen size={14} /> From Our Travel Journal
             </p>
-            <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A]">
+            <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl lg:text-5xl font-light text-[#0D1B2A] leading-tight">
               Destination <em className="text-[#174358]">Insights</em>
             </h2>
           </div>
-          <Link to="/blog" className="hidden sm:inline-flex items-center gap-2 text-sm font-bold text-[#174358] hover:text-[#0D1B2A] transition-colors group">
+          <Link to="/blog" className="hidden sm:inline-flex items-center gap-2 font-['Manrope'] text-sm font-semibold text-[#174358] hover:text-[#1e5a75] transition-colors group">
             View All <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -43,18 +43,18 @@ export default function HomeBlogPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Link key={post.slug} to={`/blog/${post.slug}`} data-testid={`blog-preview-${post.slug}`}
-              className="group bg-white rounded-2xl overflow-hidden border border-[#0D1B2A]/04 hover:shadow-lg hover:border-[#174358]/10 transition-all duration-300 block">
+              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-[#0D1B2A]/[0.06] hover:border-[#174358]/20 transition-all duration-300 block">
               <div className="h-52 overflow-hidden">
-                <img src={post.image_url} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <img src={post.image_url} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
               </div>
-              <div className="p-5">
+              <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-[#174358] bg-[#174358]/06 px-2.5 py-1 rounded-full">{post.category || post.destination}</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#174358] bg-[#174358]/[0.07] px-3 py-1 rounded-full">{post.category || post.destination}</span>
                 </div>
-                <h3 className="text-[15px] font-bold text-[#0D1B2A] leading-snug mb-2 line-clamp-2 group-hover:text-[#174358] transition-colors">{post.title}</h3>
-                <p className="text-xs text-[#0D1B2A]/45 leading-relaxed line-clamp-2">{post.excerpt}</p>
-                <div className="mt-4 pt-3 border-t border-[#0D1B2A]/06">
-                  <span className="text-xs font-semibold text-[#174358] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                <h3 className="font-['Cormorant_Garamond'] text-2xl font-light text-[#0D1B2A] leading-snug mb-2 line-clamp-2 group-hover:text-[#174358] transition-colors">{post.title}</h3>
+                <p className="font-['Manrope'] text-xs text-[#0D1B2A]/45 leading-relaxed line-clamp-2">{post.excerpt}</p>
+                <div className="mt-5 pt-4 border-t border-[#0D1B2A]/[0.08]">
+                  <span className="font-['Manrope'] text-xs font-semibold text-[#174358] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                     Read More <ArrowRight size={12} />
                   </span>
                 </div>
@@ -64,7 +64,7 @@ export default function HomeBlogPreview() {
         </div>
 
         <div className="sm:hidden text-center mt-8">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-bold text-[#174358] hover:text-[#0D1B2A] transition-colors">
+          <Link to="/blog" className="inline-flex items-center gap-2 font-['Manrope'] text-sm font-semibold text-[#174358] hover:text-[#1e5a75] transition-colors">
             View All Posts <ArrowRight size={14} />
           </Link>
         </div>

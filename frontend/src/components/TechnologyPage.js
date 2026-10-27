@@ -51,7 +51,7 @@ export default function TechnologyPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-xs tracking-[0.25em] uppercase font-semibold text-white/30 mb-5">Our Technology Platform</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-5 font-['Manrope']">Our Technology Platform</p>
               <h1 data-testid="tech-hero-heading" className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl lg:text-6xl font-light text-white leading-[1.1] mb-6">
                 Live Rates. Lowest Prices.<br />
                 <em className="text-white/50">30 Years of Trusted</em> DMC Excellence.
@@ -80,10 +80,10 @@ export default function TechnologyPage() {
       </section>
 
       {/* How It Works — Plan / Book / Expand */}
-      <section id="how-it-works" data-testid="tech-how-it-works" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#FAFAFA]">
+      <section id="how-it-works" data-testid="tech-how-it-works" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/30 mb-3">How It Works</p>
+            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">How It Works</p>
             <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-4">
               Plan. Book. <em className="text-[#174358]/50">Expand.</em>
             </h2>
@@ -93,7 +93,7 @@ export default function TechnologyPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {steps.map((s) => (
-              <div key={s.num} data-testid={`tech-step-${s.num}`} className="relative bg-white rounded-2xl p-8 border border-[#0D1B2A]/06 hover:border-[#174358]/15 hover:shadow-lg transition-all group">
+              <div key={s.num} data-testid={`tech-step-${s.num}`} className="relative bg-white rounded-2xl p-8 border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] hover:border-[#174358]/15 hover:shadow-xl transition-all duration-500 group">
                 <span className="text-6xl font-['Cormorant_Garamond'] font-light text-[#174358]/08 absolute top-4 right-6">{s.num}</span>
                 <h3 className="text-xl font-bold text-[#0D1B2A] mb-2 mt-4">{s.label}</h3>
                 <p className="text-sm text-[#0D1B2A]/45 leading-relaxed">{s.desc}</p>
@@ -108,7 +108,7 @@ export default function TechnologyPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div>
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/30 mb-3">Step 01</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Step 01</p>
               <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-5">
                 Plan <em className="text-[#174358]/50">Dynamic Itineraries</em>
               </h2>
@@ -131,8 +131,8 @@ export default function TechnologyPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-[#0D1B2A]/10 border border-[#0D1B2A]/06">
-                <img src={IMAGES.plan} alt="Plan dynamic travel itineraries with live rates" className="w-full" />
+              <div className="group rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(13,27,42,0.3)] border border-[#0D1B2A]/06">
+                <img src={IMAGES.plan} alt="Plan dynamic travel itineraries with live rates" className="w-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
           </div>
@@ -144,12 +144,12 @@ export default function TechnologyPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div className="order-2 lg:order-1 relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/08">
-                <img src={IMAGES.book} alt="Book with live rates and instant confirmation" className="w-full" />
+              <div className="group rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)] border border-white/08">
+                <img src={IMAGES.book} alt="Book with live rates and instant confirmation" className="w-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-white/30 mb-3">Step 02</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3 font-['Manrope']">Step 02</p>
               <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-white mb-5">
                 Book at <em className="text-white/50">Live Rates</em>
               </h2>
@@ -176,10 +176,10 @@ export default function TechnologyPage() {
       </section>
 
       {/* EXPAND Section */}
-      <section data-testid="tech-expand-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#FAFAFA]">
+      <section data-testid="tech-expand-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/30 mb-3">Step 03</p>
+            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Step 03</p>
             <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-5">
               Expand with <em className="text-[#174358]/50">Modular Packaging</em>
             </h2>
@@ -188,8 +188,8 @@ export default function TechnologyPage() {
             </p>
           </div>
           <div className="max-w-4xl mx-auto mb-14">
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-[#0D1B2A]/10 border border-[#0D1B2A]/06 bg-white p-4 md:p-6">
-              <img src={IMAGES.expand} alt="Expand with modular travel packaging" className="w-full" />
+            <div className="group rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(13,27,42,0.3)] border border-[#0D1B2A]/06 bg-white p-4 md:p-6">
+              <img src={IMAGES.expand} alt="Expand with modular travel packaging" className="w-full rounded-xl object-cover group-hover:scale-[1.03] transition-transform duration-700" />
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -198,7 +198,7 @@ export default function TechnologyPage() {
               { title: "Flexible Modules", desc: "Combine products into shared group tour modules, fixed private packages, or fully flexible custom itineraries." },
               { title: "Complete Itineraries", desc: "Assemble modules into complete multi-destination itineraries. Any combination, any destination, any group size." },
             ].map((item) => (
-              <div key={item.title} className="bg-white rounded-xl p-6 border border-[#0D1B2A]/06 hover:border-[#174358]/15 hover:shadow-md transition-all">
+              <div key={item.title} className="bg-white rounded-2xl p-6 border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] hover:border-[#174358]/15 hover:shadow-xl transition-all duration-500">
                 <h4 className="text-sm font-bold text-[#0D1B2A] mb-2">{item.title}</h4>
                 <p className="text-xs text-[#0D1B2A]/40 leading-relaxed">{item.desc}</p>
               </div>
@@ -212,7 +212,7 @@ export default function TechnologyPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <div>
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/30 mb-3">Platform Benefits</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Platform Benefits</p>
               <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-5">
                 Everything Your <em className="text-[#174358]/50">Agency Needs</em>
               </h2>
@@ -239,8 +239,8 @@ export default function TechnologyPage() {
               </div>
             </div>
             <div className="relative lg:sticky lg:top-32">
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-[#0D1B2A]/10 border border-[#0D1B2A]/06">
-                <img src={IMAGES.info} alt="Platform features — inventory, integrations, scalability, automation" className="w-full" />
+              <div className="group rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(13,27,42,0.3)] border border-[#0D1B2A]/06">
+                <img src={IMAGES.info} alt="Platform features — inventory, integrations, scalability, automation" className="w-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function TechnologyPage() {
       </section>
 
       {/* Final CTA */}
-      <section data-testid="tech-cta" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#FAFAFA]">
+      <section data-testid="tech-cta" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-5">
             Ready for <em className="text-[#174358]/50">Live Rates</em> and the Best Pricing?

@@ -63,7 +63,7 @@ export default function PlanMyTrip() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B2A] via-[#0D1B2A]/95 to-[#174358]/80" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 w-full">
-          <p className="text-xs tracking-[0.2em] uppercase font-semibold text-white/30 mb-4">Plan Your Trip</p>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-4">Plan Your Trip</p>
           <h1 data-testid="plan-trip-heading" className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl md:text-6xl font-light text-white leading-tight mb-4">
             Tell Us What You <em className="text-white/60">Need</em>
           </h1>
@@ -72,23 +72,23 @@ export default function PlanMyTrip() {
       </section>
 
       {/* Form Section */}
-      <section className="py-16 md:py-20 px-6 md:px-12">
+      <section className="py-16 md:py-24 px-6 md:px-12 bg-[#F4F1E8]">
         <div className="max-w-3xl mx-auto">
           {result?.ok ? (
-            <div data-testid="plan-trip-success" className="text-center py-16">
+            <div data-testid="plan-trip-success" className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] text-center py-16 px-6">
               <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={32} className="text-emerald-500" />
               </div>
               <h2 className="font-['Cormorant_Garamond'] text-3xl font-light text-[#0D1B2A] mb-3">Request Submitted</h2>
               <p className="text-sm text-[#0D1B2A]/50 max-w-md mx-auto mb-6">Thank you! Our team will review your requirements and get back to you with a custom itinerary within 48 hours.</p>
-              <Button onClick={() => { setResult(null); window.history.pushState({}, "", "/plan-my-trip"); }} className="bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full px-8 py-3 text-sm font-bold">
+              <Button onClick={() => { setResult(null); window.history.pushState({}, "", "/plan-my-trip"); }} className="bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full px-8 py-3 text-sm font-semibold shadow-sm transition-colors">
                 Plan Another Trip
               </Button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] p-7 md:p-10 space-y-6">
               {result?.ok === false && (
-                <div data-testid="plan-trip-error" className="flex items-center gap-3 p-4 rounded-xl bg-red-50 border border-red-100">
+                <div data-testid="plan-trip-error" className="flex items-center gap-3 p-4 rounded-2xl bg-red-50 border border-red-100">
                   <AlertCircle size={18} className="text-red-500 flex-shrink-0" />
                   <p className="text-sm text-red-600">{result.msg}</p>
                 </div>
@@ -97,24 +97,24 @@ export default function PlanMyTrip() {
               {/* Name & Phone (required) */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">
+                  <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">
                     Full Name <span className="text-red-400">*</span>
                   </label>
                   <div className="relative">
-                    <User size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0D1B2A]/25" />
+                    <User size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#0D1B2A]/30" />
                     <Input data-testid="trip-name" value={form.name} onChange={(e) => update("name", e.target.value)}
-                      placeholder="Your full name" className={`pl-10 h-11 border-[#0D1B2A]/10 text-sm ${errors.name ? "border-red-400" : ""}`} />
+                      placeholder="Your full name" className={`pl-11 pr-5 h-12 bg-[#F8FAFB] border-[#0D1B2A]/08 rounded-full text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/40 focus:border-[#174358]/30 focus:bg-white transition-colors ${errors.name ? "border-red-400" : ""}`} />
                   </div>
                   {errors.name && <p className="text-[11px] text-red-500 mt-1">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">
+                  <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">
                     Phone Number <span className="text-red-400">*</span>
                   </label>
                   <div className="relative">
-                    <Phone size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0D1B2A]/25" />
+                    <Phone size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#0D1B2A]/30" />
                     <Input data-testid="trip-phone" type="tel" value={form.phone_number} onChange={(e) => update("phone_number", e.target.value)}
-                      placeholder="+91 98765 43210" className={`pl-10 h-11 border-[#0D1B2A]/10 text-sm ${errors.phone_number ? "border-red-400" : ""}`} />
+                      placeholder="+91 98765 43210" className={`pl-11 pr-5 h-12 bg-[#F8FAFB] border-[#0D1B2A]/08 rounded-full text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/40 focus:border-[#174358]/30 focus:bg-white transition-colors ${errors.phone_number ? "border-red-400" : ""}`} />
                   </div>
                   {errors.phone_number && <p className="text-[11px] text-red-500 mt-1">{errors.phone_number}</p>}
                 </div>
@@ -123,19 +123,19 @@ export default function PlanMyTrip() {
               {/* Email & Destination */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Email</label>
+                  <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Email</label>
                   <div className="relative">
-                    <Mail size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0D1B2A]/25" />
+                    <Mail size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#0D1B2A]/30" />
                     <Input data-testid="trip-email" type="email" value={form.email} onChange={(e) => update("email", e.target.value)}
-                      placeholder="you@agency.com" className="pl-10 h-11 border-[#0D1B2A]/10 text-sm" />
+                      placeholder="you@agency.com" className="pl-11 pr-5 h-12 bg-[#F8FAFB] border-[#0D1B2A]/08 rounded-full text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/40 focus:border-[#174358]/30 focus:bg-white transition-colors" />
                   </div>
                 </div>
                 <div>
-                  <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Destination</label>
+                  <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Destination</label>
                   <div className="relative">
-                    <MapPin size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0D1B2A]/25" />
+                    <MapPin size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#0D1B2A]/30" />
                     <select data-testid="trip-destination" value={form.destination} onChange={(e) => update("destination", e.target.value)}
-                      className="w-full pl-10 pr-4 h-11 rounded-md border border-[#0D1B2A]/10 text-sm text-[#0D1B2A] bg-white appearance-none focus:outline-none focus:border-[#174358]/40">
+                      className="w-full pl-11 pr-5 h-12 rounded-full border border-[#0D1B2A]/08 text-sm text-[#0D1B2A] bg-[#F8FAFB] appearance-none focus:outline-none focus:border-[#174358]/30 focus:bg-white transition-colors">
                       <option value="">Select destination</option>
                       {DESTINATIONS.map((d) => <option key={d} value={d}>{d}</option>)}
                     </select>
@@ -146,46 +146,46 @@ export default function PlanMyTrip() {
               {/* Date & Duration */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Start Date</label>
+                  <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Start Date</label>
                   <div className="relative">
-                    <Calendar size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0D1B2A]/25" />
+                    <Calendar size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#0D1B2A]/30" />
                     <Input data-testid="trip-date" type="date" value={form.start_date} onChange={(e) => update("start_date", e.target.value)}
-                      className="pl-10 h-11 border-[#0D1B2A]/10 text-sm" />
+                      className="pl-11 pr-5 h-12 bg-[#F8FAFB] border-[#0D1B2A]/08 rounded-full text-sm text-[#0D1B2A] focus:border-[#174358]/30 focus:bg-white transition-colors" />
                   </div>
                 </div>
                 <div>
-                  <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">No. of Days</label>
+                  <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">No. of Days</label>
                   <Input data-testid="trip-days" type="number" min="1" value={form.no_of_days} onChange={(e) => update("no_of_days", e.target.value)}
-                    placeholder="7" className="h-11 border-[#0D1B2A]/10 text-sm" />
+                    placeholder="7" className="h-12 px-5 bg-[#F8FAFB] border-[#0D1B2A]/08 rounded-full text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/40 focus:border-[#174358]/30 focus:bg-white transition-colors" />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Adults</label>
+                    <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Adults</label>
                     <Input data-testid="trip-adults" type="number" min="1" value={form.no_of_adults} onChange={(e) => update("no_of_adults", e.target.value)}
-                      placeholder="2" className="h-11 border-[#0D1B2A]/10 text-sm" />
+                      placeholder="2" className="h-12 px-5 bg-[#F8FAFB] border-[#0D1B2A]/08 rounded-full text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/40 focus:border-[#174358]/30 focus:bg-white transition-colors" />
                   </div>
                   <div>
-                    <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Children</label>
+                    <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Children</label>
                     <Input data-testid="trip-children" type="number" min="0" value={form.no_of_children} onChange={(e) => update("no_of_children", e.target.value)}
-                      placeholder="0" className="h-11 border-[#0D1B2A]/10 text-sm" />
+                      placeholder="0" className="h-12 px-5 bg-[#F8FAFB] border-[#0D1B2A]/08 rounded-full text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/40 focus:border-[#174358]/30 focus:bg-white transition-colors" />
                   </div>
                 </div>
               </div>
 
               {/* Comments */}
               <div>
-                <label className="text-[11px] text-[#0D1B2A]/50 font-semibold uppercase tracking-wider mb-1.5 block">Additional Requirements</label>
+                <label className="text-[11px] text-[#174358]/60 font-semibold uppercase tracking-[0.2em] mb-1.5 block">Additional Requirements</label>
                 <div className="relative">
-                  <MessageSquare size={15} className="absolute left-3 top-3 text-[#0D1B2A]/25" />
+                  <MessageSquare size={15} className="absolute left-4 top-4 text-[#0D1B2A]/30" />
                   <textarea data-testid="trip-comments" value={form.comments} onChange={(e) => update("comments", e.target.value)}
                     placeholder="Tell us about special requests, hotel preferences, activities..."
-                    rows={3} className="w-full pl-10 pr-4 py-2.5 rounded-md border border-[#0D1B2A]/10 text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/30 focus:outline-none focus:border-[#174358]/40 resize-none" />
+                    rows={3} className="w-full pl-11 pr-5 py-3.5 rounded-2xl border border-[#0D1B2A]/08 text-sm text-[#0D1B2A] bg-[#F8FAFB] placeholder:text-[#0D1B2A]/40 focus:outline-none focus:border-[#174358]/30 focus:bg-white transition-colors resize-none" />
                 </div>
               </div>
 
               {/* Submit */}
               <Button data-testid="trip-submit" type="submit" disabled={loading}
-                className="w-full bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full py-6 text-sm font-bold shadow-lg shadow-[#174358]/15 disabled:opacity-60">
+                className="w-full bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full py-5 text-sm font-semibold shadow-sm transition-colors disabled:opacity-60">
                 {loading ? <><Loader2 size={16} className="mr-2 animate-spin" /> Submitting...</> : <><Send size={14} className="mr-2" /> Submit Trip Request</>}
               </Button>
 

@@ -62,30 +62,30 @@ function CallbackForm({ packageTitle, inline, onDone }) {
     <div className={`text-center ${inline ? "py-5" : "p-8"}`}>
       <div className="w-12 h-12 bg-[#174358]/10 rounded-full flex items-center justify-center mx-auto mb-3"><Phone size={20} className="text-[#174358]" /></div>
       <p className="font-bold text-[15px] text-[#0D1B2A] mb-1">We'll Call You Shortly!</p>
-      <p className="text-[13px] text-gray-500">Our Egypt specialist will reach out within 30 minutes.</p>
+      <p className="text-[13px] text-[#0D1B2A]/55">Our Egypt specialist will reach out within 30 minutes.</p>
     </div>
   );
   return (
     <form onSubmit={submit} className={inline ? "space-y-3" : "p-5 space-y-4"}>
       <div>
-        <label className="text-[11px] font-semibold text-gray-500 mb-1 block">Full Name *</label>
-        <Input value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} placeholder="Enter your name" className="h-11 rounded-lg text-[13px] border-gray-200 focus:border-[#174358]" required />
+        <label className="text-[11px] font-semibold text-[#174358]/60 uppercase tracking-[0.2em] mb-1.5 block">Full Name *</label>
+        <Input value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} placeholder="Enter your name" className="h-12 rounded-full px-5 text-[13px] bg-[#F8FAFB] border-[#0D1B2A]/08 focus:border-[#174358]/30 focus:bg-white transition-colors" required />
       </div>
       <div>
-        <label className="text-[11px] font-semibold text-gray-500 mb-1 block">Phone Number *</label>
+        <label className="text-[11px] font-semibold text-[#174358]/60 uppercase tracking-[0.2em] mb-1.5 block">Phone Number *</label>
         <div className="flex gap-2">
-          <div className="flex items-center gap-1.5 px-3 h-11 rounded-lg border border-gray-200 bg-gray-50 text-[13px] text-gray-600 shrink-0">&#127470;&#127475; +91</div>
-          <Input type="tel" value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} placeholder="98765 43210" className="h-11 rounded-lg text-[13px] border-gray-200 focus:border-[#174358] flex-1" required />
+          <div className="flex items-center gap-1.5 px-4 h-12 rounded-full border border-[#0D1B2A]/08 bg-[#F8FAFB] text-[13px] text-[#0D1B2A]/60 shrink-0">&#127470;&#127475; +91</div>
+          <Input type="tel" value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} placeholder="98765 43210" className="h-12 rounded-full px-5 text-[13px] bg-[#F8FAFB] border-[#0D1B2A]/08 focus:border-[#174358]/30 focus:bg-white transition-colors flex-1" required />
         </div>
       </div>
       <div>
-        <label className="text-[11px] font-semibold text-gray-500 mb-1 block">Email</label>
-        <Input type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} placeholder="you@email.com" className="h-11 rounded-lg text-[13px] border-gray-200 focus:border-[#174358]" />
+        <label className="text-[11px] font-semibold text-[#174358]/60 uppercase tracking-[0.2em] mb-1.5 block">Email</label>
+        <Input type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} placeholder="you@email.com" className="h-12 rounded-full px-5 text-[13px] bg-[#F8FAFB] border-[#0D1B2A]/08 focus:border-[#174358]/30 focus:bg-white transition-colors" />
       </div>
-      <Button type="submit" disabled={loading} className="w-full bg-[#174358] hover:bg-[#1e5a75] text-white rounded-lg h-11 font-bold text-[13px] shadow-md shadow-[#174358]/15">
+      <Button type="submit" disabled={loading} className="w-full bg-[#174358] hover:bg-[#1e5a75] text-white rounded-full h-11 font-bold text-[13px] shadow-md shadow-[#174358]/15">
         {loading ? <Loader2 size={15} className="animate-spin mr-2" /> : null}{loading ? "Submitting..." : "Request Callback"}
       </Button>
-      <p className="text-[10px] text-gray-400 text-center leading-snug">We'll call you within 30 min during 10AM-7PM IST</p>
+      <p className="text-[10px] text-[#0D1B2A]/40 text-center leading-snug">We'll call you within 30 min during 10AM-7PM IST</p>
     </form>
   );
 }
@@ -98,9 +98,9 @@ function CallbackModal({ open, onClose, packageTitle }) {
         <div className="flex items-center justify-between px-5 pt-5 pb-3">
           <div>
             <h3 className="text-[16px] font-bold text-[#0D1B2A]">Request Callback</h3>
-            {packageTitle && <p className="text-[12px] text-gray-400 mt-0.5 line-clamp-1">{packageTitle}</p>}
+            {packageTitle && <p className="text-[12px] text-[#0D1B2A]/40 mt-0.5 line-clamp-1">{packageTitle}</p>}
           </div>
-          <button onClick={onClose} className="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center"><X size={18} className="text-gray-400" /></button>
+          <button onClick={onClose} className="w-8 h-8 rounded-full hover:bg-[#0D1B2A]/05 flex items-center justify-center"><X size={18} className="text-[#0D1B2A]/40" /></button>
         </div>
         <CallbackForm packageTitle={packageTitle} />
       </div>
@@ -112,7 +112,7 @@ function CallbackModal({ open, onClose, packageTitle }) {
 function PackageCard({ pkg, onCallback }) {
   const savings = pkg.originalPrice - pkg.price;
   const content = (
-    <div data-testid={`pkg-card-${pkg.id}`} className="bg-white rounded-xl border border-gray-200/80 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row">
+    <div data-testid={`pkg-card-${pkg.id}`} className="bg-white rounded-2xl border border-[#0D1B2A]/06 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row">
       <div className="relative sm:w-[280px] w-full shrink-0">
         <img src={pkg.image} alt={pkg.title} className="w-full h-[200px] sm:h-full object-cover" loading="lazy" />
         <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-md flex items-center gap-1"><Clock size={11} /> {pkg.duration}</div>
@@ -126,17 +126,17 @@ function PackageCard({ pkg, onCallback }) {
           </div>
           <div className="flex items-center gap-1.5 mb-3">
             <div className="flex">{[1,2,3,4,5].map(i => <Star key={i} size={13} fill={i <= Math.floor(pkg.rating) ? "#f59e0b" : "#e5e7eb"} stroke="none" />)}</div>
-            <span className="text-[12px] text-gray-400">({pkg.reviews})</span>
+            <span className="text-[12px] text-[#0D1B2A]/40">({pkg.reviews})</span>
           </div>
         </div>
-        <div className="flex items-end justify-between gap-3 pt-3 border-t border-gray-100">
+        <div className="flex items-end justify-between gap-3 pt-3 border-t border-[#0D1B2A]/06">
           <div>
-            <div className="text-[11px] text-gray-400 line-through">INR {pkg.originalPrice.toLocaleString("en-IN")}</div>
-            <div className="flex items-baseline gap-1"><span className="text-[20px] sm:text-[22px] font-bold text-[#0D1B2A]">INR {pkg.price.toLocaleString("en-IN")}</span><span className="text-[11px] text-gray-400">/person</span></div>
+            <div className="text-[11px] text-[#0D1B2A]/40 line-through">INR {pkg.originalPrice.toLocaleString("en-IN")}</div>
+            <div className="flex items-baseline gap-1"><span className="text-[20px] sm:text-[22px] font-bold text-[#0D1B2A]">INR {pkg.price.toLocaleString("en-IN")}</span><span className="text-[11px] text-[#0D1B2A]/40">/person</span></div>
             <div className="text-[11px] font-semibold text-emerald-600 mt-0.5">SAVE INR {savings.toLocaleString("en-IN")}</div>
           </div>
           <Button data-testid={`pkg-cb-${pkg.id}`} onClick={(e) => { e.preventDefault(); e.stopPropagation(); onCallback(pkg.title); }}
-            className="bg-[#174358] hover:bg-[#1e5a75] text-white rounded-lg h-10 px-5 text-[12px] font-bold shrink-0 shadow-md shadow-[#174358]/10">Request Callback</Button>
+            className="bg-[#174358] hover:bg-[#1e5a75] text-white rounded-full h-10 px-5 text-[12px] font-bold shrink-0 shadow-md shadow-[#174358]/10">Request Callback</Button>
         </div>
       </div>
     </div>
@@ -148,7 +148,7 @@ function PackageCard({ pkg, onCallback }) {
 /* ── Mini Card ── */
 function MiniCard({ pkg, onCallback }) {
   return (
-    <div className="min-w-[260px] sm:min-w-[280px] bg-white rounded-xl border border-gray-200/80 overflow-hidden shrink-0 hover:shadow-md transition-shadow">
+    <div className="min-w-[260px] sm:min-w-[280px] bg-white rounded-2xl border border-[#0D1B2A]/06 overflow-hidden shrink-0 hover:shadow-md transition-shadow">
       <img src={pkg.image} alt={pkg.title} className="w-full h-[140px] object-cover" loading="lazy" />
       <div className="p-3.5">
         <div className="flex flex-wrap gap-1 mb-2">
@@ -157,12 +157,12 @@ function MiniCard({ pkg, onCallback }) {
         <h4 className="text-[13px] font-bold text-[#0D1B2A] leading-snug mb-2 line-clamp-2">{pkg.title}</h4>
         <div className="flex items-center gap-1 mb-2">
           <div className="flex">{[1,2,3,4,5].map(i => <Star key={i} size={10} fill={i <= Math.floor(pkg.rating) ? "#f59e0b" : "#e5e7eb"} stroke="none" />)}</div>
-          <span className="text-[10px] text-gray-400">({pkg.reviews})</span>
+          <span className="text-[10px] text-[#0D1B2A]/40">({pkg.reviews})</span>
         </div>
         <div className="flex items-end justify-between">
-          <div><span className="text-[10px] text-gray-400 line-through block">INR {pkg.originalPrice.toLocaleString("en-IN")}</span><span className="text-[15px] font-bold text-[#0D1B2A]">INR {pkg.price.toLocaleString("en-IN")}</span><span className="text-[10px] text-gray-400 ml-1">/person</span></div>
+          <div><span className="text-[10px] text-[#0D1B2A]/40 line-through block">INR {pkg.originalPrice.toLocaleString("en-IN")}</span><span className="text-[15px] font-bold text-[#0D1B2A]">INR {pkg.price.toLocaleString("en-IN")}</span><span className="text-[10px] text-[#0D1B2A]/40 ml-1">/person</span></div>
         </div>
-        <button onClick={() => onCallback(pkg.title)} className="w-full mt-3 bg-[#174358] hover:bg-[#1e5a75] text-white rounded-lg h-9 text-[11px] font-bold transition-colors shadow-sm">Request Callback</button>
+        <button onClick={() => onCallback(pkg.title)} className="w-full mt-3 bg-[#174358] hover:bg-[#1e5a75] text-white rounded-full h-9 text-[11px] font-bold transition-colors shadow-sm">Request Callback</button>
       </div>
     </div>
   );
@@ -189,17 +189,17 @@ export default function EgyptLandingPage() {
   const shown = filtered.slice(0, visible);
 
   return (
-    <div data-testid="egypt-lp" className="min-h-screen bg-[#f7f8fa]">
+    <div data-testid="egypt-lp" className="min-h-screen bg-[#F8FAFB]">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 px-4 py-3.5 sticky top-0 z-50">
+      <header className="bg-white border-b border-[#0D1B2A]/08 px-4 py-3.5 sticky top-0 z-50">
         <div className="max-w-[1200px] mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link to="/ads" className="text-[18px] font-bold text-[#0D1B2A] tracking-tight hover:opacity-80 transition-opacity font-['Cormorant_Garamond']">HI DMC</Link>
-            <div className="w-px h-5 bg-gray-200" />
-            <span className="text-[12px] text-gray-500 hidden sm:inline">Destination Specialists to Egypt</span>
-            <span className="text-[10px] text-gray-400 sm:hidden">Egypt Specialists</span>
+            <div className="w-px h-5 bg-[#0D1B2A]/10" />
+            <span className="text-[12px] text-[#0D1B2A]/55 hidden sm:inline">Destination Specialists to Egypt</span>
+            <span className="text-[10px] text-[#0D1B2A]/40 sm:hidden">Egypt Specialists</span>
           </div>
-          <Button data-testid="header-cb" onClick={() => openCb()} className="bg-[#174358] hover:bg-[#1e5a75] text-white rounded-lg h-9 px-4 text-[12px] font-bold shadow-sm sm:hidden">
+          <Button data-testid="header-cb" onClick={() => openCb()} className="bg-[#174358] hover:bg-[#1e5a75] text-white rounded-full h-9 px-4 text-[12px] font-bold shadow-sm sm:hidden">
             <Phone size={13} className="mr-1.5" /> Get a Call
           </Button>
         </div>
@@ -208,28 +208,28 @@ export default function EgyptLandingPage() {
       <div className="max-w-[1200px] mx-auto px-4 py-6 sm:py-8">
         <div className="mb-6">
           <h1 data-testid="lp-heading" className="text-[24px] sm:text-[30px] font-bold text-[#0D1B2A] leading-tight">Egypt Tour Packages</h1>
-          <p className="text-[13px] sm:text-[14px] text-gray-500 mt-1.5">Customise or choose from 44+ Egypt packages with best pricing, Nile cruises, and expert local support.</p>
+          <p className="text-[13px] sm:text-[14px] text-[#0D1B2A]/55 mt-1.5">Customise or choose from 44+ Egypt packages with best pricing, Nile cruises, and expert local support.</p>
         </div>
 
         <div className="flex gap-6">
           {/* Main */}
           <div className="flex-1 min-w-0">
             {/* Filters */}
-            <div className="bg-white rounded-xl border border-gray-200/80 p-4 mb-5">
+            <div className="bg-white rounded-2xl border border-[#0D1B2A]/06 p-4 mb-5">
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Duration</span>
+                  <span className="text-[11px] font-bold text-[#0D1B2A]/40 uppercase tracking-wider">Duration</span>
                   {DURATIONS.map(d => (
                     <button key={d.key} data-testid={`dur-${d.key}`} onClick={() => { setDur(d.key); setVisible(6); }}
-                      className={`px-3 py-1.5 text-[11px] font-semibold rounded-full border transition-all ${dur === d.key ? "bg-[#0D1B2A] text-white border-[#0D1B2A]" : "bg-white text-gray-500 border-gray-200 hover:border-gray-400"}`}>{d.label}</button>
+                      className={`px-3 py-1.5 text-[11px] font-semibold rounded-full border transition-all ${dur === d.key ? "bg-[#0D1B2A] text-white border-[#0D1B2A]" : "bg-white text-[#0D1B2A]/55 border-[#0D1B2A]/08 hover:border-[#0D1B2A]/25"}`}>{d.label}</button>
                   ))}
                 </div>
-                <div className="w-px bg-gray-200 hidden sm:block" />
+                <div className="w-px bg-[#0D1B2A]/10 hidden sm:block" />
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Travel Style</span>
+                  <span className="text-[11px] font-bold text-[#0D1B2A]/40 uppercase tracking-wider">Travel Style</span>
                   {STYLES.map(s => (
                     <button key={s.key} data-testid={`style-${s.key}`} onClick={() => { setStyle(s.key); setVisible(6); }}
-                      className={`px-3 py-1.5 text-[11px] font-semibold rounded-full border transition-all ${style === s.key ? "bg-[#174358] text-white border-[#174358]" : "bg-white text-gray-500 border-gray-200 hover:border-gray-400"}`}>{s.label}</button>
+                      className={`px-3 py-1.5 text-[11px] font-semibold rounded-full border transition-all ${style === s.key ? "bg-[#174358] text-white border-[#174358]" : "bg-white text-[#0D1B2A]/55 border-[#0D1B2A]/08 hover:border-[#0D1B2A]/25"}`}>{s.label}</button>
                   ))}
                 </div>
               </div>
@@ -267,7 +267,7 @@ export default function EgyptLandingPage() {
 
             {/* Load More */}
             <div className="text-center py-8">
-              <p className="text-[13px] text-gray-400 mb-3">You've viewed {Math.min(visible, filtered.length)} of 44 packages for Egypt</p>
+              <p className="text-[13px] text-[#0D1B2A]/40 mb-3">You've viewed {Math.min(visible, filtered.length)} of 44 packages for Egypt</p>
               {visible < filtered.length && (
                 <button data-testid="load-more" onClick={() => setVisible(v => v + 6)}
                   className="border-2 border-[#174358]/30 text-[#174358] font-bold text-[13px] rounded-full px-8 py-3 hover:border-[#174358] hover:bg-[#174358]/04 transition-colors">Load More Egypt Packages</button>
@@ -275,10 +275,10 @@ export default function EgyptLandingPage() {
             </div>
 
             {/* ── What Makes Us Different ── */}
-            <section className="mb-10 bg-white rounded-2xl border border-gray-200/80 overflow-hidden">
+            <section className="mb-10 bg-white rounded-2xl border border-[#0D1B2A]/06 overflow-hidden">
               <div className="p-6 sm:p-8">
                 <h2 className="text-[20px] sm:text-[22px] font-bold text-[#0D1B2A] mb-2">What Makes Us Different</h2>
-                <p className="text-[13px] text-gray-500 mb-6">We're not an aggregator. We're the destination management company. Here's what that means for you.</p>
+                <p className="text-[13px] text-[#0D1B2A]/55 mb-6">We're not an aggregator. We're the destination management company. Here's what that means for you.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {[
                     { icon: Building2, title: "Local Office in Egypt", desc: "Our own office in Cairo with full-time operations staff. Not outsourced, not remote. We're physically there." },
@@ -287,9 +287,9 @@ export default function EgyptLandingPage() {
                     { icon: Headphones, title: "24/7 Customer Support", desc: "On-ground assistance available round the clock. If something goes wrong at 2AM, someone picks up." },
                     { icon: Shield, title: "30-Year Trust", desc: "A division of Hi Tours Group, operational since 1993. 850+ travel partners across 45+ destinations trust us daily." },
                   ].map(r => (
-                    <div key={r.title} className="flex gap-3.5 p-4 rounded-xl bg-[#f7f8fa] border border-gray-100">
+                    <div key={r.title} className="flex gap-3.5 p-4 rounded-2xl bg-[#F8FAFB] border border-[#0D1B2A]/06">
                       <div className="w-10 h-10 rounded-lg bg-[#174358]/08 flex items-center justify-center shrink-0"><r.icon size={18} className="text-[#174358]" /></div>
-                      <div><h3 className="text-[13px] font-bold text-[#0D1B2A] mb-1">{r.title}</h3><p className="text-[11px] text-gray-500 leading-relaxed">{r.desc}</p></div>
+                      <div><h3 className="text-[13px] font-bold text-[#0D1B2A] mb-1">{r.title}</h3><p className="text-[11px] text-[#0D1B2A]/55 leading-relaxed">{r.desc}</p></div>
                     </div>
                   ))}
                 </div>
@@ -324,8 +324,8 @@ export default function EgyptLandingPage() {
                   { title: "10 Things First-Timers Should Know Before Visiting Egypt", img: "https://images.unsplash.com/photo-1629468855534-450d7c4c5f72?w=400&q=80" },
                   { title: "Complete Nile Cruise Guide: Luxor to Aswan & Back", img: "https://images.unsplash.com/photo-1716639154156-db53b75a22ad?w=400&q=80" },
                 ].map(b => (
-                  <div key={b.title} className="bg-white rounded-xl border border-gray-200/80 overflow-hidden">
-                    <img src={b.img} alt={b.title} className="w-full h-[140px] object-cover" /><div className="p-4"><span className="text-[10px] font-bold text-[#174358] uppercase tracking-wider">Travel Guide</span><h4 className="text-[13px] font-bold text-[#0D1B2A] mt-1 leading-snug line-clamp-2">{b.title}</h4><p className="text-[11px] text-gray-400 mt-2">5 min read</p></div>
+                  <div key={b.title} className="bg-white rounded-2xl border border-[#0D1B2A]/06 overflow-hidden">
+                    <img src={b.img} alt={b.title} className="w-full h-[140px] object-cover" /><div className="p-4"><span className="text-[10px] font-bold text-[#174358] uppercase tracking-wider">Travel Guide</span><h4 className="text-[13px] font-bold text-[#0D1B2A] mt-1 leading-snug line-clamp-2">{b.title}</h4><p className="text-[11px] text-[#0D1B2A]/40 mt-2">5 min read</p></div>
                   </div>
                 ))}
               </div>
@@ -335,7 +335,7 @@ export default function EgyptLandingPage() {
           {/* ── Sticky Sidebar ── */}
           <div className="hidden lg:block w-[320px] shrink-0">
             <div className="sticky top-[72px]">
-              <div className="bg-white rounded-xl border border-gray-200/80 shadow-sm overflow-hidden">
+              <div className="bg-white rounded-2xl border border-[#0D1B2A]/06 shadow-sm overflow-hidden">
                 <div className="bg-[#0D1B2A] px-5 py-5">
                   <h3 className="text-[15px] font-bold text-white mb-3">Speak to an Egypt Specialist</h3>
                   <div className="flex items-center gap-1">
@@ -366,7 +366,7 @@ export default function EgyptLandingPage() {
       {/* Sticky Mobile CTA */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-[calc(12px+env(safe-area-inset-bottom))] pt-3" style={{ background: "linear-gradient(transparent, white 40%)" }}>
         <Button data-testid="sticky-cta" onClick={() => openCb()}
-          className="w-full bg-[#174358] hover:bg-[#1e5a75] text-white rounded-xl h-[52px] font-bold text-[14px] shadow-xl shadow-[#174358]/20">
+          className="w-full bg-[#174358] hover:bg-[#1e5a75] text-white rounded-full h-[52px] font-bold text-[14px] shadow-xl shadow-[#174358]/20">
           <Phone size={16} className="mr-2" /> Request Callback
         </Button>
       </div>

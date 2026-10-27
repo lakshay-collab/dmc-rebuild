@@ -182,7 +182,7 @@ export default function DestinationDetail() {
         <section data-testid="dest-team" className="py-16 md:py-20 px-6 md:px-12 bg-[#0D1B2A]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10">
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-white/30 mb-3">Your {data.name} Team</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3">Your {data.name} Team</p>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-white mb-3">On-the-Ground Expertise</h2>
               <p className="text-sm text-white/40 max-w-2xl mx-auto">{detail.team_info.description}</p>
             </div>
@@ -212,12 +212,12 @@ export default function DestinationDetail() {
         <section data-testid="dest-case-studies" className="py-20 md:py-24 px-6 md:px-12 bg-[#F8FAFB]">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3">Destination Metrics</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Destination Metrics</p>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">How Travel Agents Rate<br /><em className="text-[#174358]">{data.name}</em></h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {detail.case_studies.map((cs) => (
-                <div key={cs.headline} data-testid={`case-study-${cs.category.toLowerCase().replace(/\s+/g, '-')}`} className="bg-white rounded-2xl p-7 border border-[#0D1B2A]/06 hover:border-[#174358]/15 hover:shadow-lg transition-all">
+                <div key={cs.headline} data-testid={`case-study-${cs.category.toLowerCase().replace(/\s+/g, '-')}`} className="bg-white rounded-2xl p-7 border border-[#0D1B2A]/06 hover:border-[#174358]/15 hover:shadow-xl transition-all">
                   <div className="flex items-start justify-between mb-5">
                     <span className="text-[10px] bg-[#174358]/08 text-[#174358]/60 px-3 py-1 rounded-full font-semibold uppercase tracking-wider">{cs.category}</span>
                     <div className="text-right">
@@ -239,7 +239,7 @@ export default function DestinationDetail() {
         <section data-testid="dest-services" className="py-20 md:py-24 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-16">
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3">What We Offer</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">What We Offer</p>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl lg:text-5xl font-light text-[#0D1B2A] mb-4">Our Services for <em className="text-[#174358]">{data.name}</em></h2>
               <p className="text-sm text-[#0D1B2A]/55 leading-relaxed">End-to-end travel services — from FIT packages and group tours to MICE events. All with live rates.</p>
             </div>
@@ -266,7 +266,7 @@ export default function DestinationDetail() {
               {detail.services_in_country.slice(4).map((svc) => {
                 const Icon = serviceIcons[svc.title] || Package;
                 return (
-                  <div key={svc.title} data-testid={`dest-service-${svc.title.toLowerCase().replace(/\s+/g, '-')}`} className="group rounded-2xl overflow-hidden bg-[#F8FAFB] hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#174358]/08">
+                  <div key={svc.title} data-testid={`dest-service-${svc.title.toLowerCase().replace(/\s+/g, '-')}`} className="group rounded-2xl overflow-hidden bg-[#F8FAFB] hover:shadow-xl transition-all duration-300 border border-transparent hover:border-[#174358]/08">
                     <div className="h-40 img-zoom overflow-hidden"><img src={svc.image} alt={svc.title} className="w-full h-full object-cover" /></div>
                     <div className="p-5">
                       <div className="flex items-center justify-between mb-3">
@@ -289,7 +289,7 @@ export default function DestinationDetail() {
         <section data-testid="dest-packages" className="py-20 md:py-24 px-6 md:px-12 bg-[#0D1B2A]">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-white/30 mb-3">Travel Itineraries</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3">Travel Itineraries</p>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-white mb-3">Suggested travel itineraries <em className="text-white/50">for your clients</em></h2>
               <p className="text-sm text-white/40">Ready-to-sell package ideas. Customise dates, hotels, and experiences with live rates on the platform.</p>
             </div>
@@ -351,7 +351,7 @@ export default function DestinationDetail() {
         <section data-testid="dest-regions" className="py-20 md:py-24 px-6 md:px-12 bg-[#F8FAFB]">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3">Explore by Region</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Explore by Region</p>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">Regions of <em className="text-[#174358]">{data.name}</em></h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -378,7 +378,7 @@ export default function DestinationDetail() {
         <section data-testid="dest-cities" className="py-20 md:py-24 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3">Where We Operate</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Where We Operate</p>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">Key Cities in <em className="text-[#174358]">{data.name}</em></h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -402,13 +402,13 @@ export default function DestinationDetail() {
         <section data-testid="dest-experiences" className="py-20 md:py-24 px-6 md:px-12 bg-[#F8FAFB]">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3">Signature Experiences</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Signature Experiences</p>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">Key Experiences in <em className="text-[#174358]">{data.name}</em></h2>
               <p className="text-sm text-[#0D1B2A]/50 mt-3">Curated experiences your clients will love. Book through your agent portal.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {detail.key_experiences.map((exp) => (
-                <div key={exp.title} data-testid={`experience-${exp.title.toLowerCase().replace(/\s+/g, '-').slice(0, 25)}`} className="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group border border-[#0D1B2A]/04">
+                <div key={exp.title} data-testid={`experience-${exp.title.toLowerCase().replace(/\s+/g, '-').slice(0, 25)}`} className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#0D1B2A]/04">
                   <div className="h-52 img-zoom overflow-hidden"><img src={exp.image} alt={exp.title} className="w-full h-full object-cover" /></div>
                   <div className="p-5">
                     <div className="flex items-center gap-2 mb-2"><MapPin size={12} className="text-[#174358]/50" /><span className="text-[10px] text-[#174358]/60 uppercase tracking-wider font-semibold">{exp.location}</span></div>
@@ -429,7 +429,7 @@ export default function DestinationDetail() {
             <div className="max-w-2xl mb-14">
               <div className="flex items-center gap-3 mb-3">
                 <Utensils size={18} className="text-[#174358]/40" />
-                <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50">Food & Cuisine</p>
+                <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60">Food & Cuisine</p>
               </div>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-4">The Flavours of <em className="text-[#174358]">{data.name}</em></h2>
               <p className="text-sm text-[#0D1B2A]/55 leading-relaxed">{detail.food.intro}</p>
@@ -454,7 +454,7 @@ export default function DestinationDetail() {
         <section data-testid="dest-paired" className="py-16 md:py-20 px-6 md:px-12 bg-[#F8FAFB] border-t border-[#0D1B2A]/05">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-10">
-              <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/50 mb-3">Pairs Well With</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Pairs Well With</p>
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">Destinations That Complement <em className="text-[#174358]">{data.name}</em></h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

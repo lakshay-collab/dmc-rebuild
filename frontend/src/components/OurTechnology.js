@@ -41,7 +41,7 @@ export default function OurTechnology() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-xs tracking-[0.2em] uppercase font-semibold text-white/40 mb-3">Agent Portal</p>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3 font-['Manrope']">Agent Portal</p>
           <h2 data-testid="technology-heading" className="font-['Cormorant_Garamond'] text-4xl md:text-5xl lg:text-6xl font-light text-white mb-5">
             One portal for bookings. <em className="text-white/50">One team</em><br />for everything else.
           </h2>
@@ -63,7 +63,7 @@ export default function OurTechnology() {
                     <div className="w-10 h-10 rounded-xl bg-white/08 flex items-center justify-center">
                       <Icon size={18} strokeWidth={1.5} className="text-white/60" />
                     </div>
-                    <span className="text-xs tracking-[0.15em] uppercase font-semibold text-white/30">{f.label}</span>
+                    <span className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 font-['Manrope']">{f.label}</span>
                   </div>
                   <h3 className="font-['Cormorant_Garamond'] text-3xl font-light text-white mb-4">{f.title}</h3>
                   <p className="text-white/45 leading-relaxed mb-6 text-sm">{f.desc}</p>
@@ -80,8 +80,8 @@ export default function OurTechnology() {
                   </Link>
                 </div>
                 <div className={isReversed ? "order-1 lg:order-1" : "order-1 lg:order-2"}>
-                  <div className="rounded-2xl overflow-hidden border border-white/08 bg-white/04 p-2">
-                    <img src={f.image} alt={f.title} className="w-full rounded-xl" />
+                  <div className="group rounded-2xl overflow-hidden border border-white/08 bg-white/04 p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]">
+                    <img src={f.image} alt={f.title} className="w-full rounded-xl object-cover group-hover:scale-[1.03] transition-transform duration-700" />
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default function OurTechnology() {
         {/* Stats + CTA */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {[{ value: "30+", label: "Years of Excellence" }, { value: "850+", label: "Active Agents" }, { value: "500K+", label: "Live Hotel Rates" }, { value: "99.9%", label: "Platform Uptime" }].map((s) => (
-            <div key={s.label} className="bg-white/05 rounded-xl p-6 text-center border border-white/08 hover:border-white/15 transition-all">
+            <div key={s.label} className="bg-white/05 rounded-2xl p-6 text-center border border-white/08 hover:border-white/15 hover:bg-white/08 transition-all duration-500">
               <p className="font-['Cormorant_Garamond'] text-3xl font-light text-white mb-1">{s.value}</p>
               <p className="text-[11px] text-white/40 uppercase tracking-wider font-semibold">{s.label}</p>
             </div>

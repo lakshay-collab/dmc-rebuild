@@ -49,7 +49,7 @@ function Sidebar({ destName, pkgTitle }) {
   };
 
   return (
-    <div data-testid="pkg-sidebar" className="bg-[#FAF6F1] rounded-2xl p-7 border border-[#E8DFD4]">
+    <div data-testid="pkg-sidebar" className="bg-[#F8FAFB] rounded-2xl p-7 border border-[#0D1B2A]/10">
       <p className="text-[10px] tracking-[0.2em] uppercase font-semibold text-[#0D1B2A]/30 mb-2">Meet Our {destName} Experts</p>
       <h3 className="font-['Cormorant_Garamond'] text-2xl text-[#0D1B2A] mb-3">Speak to a specialist.</h3>
       <p className="text-xs text-[#0D1B2A]/50 leading-relaxed mb-5">
@@ -63,26 +63,26 @@ function Sidebar({ destName, pkgTitle }) {
       ) : (
         <form onSubmit={submit} data-testid="pkg-inquiry-form" className="space-y-2.5">
           <div className="grid grid-cols-2 gap-2">
-            <Input data-testid="pkg-input-first" placeholder="First name *" value={form.first_name} onChange={e => u("first_name", e.target.value)} className="bg-white border-[#E8DFD4] h-9 text-xs rounded-lg" />
-            <Input data-testid="pkg-input-last" placeholder="Last name *" value={form.last_name} onChange={e => u("last_name", e.target.value)} className="bg-white border-[#E8DFD4] h-9 text-xs rounded-lg" />
+            <Input data-testid="pkg-input-first" placeholder="First name *" value={form.first_name} onChange={e => u("first_name", e.target.value)} className="bg-white border-[#0D1B2A]/10 h-9 text-xs rounded-lg" />
+            <Input data-testid="pkg-input-last" placeholder="Last name *" value={form.last_name} onChange={e => u("last_name", e.target.value)} className="bg-white border-[#0D1B2A]/10 h-9 text-xs rounded-lg" />
           </div>
-          <Input data-testid="pkg-input-agency" placeholder="Agency name *" value={form.agency_name} onChange={e => u("agency_name", e.target.value)} className="bg-white border-[#E8DFD4] h-9 text-xs rounded-lg" />
+          <Input data-testid="pkg-input-agency" placeholder="Agency name *" value={form.agency_name} onChange={e => u("agency_name", e.target.value)} className="bg-white border-[#0D1B2A]/10 h-9 text-xs rounded-lg" />
           <div className="flex gap-2">
             <Select value={form.phone_code} onValueChange={v => { u("phone_code", v); if (v !== "+91") u("state", ""); }}>
-              <SelectTrigger className="bg-white border-[#E8DFD4] h-9 rounded-lg w-[90px] text-xs"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="bg-white border-[#0D1B2A]/10 h-9 rounded-lg w-[90px] text-xs"><SelectValue /></SelectTrigger>
               <SelectContent className="bg-white max-h-[200px]">{phoneCodes.map(pc => <SelectItem key={pc.code} value={pc.code} className="text-xs"><span className="mr-1">{pc.flag}</span>{pc.code}</SelectItem>)}</SelectContent>
             </Select>
-            <Input data-testid="pkg-input-phone" type="tel" placeholder="Phone *" value={form.phone} onChange={e => u("phone", e.target.value)} className="bg-white border-[#E8DFD4] h-9 text-xs rounded-lg flex-1" />
+            <Input data-testid="pkg-input-phone" type="tel" placeholder="Phone *" value={form.phone} onChange={e => u("phone", e.target.value)} className="bg-white border-[#0D1B2A]/10 h-9 text-xs rounded-lg flex-1" />
           </div>
           {isIndia && (
             <Select value={form.state} onValueChange={v => u("state", v)}>
-              <SelectTrigger className="bg-white border-[#E8DFD4] h-9 rounded-lg w-full text-xs"><SelectValue placeholder="Select state *" /></SelectTrigger>
+              <SelectTrigger className="bg-white border-[#0D1B2A]/10 h-9 rounded-lg w-full text-xs"><SelectValue placeholder="Select state *" /></SelectTrigger>
               <SelectContent className="bg-white max-h-[200px]">{indianStates.map(s => <SelectItem key={s} value={s} className="text-xs">{s}</SelectItem>)}</SelectContent>
             </Select>
           )}
-          <Input data-testid="pkg-input-email" type="email" placeholder="Email *" value={form.email} onChange={e => u("email", e.target.value)} className="bg-white border-[#E8DFD4] h-9 text-xs rounded-lg" />
+          <Input data-testid="pkg-input-email" type="email" placeholder="Email *" value={form.email} onChange={e => u("email", e.target.value)} className="bg-white border-[#0D1B2A]/10 h-9 text-xs rounded-lg" />
           <Button type="submit" disabled={loading} data-testid="pkg-inquire-btn"
-            className="w-full bg-[#C75B39] text-white hover:bg-[#B04E30] rounded-lg py-4 text-xs font-bold uppercase tracking-[0.15em] shadow-md">
+            className="w-full bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full py-4 text-xs font-bold uppercase tracking-[0.15em] shadow-sm hover:shadow-md transition-all">
             {loading ? "Submitting..." : "Inquire Now"}
           </Button>
         </form>
@@ -108,7 +108,7 @@ function StayBlock({ stay, isOpen, onToggle }) {
       </div>
 
       {/* Stay card */}
-      <div className="ml-6 mb-8 bg-white rounded-xl border border-[#E8DFD4]/60 overflow-hidden">
+      <div className="ml-6 mb-8 bg-white rounded-2xl border border-[#0D1B2A]/08 overflow-hidden">
         <div className="px-6 pt-4 pb-2">
           <p className="text-[11px] text-[#0D1B2A]/40 font-semibold mb-1">{stay.day_range}</p>
         </div>
@@ -126,7 +126,7 @@ function StayBlock({ stay, isOpen, onToggle }) {
                 <ul className="space-y-2">
                   {stay.glance.map((g) => (
                     <li key={g} className="flex items-start gap-2.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#C75B39]/50 mt-2 flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#174358]/50 mt-2 flex-shrink-0" />
                       <p className="text-sm text-[#0D1B2A]/60 leading-relaxed">{g}</p>
                     </li>
                   ))}
@@ -141,17 +141,17 @@ function StayBlock({ stay, isOpen, onToggle }) {
                   <p className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A]">Suggested hotels for {stay.title.split(":")[0]}</p>
                   {stay.hotels.length > 3 && (
                     <div className="flex gap-1.5">
-                      <button onClick={() => setHotelScroll(p => Math.max(0, p - 1))} className="w-8 h-8 rounded-full border border-[#E8DFD4] flex items-center justify-center hover:bg-[#FAF6F1] transition-colors"><ChevronLeft size={14} /></button>
-                      <button onClick={() => setHotelScroll(p => Math.min(stay.hotels.length - 3, p + 1))} className="w-8 h-8 rounded-full border border-[#E8DFD4] flex items-center justify-center hover:bg-[#FAF6F1] transition-colors"><ChevronRight size={14} /></button>
+                      <button onClick={() => setHotelScroll(p => Math.max(0, p - 1))} className="w-8 h-8 rounded-full border border-[#0D1B2A]/10 flex items-center justify-center hover:bg-[#F8FAFB] transition-colors"><ChevronLeft size={14} /></button>
+                      <button onClick={() => setHotelScroll(p => Math.min(stay.hotels.length - 3, p + 1))} className="w-8 h-8 rounded-full border border-[#0D1B2A]/10 flex items-center justify-center hover:bg-[#F8FAFB] transition-colors"><ChevronRight size={14} /></button>
                     </div>
                   )}
                 </div>
                 <div className="overflow-hidden">
                   <div className="flex gap-4 transition-transform duration-500" style={{ transform: `translateX(-${hotelScroll * 280}px)` }}>
                     {stay.hotels.map((h) => (
-                      <div key={h.name} data-testid={`hotel-${h.name.toLowerCase().replace(/\s+/g, '-')}`} className="min-w-[260px] rounded-xl overflow-hidden border border-[#E8DFD4]/60 bg-white flex-shrink-0">
-                        <div className="relative h-44">
-                          <img src={h.image} alt={h.name} className="w-full h-full object-cover" />
+                      <div key={h.name} data-testid={`hotel-${h.name.toLowerCase().replace(/\s+/g, '-')}`} className="group min-w-[260px] rounded-2xl overflow-hidden border border-[#0D1B2A]/08 bg-white flex-shrink-0 shadow-sm hover:shadow-xl transition-shadow duration-300">
+                        <div className="relative h-44 overflow-hidden">
+                          <img src={h.image} alt={h.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                           <span className="absolute bottom-3 left-3 text-[8px] font-bold uppercase tracking-[0.15em] bg-[#0D1B2A]/80 text-white px-2.5 py-1 rounded">{h.tier}</span>
                         </div>
                         <div className="p-4">
@@ -172,17 +172,17 @@ function StayBlock({ stay, isOpen, onToggle }) {
                   <p className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A]">Suggested experiences for {stay.day_range}</p>
                   {stay.experiences.length > 3 && (
                     <div className="flex gap-1.5">
-                      <button onClick={() => setExpScroll(p => Math.max(0, p - 1))} className="w-8 h-8 rounded-full border border-[#E8DFD4] flex items-center justify-center hover:bg-[#FAF6F1]"><ChevronLeft size={14} /></button>
-                      <button onClick={() => setExpScroll(p => Math.min(stay.experiences.length - 3, p + 1))} className="w-8 h-8 rounded-full border border-[#E8DFD4] flex items-center justify-center hover:bg-[#FAF6F1]"><ChevronRight size={14} /></button>
+                      <button onClick={() => setExpScroll(p => Math.max(0, p - 1))} className="w-8 h-8 rounded-full border border-[#0D1B2A]/10 flex items-center justify-center hover:bg-[#F8FAFB]"><ChevronLeft size={14} /></button>
+                      <button onClick={() => setExpScroll(p => Math.min(stay.experiences.length - 3, p + 1))} className="w-8 h-8 rounded-full border border-[#0D1B2A]/10 flex items-center justify-center hover:bg-[#F8FAFB]"><ChevronRight size={14} /></button>
                     </div>
                   )}
                 </div>
                 <div className="overflow-hidden">
                   <div className="flex gap-4 transition-transform duration-500" style={{ transform: `translateX(-${expScroll * 280}px)` }}>
                     {stay.experiences.map((exp) => (
-                      <div key={exp.title} data-testid={`experience-${exp.title.toLowerCase().replace(/\s+/g, '-')}`} className="min-w-[260px] rounded-xl overflow-hidden border border-[#E8DFD4]/60 bg-white flex-shrink-0">
-                        <div className="h-40">
-                          <img src={exp.image} alt={exp.title} className="w-full h-full object-cover" />
+                      <div key={exp.title} data-testid={`experience-${exp.title.toLowerCase().replace(/\s+/g, '-')}`} className="group min-w-[260px] rounded-2xl overflow-hidden border border-[#0D1B2A]/08 bg-white flex-shrink-0 shadow-sm hover:shadow-xl transition-shadow duration-300">
+                        <div className="h-40 overflow-hidden">
+                          <img src={exp.image} alt={exp.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <div className="p-4">
                           <h4 className="font-['Cormorant_Garamond'] text-lg text-[#0D1B2A] mb-0.5">{exp.title}</h4>
@@ -272,17 +272,17 @@ export default function PackageDetailPage() {
     }
   };
 
-  if (loading) return <div className="min-h-screen bg-[#FDFBF8] flex items-center justify-center"><div className="w-8 h-8 border-2 border-[#C75B39]/20 border-t-[#C75B39] rounded-full animate-spin" /></div>;
+  if (loading) return <div className="min-h-screen bg-[#F4F1E8] flex items-center justify-center"><div className="w-8 h-8 border-2 border-[#174358]/20 border-t-[#174358] rounded-full animate-spin" /></div>;
 
   if (!pkg) return (
-    <div className="min-h-screen bg-[#FDFBF8] flex flex-col items-center justify-center gap-4">
+    <div className="min-h-screen bg-[#F4F1E8] flex flex-col items-center justify-center gap-4">
       <h2 className="font-['Cormorant_Garamond'] text-3xl text-[#0D1B2A]">Itinerary not found</h2>
-      <Link to={`/destination/${name}`} className="text-sm text-[#C75B39] hover:underline">Back to {name}</Link>
+      <Link to={`/destination/${name}`} className="text-sm text-[#174358] hover:underline">Back to {name}</Link>
     </div>
   );
 
   return (
-    <div data-testid="package-detail-page" className="min-h-screen bg-[#FDFBF8]">
+    <div data-testid="package-detail-page" className="min-h-screen bg-[#F4F1E8]">
 
       {/* ── Hero ── */}
       <section ref={heroRef} data-testid="pkg-hero" className="relative min-h-[75vh] md:min-h-[85vh] flex flex-col justify-end overflow-hidden">
@@ -314,7 +314,7 @@ export default function PackageDetailPage() {
                 <span className="text-white/40 text-[10px] md:text-xs">per person</span>
               </div>
               <button onClick={() => scrollTo("Pricing")} data-testid="hero-inquire-btn"
-                className="sm:ml-2 bg-[#C75B39] text-white px-6 md:px-8 py-3 text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] hover:bg-[#B04E30] transition-colors w-fit">
+                className="sm:ml-2 bg-[#174358] text-white rounded-full px-6 md:px-8 py-3 text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] hover:bg-[#1e5a75] shadow-sm transition-colors w-fit">
                 Inquire Now
               </button>
             </div>
@@ -323,7 +323,7 @@ export default function PackageDetailPage() {
       </section>
 
       {/* ── Sticky Tabs ── */}
-      <div className="sticky top-0 z-30 bg-[#FDFBF8] border-b border-[#E8DFD4]/60">
+      <div className="sticky top-0 z-30 bg-[#F4F1E8] border-b border-[#0D1B2A]/08">
         <div className="max-w-[1400px] mx-auto px-5 md:px-12 lg:px-20">
           <div className="flex items-center gap-0 overflow-x-auto scrollbar-hide -mx-1">
             {TABS.map(tab => (
@@ -350,7 +350,7 @@ export default function PackageDetailPage() {
               <ul className="space-y-4">
                 {pkg.highlights.map((h) => (
                   <li key={h} className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#C75B39] mt-2 flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#174358] mt-2 flex-shrink-0" />
                     <p className="text-sm text-[#0D1B2A]/65 leading-relaxed">{h}</p>
                   </li>
                 ))}
@@ -362,13 +362,13 @@ export default function PackageDetailPage() {
               <div className="flex items-end justify-between mb-6">
                 <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">Itinerary</h2>
                 <button onClick={expandAll} data-testid="expand-all-btn"
-                  className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-[#0D1B2A]/40 hover:text-[#0D1B2A]/70 border border-[#E8DFD4] px-4 py-2 rounded-full transition-colors">
+                  className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-[#0D1B2A]/40 hover:text-[#0D1B2A]/70 border border-[#0D1B2A]/10 px-4 py-2 rounded-full transition-colors">
                   <ChevronDown size={14} className={allExpanded ? "rotate-180" : ""} /> {allExpanded ? "Collapse" : "Expand"} All Stays
                 </button>
               </div>
 
               {/* Timeline */}
-              <div className="border-l-2 border-[#E8DFD4] ml-1.5">
+              <div className="border-l-2 border-[#0D1B2A]/10 ml-1.5">
                 {pkg.stays.map((stay, i) => (
                   <StayBlock key={stay.day_range} stay={stay} isOpen={!!openStays[i]} onToggle={() => toggleStay(i)} />
                 ))}
@@ -384,12 +384,12 @@ export default function PackageDetailPage() {
             <section ref={sectionRefs.Pricing} data-testid="pkg-pricing" className="mb-10">
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-2">Pricing</h2>
               <p className="text-xs text-[#0D1B2A]/40 mb-6">Per person &middot; excluding international flights.</p>
-              <div className="border border-[#E8DFD4]/60 rounded-xl overflow-hidden overflow-x-auto">
-                <div className="hidden md:grid grid-cols-5 bg-[#FAF6F1] px-6 py-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#0D1B2A]/40 min-w-[600px]">
+              <div className="border border-[#0D1B2A]/08 rounded-2xl overflow-hidden overflow-x-auto">
+                <div className="hidden md:grid grid-cols-5 bg-[#F8FAFB] px-6 py-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#0D1B2A]/40 min-w-[600px]">
                   <span>Departing</span><span>Price from</span><span>Deposit from</span><span></span><span></span>
                 </div>
                 {pkg.pricing.map((row) => (
-                  <div key={`${row.month}-${row.season}`} data-testid={`pricing-row-${row.month.toLowerCase().replace(/\s+/g, '-')}`} className="grid grid-cols-2 md:grid-cols-5 items-center px-5 md:px-6 py-3.5 border-t border-[#E8DFD4]/40 hover:bg-[#FAF6F1]/50 transition-colors gap-2 md:gap-0">
+                  <div key={`${row.month}-${row.season}`} data-testid={`pricing-row-${row.month.toLowerCase().replace(/\s+/g, '-')}`} className="grid grid-cols-2 md:grid-cols-5 items-center px-5 md:px-6 py-3.5 border-t border-[#0D1B2A]/06 hover:bg-[#F8FAFB]/50 transition-colors gap-2 md:gap-0">
                     <div>
                       <p className="font-['Cormorant_Garamond'] text-base md:text-lg text-[#0D1B2A]">{row.month}</p>
                       <p className="text-[10px] text-[#0D1B2A]/35">{row.season}</p>
@@ -398,7 +398,7 @@ export default function PackageDetailPage() {
                     <p className="hidden md:block text-sm text-[#0D1B2A]/50">{row.deposit === "\u2014" ? "\u2014" : `\u20B9${row.deposit}`}</p>
                     <span className="hidden md:block"></span>
                     <button onClick={() => scrollTo("At a Glance")}
-                      className="col-span-2 md:col-span-1 bg-[#C75B39] text-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.1em] hover:bg-[#B04E30] transition-colors rounded md:justify-self-end">
+                      className="col-span-2 md:col-span-1 bg-[#174358] text-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.1em] hover:bg-[#1e5a75] transition-colors rounded-full md:justify-self-end">
                       Inquire
                     </button>
                   </div>
@@ -409,11 +409,11 @@ export default function PackageDetailPage() {
             {/* Things to Know */}
             <section ref={sectionRefs["Things to Know"]} data-testid="pkg-things-to-know" className="mb-6">
               <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-6">Things to Know</h2>
-              <div className="border border-[#E8DFD4]/60 rounded-xl overflow-hidden divide-y divide-[#E8DFD4]/40">
+              <div className="border border-[#0D1B2A]/08 rounded-2xl overflow-hidden divide-y divide-[#0D1B2A]/06">
                 {pkg.things_to_know.map((faq) => (
                   <div key={faq.title} data-testid={`faq-${faq.title.toLowerCase().replace(/\s+/g, '-').slice(0, 25)}`}>
                     <button onClick={() => setOpenFaq(p => ({ ...p, [faq.title]: !p[faq.title] }))}
-                      className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[#FAF6F1]/50 transition-colors">
+                      className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[#F8FAFB]/50 transition-colors">
                       <h3 className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A]">{faq.title}</h3>
                       <ChevronDown size={18} className={`text-[#0D1B2A]/30 transition-transform ${openFaq[faq.title] ? "rotate-180" : ""}`} />
                     </button>
@@ -439,7 +439,7 @@ export default function PackageDetailPage() {
 
       {/* ── What We Include ── */}
       {pkg.includes && (
-        <section data-testid="pkg-includes" className="py-12 px-5 md:px-12 lg:px-20 bg-gradient-to-b from-[#FAF6F1] to-[#FDFBF8] border-t border-[#E8DFD4]/40">
+        <section data-testid="pkg-includes" className="py-12 px-5 md:px-12 lg:px-20 bg-gradient-to-b from-[#F8FAFB] to-[#F4F1E8] border-t border-[#0D1B2A]/06">
           <div className="max-w-[1400px] mx-auto">
             <h2 className="font-['Cormorant_Garamond'] text-3xl font-light text-[#0D1B2A] text-center mb-2">What we include, every time</h2>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mt-10">
@@ -447,7 +447,7 @@ export default function PackageDetailPage() {
                 const Icon = includeIcons[pkg.includes.indexOf(inc)] || Shield;
                 return (
                   <div key={inc.title} className="text-center">
-                    <Icon size={24} className="text-[#C75B39]/60 mx-auto mb-3" strokeWidth={1.5} />
+                    <Icon size={24} className="text-[#174358]/60 mx-auto mb-3" strokeWidth={1.5} />
                     <h4 className="font-['Cormorant_Garamond'] text-lg text-[#0D1B2A] mb-1">{inc.title}</h4>
                     <p className="text-[11px] text-[#0D1B2A]/40 leading-relaxed">{inc.desc}</p>
                   </div>
@@ -467,8 +467,8 @@ export default function PackageDetailPage() {
                 Other amazing {name} tours you may like.
               </h2>
               <div className="hidden md:flex gap-1.5">
-                <button onClick={() => setOtherScroll(p => Math.max(0, p - 1))} className="w-9 h-9 rounded-full border border-[#E8DFD4] flex items-center justify-center hover:bg-[#FAF6F1]"><ChevronLeft size={16} /></button>
-                <button onClick={() => setOtherScroll(p => Math.min(otherPkgs.length - 3, p + 1))} className="w-9 h-9 rounded-full border border-[#E8DFD4] flex items-center justify-center hover:bg-[#FAF6F1]"><ChevronRight size={16} /></button>
+                <button onClick={() => setOtherScroll(p => Math.max(0, p - 1))} className="w-9 h-9 rounded-full border border-[#0D1B2A]/10 flex items-center justify-center hover:bg-[#F8FAFB]"><ChevronLeft size={16} /></button>
+                <button onClick={() => setOtherScroll(p => Math.min(otherPkgs.length - 3, p + 1))} className="w-9 h-9 rounded-full border border-[#0D1B2A]/10 flex items-center justify-center hover:bg-[#F8FAFB]"><ChevronRight size={16} /></button>
               </div>
             </div>
             <div className="overflow-hidden">
@@ -476,7 +476,7 @@ export default function PackageDetailPage() {
                 {otherPkgs.map((op) => {
                   const opSlug = op.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
                   return (
-                    <Link key={op.title} to={`/destination/${name}/package/${opSlug}`} className="min-w-[270px] rounded-xl overflow-hidden group flex-shrink-0 block">
+                    <Link key={op.title} to={`/destination/${name}/package/${opSlug}`} className="min-w-[270px] rounded-2xl overflow-hidden group flex-shrink-0 block">
                       <div className="relative h-72">
                         <img src={op.hero_image || pkg.hero_image} alt={op.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/80 via-[#0D1B2A]/20 to-transparent" />
@@ -495,13 +495,13 @@ export default function PackageDetailPage() {
       )}
 
       {/* ── Bottom CTA ── */}
-      <section data-testid="pkg-bottom-cta" className="py-3.5 px-5 md:px-12 lg:px-20 bg-[#FDFBF8] border-t border-[#E8DFD4]/40">
+      <section data-testid="pkg-bottom-cta" className="py-3.5 px-5 md:px-12 lg:px-20 bg-[#F4F1E8] border-t border-[#0D1B2A]/06">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <p className="text-xs text-[#0D1B2A]/40">From</p>
             <p className="font-['Cormorant_Garamond'] text-2xl text-[#0D1B2A]">&#8377;{pkg.starting_price} <span className="text-xs text-[#0D1B2A]/40 font-sans">pp</span></p>
           </div>
-          <button onClick={() => scrollTo("At a Glance")} className="bg-[#C75B39] text-white px-8 py-3 text-xs font-bold uppercase tracking-[0.15em] hover:bg-[#B04E30] transition-colors">
+          <button onClick={() => scrollTo("At a Glance")} className="bg-[#174358] text-white rounded-full px-8 py-3 text-xs font-bold uppercase tracking-[0.15em] hover:bg-[#1e5a75] shadow-sm transition-colors">
             Enquire now
           </button>
         </div>

@@ -74,20 +74,21 @@ export default function LegalPage() {
   );
 
   return (
-    <div data-testid="legal-page" className="min-h-screen bg-white">
+    <div data-testid="legal-page" className="min-h-screen bg-[#F4F1E8]">
       <Navbar forceLight />
-      <div className="pt-28 pb-20 px-6 md:px-12">
+      <div className="pt-28 pb-20 md:pb-28 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
-          <Link to="/" className="inline-flex items-center gap-2 text-[#0D1B2A]/40 hover:text-[#0D1B2A]/70 text-xs font-semibold uppercase tracking-[0.15em] mb-8 transition-colors">
+          <Link to="/" className="inline-flex items-center gap-2 text-[#174358]/60 hover:text-[#174358] text-[11px] font-semibold uppercase tracking-[0.2em] mb-10 transition-colors">
             <ArrowLeft size={14} /> Back to Home
           </Link>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">Legal</p>
           <h1 data-testid="legal-title" className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-4">{policy.title}</h1>
-          <p className="text-xs text-[#0D1B2A]/35 mb-12">Effective date: {policy.effective} &middot; Last revised: {policy.effective}</p>
-          <div className="space-y-8">
+          <p className="text-xs text-[#0D1B2A]/40 mb-12">Effective date: {policy.effective} &middot; Last revised: {policy.effective}</p>
+          <div className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] p-8 md:p-12 space-y-10">
             {policy.sections.map((s, i) => (
               <div key={i}>
-                <h2 className="text-base font-bold text-[#0D1B2A] mb-3">{s.heading}</h2>
-                <p className="text-sm text-[#0D1B2A]/60 leading-relaxed whitespace-pre-line">{s.text}</p>
+                <h2 className="font-['Cormorant_Garamond'] text-2xl font-light text-[#0D1B2A] mb-3">{s.heading}</h2>
+                <p className="text-sm text-[#0D1B2A]/60 leading-relaxed whitespace-pre-line font-['Manrope']">{s.text}</p>
               </div>
             ))}
           </div>

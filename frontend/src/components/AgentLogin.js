@@ -42,34 +42,34 @@ export default function AgentLogin() {
           <p className="text-sm text-[#0D1B2A]/50 mt-2">Sign in to access your destination tools</p>
         </div>
 
-        <form onSubmit={handleLogin} className="bg-white rounded-2xl shadow-sm border border-[#0D1B2A]/06 p-8 space-y-5">
+        <form onSubmit={handleLogin} className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] p-8 space-y-5">
           {error && (
-            <div data-testid="login-error" className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-lg border border-red-100">
+            <div data-testid="login-error" className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-2xl border border-red-100">
               {error}
             </div>
           )}
 
           <div>
-            <label className="block text-xs font-semibold text-[#0D1B2A]/60 uppercase tracking-wider mb-2">Email</label>
+            <label className="block text-[11px] font-semibold text-[#174358]/60 uppercase tracking-[0.2em] mb-2">Email</label>
             <input data-testid="agent-login-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required
-              className="w-full px-4 py-3 rounded-xl border border-[#0D1B2A]/10 text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/30 focus:outline-none focus:border-[#174358]/40 transition-colors"
+              className="w-full bg-[#F8FAFB] border border-[#0D1B2A]/08 rounded-full px-5 py-3.5 text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/40 focus:outline-none focus:border-[#174358]/30 focus:bg-white transition-colors"
               placeholder="agent@agency.com" />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-[#0D1B2A]/60 uppercase tracking-wider mb-2">Password</label>
+            <label className="block text-[11px] font-semibold text-[#174358]/60 uppercase tracking-[0.2em] mb-2">Password</label>
             <div className="relative">
               <input data-testid="agent-login-password" type={showPw ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} required
-                className="w-full px-4 py-3 rounded-xl border border-[#0D1B2A]/10 text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/30 focus:outline-none focus:border-[#174358]/40 transition-colors pr-11"
+                className="w-full bg-[#F8FAFB] border border-[#0D1B2A]/08 rounded-full px-5 py-3.5 text-sm text-[#0D1B2A] placeholder:text-[#0D1B2A]/40 focus:outline-none focus:border-[#174358]/30 focus:bg-white transition-colors pr-11"
                 placeholder="Enter your password" />
-              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#0D1B2A]/30 hover:text-[#0D1B2A]/60">
+              <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0D1B2A]/30 hover:text-[#174358] transition-colors">
                 {showPw ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
           </div>
 
           <button data-testid="agent-login-submit" type="submit" disabled={loading}
-            className="w-full bg-[#174358] text-white py-3 rounded-xl text-sm font-semibold hover:bg-[#0D1B2A] transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
+            className="w-full bg-[#174358] text-white py-3.5 rounded-full text-sm font-semibold hover:bg-[#1e5a75] shadow-sm transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
             <LogIn size={16} />
             {loading ? "Signing in..." : "Sign In"}
           </button>

@@ -50,36 +50,36 @@ function InquiryModal({ open, onClose }) {
       <div className="bg-white w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl shadow-2xl" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between px-6 pt-6 pb-2">
           <h3 className="text-[18px] font-bold text-[#0D1B2A]">Plan Your Holiday</h3>
-          <button onClick={onClose} className="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center"><X size={18} className="text-gray-400" /></button>
+          <button onClick={onClose} className="w-8 h-8 rounded-full hover:bg-[#0D1B2A]/05 flex items-center justify-center"><X size={18} className="text-[#0D1B2A]/40" /></button>
         </div>
         {done ? (
           <div className="p-8 text-center">
             <div className="w-14 h-14 bg-[#174358]/10 rounded-full flex items-center justify-center mx-auto mb-4"><Phone size={22} className="text-[#174358]" /></div>
             <p className="font-bold text-[17px] text-[#0D1B2A] mb-1">We'll Be in Touch!</p>
-            <p className="text-[13px] text-gray-500">Our destination specialist will call you within 30 minutes.</p>
+            <p className="text-[13px] text-[#0D1B2A]/55">Our destination specialist will call you within 30 minutes.</p>
           </div>
         ) : (
           <form onSubmit={submit} className="px-6 pb-6 pt-3 space-y-4">
             <div>
-              <label className="text-[11px] font-semibold text-gray-500 mb-1 block">Where would you like to go?</label>
-              <Input value={form.destination} onChange={e => setForm(p => ({ ...p, destination: e.target.value }))} placeholder="e.g. Egypt, Japan, Bali..." className="h-12 rounded-xl text-[14px] border-gray-200 focus:border-[#174358]" />
+              <label className="text-[11px] font-semibold text-[#174358]/60 uppercase tracking-[0.2em] mb-1.5 block">Where would you like to go?</label>
+              <Input value={form.destination} onChange={e => setForm(p => ({ ...p, destination: e.target.value }))} placeholder="e.g. Egypt, Japan, Bali..." className="h-12 rounded-full px-5 text-[14px] bg-[#F8FAFB] border-[#0D1B2A]/08 focus:border-[#174358]/30 focus:bg-white transition-colors" />
             </div>
             <div>
-              <label className="text-[11px] font-semibold text-gray-500 mb-1 block">Full Name *</label>
-              <Input value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} placeholder="Your full name" className="h-12 rounded-xl text-[14px] border-gray-200 focus:border-[#174358]" required />
+              <label className="text-[11px] font-semibold text-[#174358]/60 uppercase tracking-[0.2em] mb-1.5 block">Full Name *</label>
+              <Input value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} placeholder="Your full name" className="h-12 rounded-full px-5 text-[14px] bg-[#F8FAFB] border-[#0D1B2A]/08 focus:border-[#174358]/30 focus:bg-white transition-colors" required />
             </div>
             <div>
-              <label className="text-[11px] font-semibold text-gray-500 mb-1 block">Phone Number *</label>
+              <label className="text-[11px] font-semibold text-[#174358]/60 uppercase tracking-[0.2em] mb-1.5 block">Phone Number *</label>
               <div className="flex gap-2">
-                <div className="flex items-center gap-1.5 px-3 h-12 rounded-xl border border-gray-200 bg-gray-50 text-[13px] text-gray-600 shrink-0">&#127470;&#127475; +91</div>
-                <Input type="tel" value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} placeholder="98765 43210" className="h-12 rounded-xl text-[14px] border-gray-200 focus:border-[#174358] flex-1" required />
+                <div className="flex items-center gap-1.5 px-4 h-12 rounded-full border border-[#0D1B2A]/08 bg-[#F8FAFB] text-[13px] text-[#0D1B2A]/60 shrink-0">&#127470;&#127475; +91</div>
+                <Input type="tel" value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} placeholder="98765 43210" className="h-12 rounded-full px-5 text-[14px] bg-[#F8FAFB] border-[#0D1B2A]/08 focus:border-[#174358]/30 focus:bg-white transition-colors flex-1" required />
               </div>
             </div>
             <div>
-              <label className="text-[11px] font-semibold text-gray-500 mb-1 block">Email</label>
-              <Input type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} placeholder="you@email.com" className="h-12 rounded-xl text-[14px] border-gray-200 focus:border-[#174358]" />
+              <label className="text-[11px] font-semibold text-[#174358]/60 uppercase tracking-[0.2em] mb-1.5 block">Email</label>
+              <Input type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} placeholder="you@email.com" className="h-12 rounded-full px-5 text-[14px] bg-[#F8FAFB] border-[#0D1B2A]/08 focus:border-[#174358]/30 focus:bg-white transition-colors" />
             </div>
-            <Button type="submit" disabled={loading} className="w-full bg-[#174358] hover:bg-[#1e5a75] text-white rounded-xl h-12 font-bold text-[14px] shadow-lg shadow-[#174358]/15">
+            <Button type="submit" disabled={loading} className="w-full bg-[#174358] hover:bg-[#1e5a75] text-white rounded-full h-12 font-semibold text-[14px] shadow-lg shadow-[#174358]/15">
               {loading ? <Loader2 size={16} className="animate-spin mr-2" /> : null}{loading ? "Submitting..." : "Get Free Consultation"}
             </Button>
           </form>
@@ -98,14 +98,14 @@ export default function AdHomePage() {
   return (
     <div data-testid="ad-homepage" className="min-h-screen bg-white">
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
+      <nav className="sticky top-0 z-50 bg-white border-b border-[#0D1B2A]/06">
         <div className="max-w-[1200px] mx-auto px-5 py-4 flex items-center justify-between">
           <Link to="/ads" className="text-[22px] sm:text-[26px] font-bold text-[#0D1B2A] tracking-tight font-['Cormorant_Garamond'] hover:opacity-80 transition-opacity">
             HI DMC
           </Link>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#destinations" className="text-[14px] text-gray-600 hover:text-[#0D1B2A] font-medium transition-colors">Destinations</a>
-            <Link to="/about" className="text-[14px] text-gray-600 hover:text-[#0D1B2A] font-medium transition-colors">About Us</Link>
+            <a href="#destinations" className="text-[14px] text-[#0D1B2A]/60 hover:text-[#0D1B2A] font-medium transition-colors">Destinations</a>
+            <Link to="/about" className="text-[14px] text-[#0D1B2A]/60 hover:text-[#0D1B2A] font-medium transition-colors">About Us</Link>
           </div>
           <Button onClick={() => setModalOpen(true)} className="bg-[#174358] hover:bg-[#1e5a75] text-white rounded-full px-5 h-10 text-[13px] font-bold shadow-sm">
             Inquire <span className="hidden sm:inline ml-1">/ Plan Your Holiday</span>
@@ -120,19 +120,19 @@ export default function AdHomePage() {
           <h1 className="font-['Cormorant_Garamond'] text-[40px] sm:text-[56px] lg:text-[68px] font-light text-[#0D1B2A] leading-[1.1] mb-6">
             Travel, <em className="text-[#174358]">your way.</em>
           </h1>
-          <p className="text-[15px] sm:text-[17px] text-gray-500 max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-[15px] sm:text-[17px] text-[#0D1B2A]/55 max-w-xl mx-auto mb-10 leading-relaxed">
             Handcrafted tour packages across 45+ destinations. Local experts, transparent pricing, and 30 years of trust.
           </p>
 
           {/* Search-style CTA */}
           <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-full border border-gray-200 shadow-xl shadow-gray-200/50 flex items-center p-1.5 sm:p-2">
+            <div className="bg-white rounded-full border border-[#0D1B2A]/08 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] flex items-center p-1.5 sm:p-2">
               <div className="flex items-center gap-2.5 flex-1 pl-4">
                 <MapPin size={18} className="text-[#174358] shrink-0" />
                 <input
                   type="text" readOnly
                   placeholder="Where would you like to go?"
-                  className="w-full text-[14px] sm:text-[15px] text-gray-700 placeholder:text-gray-400 bg-transparent outline-none cursor-pointer"
+                  className="w-full text-[14px] sm:text-[15px] text-[#0D1B2A]/70 placeholder:text-[#0D1B2A]/40 bg-transparent outline-none cursor-pointer"
                   onClick={() => setModalOpen(true)}
                 />
               </div>
@@ -153,7 +153,7 @@ export default function AdHomePage() {
               "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=400&h=300&fit=crop&q=80",
               "https://images.unsplash.com/photo-1580834341580-8c17a3a630c8?w=400&h=300&fit=crop&q=80",
             ].map((src, i) => (
-              <div key={i} className={`rounded-xl sm:rounded-2xl overflow-hidden ${i >= 3 ? "hidden sm:block" : ""}`} style={{ aspectRatio: "4/3" }}>
+              <div key={i} className={`rounded-2xl sm:rounded-2xl overflow-hidden ${i >= 3 ? "hidden sm:block" : ""}`} style={{ aspectRatio: "4/3" }}>
                 <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
               </div>
             ))}
@@ -161,18 +161,18 @@ export default function AdHomePage() {
         </div>
 
         {/* Trust bar */}
-        <div className="bg-[#f5f7fa] py-4 border-y border-gray-100">
+        <div className="bg-[#F8FAFB] py-4 border-y border-[#0D1B2A]/06">
           <div className="max-w-[1200px] mx-auto px-5 flex items-center justify-center gap-6 sm:gap-10 flex-wrap text-center">
             <div className="flex items-center gap-1.5">
               <div className="flex">{[1,2,3,4,5].map(i => <Star key={i} size={14} fill="#f59e0b" stroke="none" />)}</div>
-              <span className="text-[12px] text-gray-500 font-medium">Rated by 850+ partners</span>
+              <span className="text-[12px] text-[#0D1B2A]/55 font-medium">Rated by 850+ partners</span>
             </div>
-            <span className="text-gray-300 hidden sm:inline">|</span>
-            <span className="text-[12px] text-gray-500 font-medium">30+ Years Experience</span>
-            <span className="text-gray-300 hidden sm:inline">|</span>
-            <span className="text-[12px] text-gray-500 font-medium">45+ Destinations</span>
-            <span className="text-gray-300 hidden sm:inline">|</span>
-            <span className="text-[12px] text-gray-500 font-medium">6 Global Offices</span>
+            <span className="text-[#0D1B2A]/20 hidden sm:inline">|</span>
+            <span className="text-[12px] text-[#0D1B2A]/55 font-medium">30+ Years Experience</span>
+            <span className="text-[#0D1B2A]/20 hidden sm:inline">|</span>
+            <span className="text-[12px] text-[#0D1B2A]/55 font-medium">45+ Destinations</span>
+            <span className="text-[#0D1B2A]/20 hidden sm:inline">|</span>
+            <span className="text-[12px] text-[#0D1B2A]/55 font-medium">6 Global Offices</span>
           </div>
         </div>
       </section>
@@ -191,11 +191,11 @@ export default function AdHomePage() {
               { icon: Headphones, num: "4", title: "Travel with support", desc: "24/7 on-ground assistance throughout your trip. We're always just a call away." },
             ].map(s => (
               <div key={s.title} className="text-center sm:text-left">
-                <div className="w-12 h-12 rounded-xl bg-[#174358]/08 flex items-center justify-center mx-auto sm:mx-0 mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#174358]/08 flex items-center justify-center mx-auto sm:mx-0 mb-4">
                   <span className="text-[16px] font-bold text-[#174358]">{s.num}</span>
                 </div>
                 <h3 className="text-[15px] font-bold text-[#0D1B2A] mb-2">{s.title}</h3>
-                <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
+                <p className="text-[13px] text-[#0D1B2A]/55 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -208,18 +208,18 @@ export default function AdHomePage() {
       </section>
 
       {/* Discover Destinations */}
-      <section id="destinations" className="py-16 sm:py-20 px-5 bg-[#f5f7fa]">
+      <section id="destinations" className="py-16 sm:py-20 px-5 bg-[#F8FAFB]">
         <div className="max-w-[1200px] mx-auto">
           <h2 className="font-['Cormorant_Garamond'] text-[28px] sm:text-[34px] font-light text-[#0D1B2A] text-center mb-3">
             Discover extraordinary destinations
           </h2>
-          <p className="text-[14px] text-gray-500 text-center mb-10 max-w-lg mx-auto">
+          <p className="text-[14px] text-[#0D1B2A]/55 text-center mb-10 max-w-lg mx-auto">
             Explore our curated collection of destinations, each with local experts and handcrafted itineraries.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {DESTINATIONS.map(d => (
               <Link key={d.name} to={d.link} data-testid={`dest-card-${d.name.toLowerCase().replace(/\s+/g, '-')}`}
-                className="group relative rounded-xl sm:rounded-2xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                className="group relative rounded-2xl sm:rounded-2xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
                 <img src={d.image} alt={d.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
@@ -246,7 +246,7 @@ export default function AdHomePage() {
               <div key={r.title} className="text-center px-4">
                 <div className="w-14 h-14 rounded-2xl bg-[#174358]/06 flex items-center justify-center mx-auto mb-4"><r.icon size={22} className="text-[#174358]" /></div>
                 <h3 className="text-[15px] font-bold text-[#0D1B2A] mb-2">{r.title}</h3>
-                <p className="text-[13px] text-gray-500 leading-relaxed">{r.desc}</p>
+                <p className="text-[13px] text-[#0D1B2A]/55 leading-relaxed">{r.desc}</p>
               </div>
             ))}
           </div>
@@ -260,7 +260,7 @@ export default function AdHomePage() {
             Ready to plan your next trip?
           </h2>
           <p className="text-[14px] text-white/50 mb-8">Get a custom itinerary crafted by our destination specialists. It's free, no strings attached.</p>
-          <Button onClick={() => setModalOpen(true)} className="bg-white text-[#0D1B2A] hover:bg-gray-100 rounded-full h-12 px-8 text-[14px] font-bold shadow-lg">
+          <Button onClick={() => setModalOpen(true)} className="bg-white text-[#0D1B2A] hover:bg-[#0D1B2A]/05 rounded-full h-12 px-8 text-[14px] font-bold shadow-lg">
             Get Free Consultation <ArrowRight size={14} className="ml-2" />
           </Button>
         </div>
@@ -280,7 +280,7 @@ export default function AdHomePage() {
       {/* Sticky Mobile CTA */}
       <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-[calc(12px+env(safe-area-inset-bottom))] pt-3" style={{ background: "linear-gradient(transparent, white 40%)" }}>
         <Button onClick={() => setModalOpen(true)}
-          className="w-full bg-[#174358] hover:bg-[#1e5a75] text-white rounded-xl h-[52px] font-bold text-[14px] shadow-xl shadow-[#174358]/20">
+          className="w-full bg-[#174358] hover:bg-[#1e5a75] text-white rounded-full h-[52px] font-bold text-[14px] shadow-xl shadow-[#174358]/20">
           Plan Your Holiday
         </Button>
       </div>

@@ -14,10 +14,12 @@ export default function ItineraryPage() {
   }, []);
 
   return (
-    <div data-testid="itinerary-page" className="min-h-screen bg-white">
+    <div data-testid="itinerary-page" className="min-h-screen bg-[#F8FAFB]">
       <Navbar forceLight />
-      <div className="pt-20">
-        <div id="nz-planner"></div>
+      <div className="pt-20 md:pt-24 pb-16 md:pb-24 px-4 sm:px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div id="nz-planner"></div>
+        </div>
       </div>
       <Footer />
     </div>

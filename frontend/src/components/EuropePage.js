@@ -152,7 +152,7 @@ export default function EuropePage() {
                     )}
                   </>
                 )}
-                <Button type="submit" disabled={loading} className="w-full bg-[#174358] text-white hover:bg-[#1e5a75] rounded-lg py-4 text-xs font-bold shadow-md">
+                <Button type="submit" disabled={loading} className="w-full bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full py-4 text-xs font-bold shadow-sm hover:shadow-md transition-all">
                   {loading ? <><Loader2 size={14} className="mr-2 animate-spin" /> Submitting...</> : "Request Europe Rates"}
                 </Button>
               </form>
@@ -164,11 +164,11 @@ export default function EuropePage() {
       {/* Our Services for Europe */}
       <section className="py-16 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/40 mb-3">What We Do</p>
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-10">Our services for <em className="text-[#174358]/60">Europe</em></h2>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">What We Do</p>
+          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-10">Our services for <em className="text-[#174358]">Europe</em></h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map(s => (
-              <div key={s.title} className="bg-[#F8FAFB] rounded-xl p-5 border border-[#0D1B2A]/04 hover:border-[#174358]/15 transition-colors group">
+              <div key={s.title} className="bg-[#F8FAFB] rounded-2xl p-5 border border-[#0D1B2A]/04 hover:border-[#174358]/15 shadow-sm hover:shadow-md transition-all group">
                 <s.icon size={20} className="text-[#174358]/40 mb-3" strokeWidth={1.5} />
                 <h3 className="text-sm font-bold text-[#0D1B2A] mb-1.5">{s.title}</h3>
                 <p className="text-xs text-[#0D1B2A]/45 leading-relaxed mb-3">{s.desc}</p>
@@ -194,8 +194,8 @@ export default function EuropePage() {
       {/* Destinations by Region — Tag-based */}
       <section className="py-16 px-6 md:px-12 bg-[#F8FAFB]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/40 mb-3">20+ European Destinations</p>
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-8">Browse by <em className="text-[#174358]/60">region</em></h2>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">20+ European Destinations</p>
+          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-8">Browse by <em className="text-[#174358]">region</em></h2>
 
           {/* Region tabs */}
           <div className="flex flex-wrap gap-2 mb-8">
@@ -203,8 +203,8 @@ export default function EuropePage() {
               <button key={r.name} onClick={() => setActiveRegion(r.name)} data-testid={`region-tab-${r.name.toLowerCase().replace(/\s+/g, '-')}`}
                 className={`px-5 py-2.5 text-xs font-bold rounded-full border transition-all ${
                   activeRegion === r.name
-                    ? "bg-[#0D1B2A] text-white border-[#0D1B2A]"
-                    : "bg-white text-[#0D1B2A]/50 border-[#0D1B2A]/10 hover:border-[#0D1B2A]/30 hover:text-[#0D1B2A]/80"
+                    ? "bg-[#174358] text-white border-[#174358] shadow-sm"
+                    : "bg-white text-[#0D1B2A]/55 border-[#0D1B2A]/10 hover:border-[#174358]/40 hover:text-[#0D1B2A]/80"
                 }`}>
                 {r.name} <span className="ml-1 text-[10px] opacity-60">({r.countries.length})</span>
               </button>
@@ -212,14 +212,14 @@ export default function EuropePage() {
           </div>
 
           {/* Country pills for active region */}
-          <div className="bg-white rounded-xl p-6 border border-[#0D1B2A]/06">
+          <div className="bg-white rounded-2xl p-6 border border-[#0D1B2A]/06">
             <p className="text-[10px] text-[#0D1B2A]/30 uppercase tracking-wider font-bold mb-4">
               {activeRegion} {REGIONS.find(r => r.name === activeRegion)?.subtitle ? `— ${REGIONS.find(r => r.name === activeRegion).subtitle}` : ""}
             </p>
             <div className="flex flex-wrap gap-3">
               {activeCountries.map(c => (
                 <div key={c} data-testid={`country-pill-${c.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#F8FAFB] border border-[#0D1B2A]/06 hover:border-[#174358]/20 hover:bg-[#174358]/04 transition-all cursor-default">
+                  className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#F8FAFB] border border-[#0D1B2A]/06 hover:border-[#174358]/20 hover:bg-[#174358]/04 transition-all cursor-default">
                   <Globe size={14} className="text-[#174358]/40" />
                   <span className="text-sm font-semibold text-[#0D1B2A]/70">{c}</span>
                 </div>
@@ -232,11 +232,11 @@ export default function EuropePage() {
       {/* Travel Styles */}
       <section className="py-16 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/40 mb-3">Travel Styles</p>
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-10">Sell Europe <em className="text-[#174358]/60">by theme</em></h2>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Travel Styles</p>
+          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-10">Sell Europe <em className="text-[#174358]">by theme</em></h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {STYLES.map(t => (
-              <div key={t.title} className="rounded-xl overflow-hidden border border-[#0D1B2A]/06 group flex flex-col sm:flex-row bg-white hover:shadow-lg transition-shadow">
+              <div key={t.title} className="rounded-2xl overflow-hidden border border-[#0D1B2A]/06 group flex flex-col sm:flex-row bg-white hover:shadow-xl transition-shadow">
                 <div className="relative w-full sm:w-2/5 min-h-[180px] flex-shrink-0">
                   <img src={t.image} alt={t.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
@@ -261,12 +261,12 @@ export default function EuropePage() {
       {/* Packages */}
       <section className="py-16 px-6 md:px-12 bg-[#0D1B2A]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs tracking-[0.2em] uppercase font-semibold text-white/30 mb-3">Ready-to-sell Itineraries</p>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3">Ready-to-sell Itineraries</p>
           <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-white mb-3">Custom packages <em className="text-white/50">we create for your clients</em></h2>
           <p className="text-sm text-white/35 mb-10">Customise dates, hotels, and experiences with live rates on the platform.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {PACKAGES.map(p => (
-              <Link key={p.title} to="/signup" className="bg-white/05 rounded-xl p-5 border border-white/08 hover:border-white/20 hover:bg-white/08 transition-all group block">
+              <Link key={p.title} to="/signup" className="bg-white/05 rounded-2xl p-5 border border-white/08 hover:border-white/20 hover:bg-white/08 transition-all group block">
                 <div className="flex items-center justify-between mb-2.5">
                   <span className="text-[9px] bg-white/10 text-white/60 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">{p.tag}</span>
                   <span className="text-[10px] text-white/35 font-semibold">{p.days}</span>
@@ -283,13 +283,13 @@ export default function EuropePage() {
       </section>
 
       {/* Europe Experiences */}
-      <section className="py-16 px-6 md:px-12 bg-[#FDFBF8]">
+      <section className="py-16 px-6 md:px-12 bg-[#F4F1E8]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs tracking-[0.2em] uppercase font-semibold text-[#174358]/40 mb-3">Bookable Experiences</p>
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-10">Europe <em className="text-[#174358]/60">experiences</em></h2>
+          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Bookable Experiences</p>
+          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-10">Europe <em className="text-[#174358]">experiences</em></h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {EXPERIENCES.map(e => (
-              <div key={e.title} className="relative rounded-xl overflow-hidden group cursor-pointer" style={{ height: "220px" }}>
+              <div key={e.title} className="relative rounded-2xl overflow-hidden group cursor-pointer" style={{ height: "220px" }}>
                 <img src={e.image} alt={e.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/90 via-[#0D1B2A]/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
