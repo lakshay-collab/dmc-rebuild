@@ -100,7 +100,7 @@ export default function AdHomePage() {
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white border-b border-[#0D1B2A]/06">
         <div className="max-w-[1200px] mx-auto px-5 py-4 flex items-center justify-between">
-          <Link to="/ads" className="text-[22px] sm:text-[26px] font-bold text-[#0D1B2A] tracking-tight font-['Cormorant_Garamond'] hover:opacity-80 transition-opacity">
+          <Link to="/ads" className="text-[22px] sm:text-[26px] font-bold text-[#0D1B2A] tracking-tight font-['Manrope'] font-bold tracking-tight hover:opacity-80 transition-opacity">
             HI DMC
           </Link>
           <div className="hidden md:flex items-center gap-8">
@@ -116,16 +116,16 @@ export default function AdHomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-[#f5f7fa]" />
-        <div className="relative max-w-[1200px] mx-auto px-5 pt-16 sm:pt-24 pb-8 sm:pb-12 text-center">
-          <h1 className="font-['Cormorant_Garamond'] text-[40px] sm:text-[56px] lg:text-[68px] font-light text-[#0D1B2A] leading-[1.1] mb-6">
+        <div className="relative max-w-[1200px] mx-auto px-5 pt-20 sm:pt-28 pb-8 sm:pb-12 text-center">
+          <h1 data-reveal className="font-['Manrope'] font-bold tracking-tight text-[40px] sm:text-[56px] lg:text-[68px] text-[#0D1B2A] leading-[1.1] mb-6">
             Travel, <em className="text-[#174358]">your way.</em>
           </h1>
-          <p className="text-[15px] sm:text-[17px] text-[#0D1B2A]/55 max-w-xl mx-auto mb-10 leading-relaxed">
+          <p data-reveal className="text-[15px] sm:text-[17px] text-[#0D1B2A]/55 max-w-xl mx-auto mb-10 leading-relaxed">
             Handcrafted tour packages across 45+ destinations. Local experts, transparent pricing, and 30 years of trust.
           </p>
 
           {/* Search-style CTA */}
-          <div className="max-w-2xl mx-auto">
+          <div data-reveal className="max-w-2xl mx-auto">
             <div className="bg-white rounded-full border border-[#0D1B2A]/08 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] flex items-center p-1.5 sm:p-2">
               <div className="flex items-center gap-2.5 flex-1 pl-4">
                 <MapPin size={18} className="text-[#174358] shrink-0" />
@@ -145,7 +145,7 @@ export default function AdHomePage() {
 
         {/* Hero Image Band */}
         <div className="relative max-w-[1400px] mx-auto px-4 pb-6 sm:pb-10">
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-3">
+          <div data-reveal-group className="grid grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-3">
             {[
               "https://images.unsplash.com/photo-1678388103961-5e1254fcc42a?w=400&h=300&fit=crop&q=80",
               "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&h=300&fit=crop&q=80",
@@ -178,12 +178,12 @@ export default function AdHomePage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 sm:py-20 px-5">
+      <section className="py-20 md:py-28 px-5">
         <div className="max-w-[1200px] mx-auto">
-          <h2 className="font-['Cormorant_Garamond'] text-[28px] sm:text-[34px] font-light text-[#0D1B2A] text-center mb-12">
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-[28px] sm:text-[34px] text-[#0D1B2A] text-center mb-12">
             Custom holidays don't have to be complicated
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 sm:gap-8">
+          <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-4 gap-6 sm:gap-8">
             {[
               { icon: Globe, num: "1", title: "Dream it", desc: "Tell us your destination, travel dates, and preferences. We start planning immediately." },
               { icon: Users, num: "2", title: "Customize it", desc: "A local specialist crafts your itinerary, one-on-one, tailored to your style and budget." },
@@ -199,7 +199,7 @@ export default function AdHomePage() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div data-reveal className="text-center mt-12">
             <Button onClick={() => setModalOpen(true)} variant="outline" className="rounded-full px-8 h-11 text-[13px] font-bold border-[#174358]/30 text-[#174358] hover:bg-[#174358]/04">
               Start Planning <ArrowRight size={14} className="ml-1.5" />
             </Button>
@@ -208,15 +208,15 @@ export default function AdHomePage() {
       </section>
 
       {/* Discover Destinations */}
-      <section id="destinations" className="py-16 sm:py-20 px-5 bg-[#F8FAFB]">
+      <section id="destinations" className="py-20 md:py-28 px-5 bg-[#F8FAFB]">
         <div className="max-w-[1200px] mx-auto">
-          <h2 className="font-['Cormorant_Garamond'] text-[28px] sm:text-[34px] font-light text-[#0D1B2A] text-center mb-3">
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-[28px] sm:text-[34px] text-[#0D1B2A] text-center mb-3">
             Discover extraordinary destinations
           </h2>
-          <p className="text-[14px] text-[#0D1B2A]/55 text-center mb-10 max-w-lg mx-auto">
+          <p data-reveal className="text-[14px] text-[#0D1B2A]/55 text-center mb-12 max-w-lg mx-auto">
             Explore our curated collection of destinations, each with local experts and handcrafted itineraries.
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div data-reveal-group className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {DESTINATIONS.map(d => (
               <Link key={d.name} to={d.link} data-testid={`dest-card-${d.name.toLowerCase().replace(/\s+/g, '-')}`}
                 className="group relative rounded-2xl sm:rounded-2xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
@@ -232,12 +232,12 @@ export default function AdHomePage() {
       </section>
 
       {/* Why Hi DMC */}
-      <section className="py-16 sm:py-20 px-5">
+      <section className="py-20 md:py-28 px-5">
         <div className="max-w-[1000px] mx-auto">
-          <h2 className="font-['Cormorant_Garamond'] text-[28px] sm:text-[34px] font-light text-[#0D1B2A] text-center mb-12">
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-[28px] sm:text-[34px] text-[#0D1B2A] text-center mb-12">
             Why travel with Hi DMC
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { icon: Shield, title: "30 years of trust", desc: "A division of Hi Tours Group, one of Asia's most established travel companies since 1993." },
               { icon: MapPin, title: "Local offices, local experts", desc: "Six offices across Asia and the Middle East. Our teams live where you travel." },
@@ -254,13 +254,13 @@ export default function AdHomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 sm:py-16 px-5 bg-[#0D1B2A]">
+      <section className="py-20 md:py-28 px-5 bg-[#0D1B2A]">
         <div className="max-w-[700px] mx-auto text-center">
-          <h2 className="font-['Cormorant_Garamond'] text-[28px] sm:text-[34px] font-light text-white mb-4">
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-[28px] sm:text-[34px] text-white mb-4">
             Ready to plan your next trip?
           </h2>
-          <p className="text-[14px] text-white/50 mb-8">Get a custom itinerary crafted by our destination specialists. It's free, no strings attached.</p>
-          <Button onClick={() => setModalOpen(true)} className="bg-white text-[#0D1B2A] hover:bg-[#0D1B2A]/05 rounded-full h-12 px-8 text-[14px] font-bold shadow-lg">
+          <p data-reveal className="text-[14px] text-white/50 mb-8">Get a custom itinerary crafted by our destination specialists. It's free, no strings attached.</p>
+          <Button data-reveal onClick={() => setModalOpen(true)} className="bg-white text-[#0D1B2A] hover:bg-[#0D1B2A]/05 rounded-full h-12 px-8 text-[14px] font-bold shadow-lg">
             Get Free Consultation <ArrowRight size={14} className="ml-2" />
           </Button>
         </div>
@@ -270,7 +270,7 @@ export default function AdHomePage() {
       <footer className="bg-[#0D1B2A] border-t border-white/10 px-5 py-8">
         <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-center sm:text-left">
-            <p className="text-white text-[14px] font-bold font-['Cormorant_Garamond']">HI DMC</p>
+            <p className="text-white text-[14px] font-bold font-['Manrope'] font-bold tracking-tight">HI DMC</p>
             <p className="text-white/25 text-[11px] mt-0.5">A Division of Hi Tours India Pvt. Ltd.</p>
           </div>
           <p className="text-white/15 text-[10px]">Vatika City Point, Sector 49, Gurgaon, Haryana 122002</p>

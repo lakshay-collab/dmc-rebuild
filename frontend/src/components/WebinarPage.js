@@ -141,12 +141,12 @@ export default function WebinarPage() {
       <section data-testid="webinar-hero" className="relative pt-32 pb-16 md:pt-40 md:pb-20 px-6 md:px-12 lg:px-24 bg-[#0D1B2A] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="max-w-3xl">
-            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-5 font-['Manrope']">Webinars & Events</p>
-            <h1 data-testid="webinar-hero-heading" className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl lg:text-6xl font-light text-white leading-[1.1] mb-6">
+          <div data-reveal-group className="max-w-3xl">
+            <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-white/40 mb-5 font-['Manrope']">Webinars & Events</p>
+            <h1 data-testid="webinar-hero-heading" className="font-['Manrope'] font-bold tracking-tight text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-7">
               Learn, Connect, <em className="text-white/50">Grow.</em>
             </h1>
-            <p className="text-white/45 text-base md:text-lg leading-relaxed max-w-2xl">
+            <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-2xl font-['Manrope']">
               Join our expert-led webinars to discover new destinations, master our platform, and learn how top-performing agents are growing their business with Hi DMC.
             </p>
           </div>
@@ -157,7 +157,7 @@ export default function WebinarPage() {
       <section data-testid="webinar-month-selector" className="py-10 px-6 md:px-12 lg:px-24 bg-[#F8FAFB] border-b border-[#0D1B2A]/06">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-light text-[#0D1B2A]">
+            <h2 className="font-['Manrope'] font-bold tracking-tight text-2xl md:text-3xl text-[#0D1B2A]">
               Browse by Month
             </h2>
             <div className="flex items-center gap-3">
@@ -202,12 +202,12 @@ export default function WebinarPage() {
       </section>
 
       {/* Webinar Listing */}
-      <section data-testid="webinar-listing" className="py-16 md:py-20 px-6 md:px-12 lg:px-24 bg-white">
+      <section data-testid="webinar-listing" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h3 className="font-['Cormorant_Garamond'] text-3xl font-light text-[#0D1B2A] mb-2">
+          <h3 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-[#0D1B2A] leading-[1.1] mb-2">
             {MONTHS[selectedMonth]} {selectedYear}
           </h3>
-          <p className="text-sm text-[#0D1B2A]/40 mb-10">
+          <p className="text-sm text-[#0D1B2A]/40 mb-12 font-['Manrope']">
             {filteredWebinars.length} webinar{filteredWebinars.length !== 1 ? "s" : ""} scheduled
           </p>
 
@@ -240,7 +240,7 @@ export default function WebinarPage() {
                         </span>
                       )}
                     </div>
-                    <h4 className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-light text-[#0D1B2A] mb-3">{w.title}</h4>
+                    <h4 className="font-['Manrope'] font-bold tracking-tight text-2xl md:text-3xl text-[#0D1B2A] mb-3">{w.title}</h4>
                     <p className="text-sm text-[#0D1B2A]/45 leading-relaxed mb-5 max-w-3xl">{w.description}</p>
 
                     <div className="flex flex-wrap gap-5 mb-5">
@@ -282,22 +282,23 @@ export default function WebinarPage() {
       </section>
 
       {/* Registration Form (Zoho Embed Placeholder) */}
-      <section id="register" data-testid="webinar-register-section" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
+      <section id="register" data-testid="webinar-register-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Register</p>
-            <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-4">
+          <div data-reveal className="text-center mb-12">
+            <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Register</p>
+            <h2 className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl text-[#0D1B2A] leading-[1.05] mb-5">
               Sign Up for <em className="text-[#174358]/50">Upcoming Webinars</em>
             </h2>
-            <p className="text-[#0D1B2A]/40 text-base leading-relaxed">
+            <p className="text-[#0D1B2A]/50 text-base leading-relaxed font-['Manrope']">
               Fill in the form below to register for our next webinar. You'll receive a confirmation email with the meeting link.
             </p>
           </div>
 
           {/* Zoho Embed Form Placeholder */}
           <div
+            data-reveal
             data-testid="webinar-zoho-form-placeholder"
-            className="rounded-2xl border-2 border-dashed border-[#174358]/15 bg-white p-10 md:p-14 text-center"
+            className="rounded-2xl border-2 border-dashed border-[#174358]/15 bg-white p-12 md:p-16 text-center shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)]"
           >
             <div className="w-14 h-14 rounded-full bg-[#174358]/06 flex items-center justify-center mx-auto mb-5">
               <Video size={24} strokeWidth={1.5} className="text-[#174358]/40" />

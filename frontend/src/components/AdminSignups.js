@@ -71,7 +71,7 @@ function AdminLogin({ onLogin }) {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="w-12 h-12 rounded-xl bg-[#174358] flex items-center justify-center mx-auto mb-4"><Lock size={20} className="text-white/80" /></div>
-          <h1 className="font-['Cormorant_Garamond'] text-3xl text-white font-light">HI DMC</h1>
+          <h1 className="font-['Manrope'] font-bold tracking-tight text-3xl text-white">HI DMC</h1>
           <p className="text-white/30 text-xs mt-1 uppercase tracking-[0.2em]">Lead Management</p>
         </div>
         <form onSubmit={submit} className="bg-white/05 backdrop-blur-sm rounded-2xl p-6 border border-white/08 space-y-4">

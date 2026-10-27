@@ -67,11 +67,11 @@ export default function GlobalDestinations() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
-            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Discover</p>
-            <h2 data-testid="global-destinations-heading" className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-3">
+            <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">Discover</p>
+            <h2 data-reveal data-testid="global-destinations-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl leading-tight text-[#0D1B2A] mb-4">
               More Destinations. <em className="text-[#174358]">One DMC Relationship.</em>
             </h2>
-            <p className="text-[#0D1B2A]/55 max-w-lg text-sm">
+            <p data-reveal className="font-['Manrope'] text-[#0D1B2A]/60 max-w-lg text-sm leading-relaxed">
               Destinations serviced through Hi DMC's contracted suppliers and booking operations. Need something
               that isn't listed? Send us the enquiry and we'll advise on the options.
             </p>
@@ -112,7 +112,7 @@ export default function GlobalDestinations() {
             <p className="text-[#0D1B2A]/40 text-sm">No destinations found matching your search.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filtered.map((d) => <DestCard key={d.name} d={d} />)}
           </div>
         )}
@@ -124,15 +124,15 @@ export default function GlobalDestinations() {
 function DestCard({ d }) {
   return (
     <Link to={`/destination/${encodeURIComponent(d.name)}`} data-testid={`global-dest-${d.name.toLowerCase().replace(/ /g, '-')}`}
-      className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group cursor-pointer block border border-[#0D1B2A]/05">
-      <div className="h-48 overflow-hidden">
+      className="bg-white rounded-2xl overflow-hidden shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] hover:shadow-[0_28px_70px_-28px_rgba(13,27,42,0.35)] transition-shadow duration-500 group cursor-pointer block">
+      <div className="h-56 overflow-hidden">
         <img src={d.image_url} alt={d.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
       </div>
-      <div className="p-5">
+      <div className="p-6">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="font-['Cormorant_Garamond'] text-xl font-medium text-[#0D1B2A]">{d.name}</h3>
+          <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-[#0D1B2A]">{d.name}</h3>
         </div>
-        <p className="text-xs text-[#0D1B2A]/50 leading-relaxed line-clamp-2 mb-3">{d.description}</p>
+        <p className="font-['Manrope'] text-xs text-[#0D1B2A]/60 leading-relaxed line-clamp-2 mb-4">{d.description}</p>
         <div className="flex items-center justify-between pt-3 border-t border-[#0D1B2A]/06">
           <span className="text-xs text-[#174358]/50 font-semibold uppercase tracking-wider">{d.region}</span>
           <span className="text-xs font-semibold text-[#174358] group-hover:text-[#1e5a75] inline-flex items-center gap-1 transition-colors">

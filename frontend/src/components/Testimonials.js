@@ -14,21 +14,21 @@ const testimonials = [
 export default function Testimonials() {
   const doubled = [...testimonials, ...testimonials];
   return (
-    <section data-testid="testimonials-section" className="py-16 md:py-24 overflow-hidden bg-[#F4F1E8]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-14">
+    <section data-testid="testimonials-section" className="py-20 md:py-28 overflow-hidden bg-[#F4F1E8]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-16 md:mb-20">
         <div className="text-center">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">Testimonials</p>
-          <h2 data-testid="testimonials-heading" className="font-['Cormorant_Garamond'] text-3xl md:text-4xl lg:text-5xl font-light text-[#0D1B2A] leading-tight">
+          <p data-reveal className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-5">Testimonials</p>
+          <h2 data-reveal data-testid="testimonials-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] leading-tight">
             What Our <em className="text-[#174358]">Partners</em> Say
           </h2>
         </div>
       </div>
       <div className="relative">
-        <div className="flex gap-6 animate-scroll-testimonials" style={{ width: "max-content" }}>
+        <div className="flex gap-7 animate-scroll-testimonials" style={{ width: "max-content" }}>
           {doubled.map((t, i) => (
             <div key={`${t.name}-${i}`} data-testid={i < testimonials.length ? `testimonial-${i}` : undefined}
-              className="w-[360px] flex-shrink-0 bg-white rounded-2xl p-8 shadow-sm hover:shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] transition-all duration-300">
-              <Quote size={24} className="text-[#174358]/20 mb-4" strokeWidth={1.5} />
+              className="w-[380px] flex-shrink-0 bg-white rounded-[1.25rem] p-9 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] hover:shadow-[0_26px_60px_-26px_rgba(13,27,42,0.32)] transition-all duration-300">
+              <Quote size={28} className="text-[#174358]/20 mb-5" strokeWidth={1.5} />
               <p className="font-['Manrope'] text-sm text-[#0D1B2A]/65 leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
               <div className="border-t border-[#0D1B2A]/[0.08] pt-4">
                 <p className="font-['Manrope'] text-sm font-semibold text-[#0D1B2A]">{t.name}</p>

@@ -62,31 +62,31 @@ export default function PlanMyTrip() {
         <div className="absolute inset-0 bg-[#0D1B2A]">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B2A] via-[#0D1B2A]/95 to-[#174358]/80" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 w-full">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-4">Plan Your Trip</p>
-          <h1 data-testid="plan-trip-heading" className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl md:text-6xl font-light text-white leading-tight mb-4">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-24 w-full">
+          <p data-reveal className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-5">Plan Your Trip</p>
+          <h1 data-reveal data-testid="plan-trip-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl sm:text-5xl md:text-6xl text-white leading-tight mb-5">
             Tell Us What You <em className="text-white/60">Need</em>
           </h1>
-          <p className="text-base text-white/45 max-w-xl">Share your travel requirements and our team will craft a custom itinerary with the best rates — typically within 48 hours.</p>
+          <p data-reveal className="text-base text-white/45 max-w-xl leading-relaxed">Share your travel requirements and our team will craft a custom itinerary with the best rates — typically within 48 hours.</p>
         </div>
       </section>
 
       {/* Form Section */}
-      <section className="py-16 md:py-24 px-6 md:px-12 bg-[#F4F1E8]">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-[#F4F1E8]">
         <div className="max-w-3xl mx-auto">
           {result?.ok ? (
-            <div data-testid="plan-trip-success" className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] text-center py-16 px-6">
+            <div data-reveal data-testid="plan-trip-success" className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] text-center py-16 px-6">
               <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={32} className="text-emerald-500" />
               </div>
-              <h2 className="font-['Cormorant_Garamond'] text-3xl font-light text-[#0D1B2A] mb-3">Request Submitted</h2>
+              <h2 className="font-['Manrope'] font-bold tracking-tight text-3xl text-[#0D1B2A] mb-3">Request Submitted</h2>
               <p className="text-sm text-[#0D1B2A]/50 max-w-md mx-auto mb-6">Thank you! Our team will review your requirements and get back to you with a custom itinerary within 48 hours.</p>
               <Button onClick={() => { setResult(null); window.history.pushState({}, "", "/plan-my-trip"); }} className="bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full px-8 py-3 text-sm font-semibold shadow-sm transition-colors">
                 Plan Another Trip
               </Button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] p-7 md:p-10 space-y-6">
+            <form onSubmit={handleSubmit} data-reveal className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] p-7 md:p-10 space-y-6">
               {result?.ok === false && (
                 <div data-testid="plan-trip-error" className="flex items-center gap-3 p-4 rounded-2xl bg-red-50 border border-red-100">
                   <AlertCircle size={18} className="text-red-500 flex-shrink-0" />

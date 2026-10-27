@@ -66,7 +66,7 @@ export default function LegalPage() {
   if (!policy) return (
     <div className="min-h-screen bg-white"><Navbar />
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
-        <h2 className="font-['Cormorant_Garamond'] text-3xl text-[#0D1B2A]">Page not found</h2>
+        <h2 className="font-['Manrope'] font-bold tracking-tight text-3xl text-[#0D1B2A]">Page not found</h2>
         <Link to="/" className="text-sm text-[#174358] hover:underline">Back to Home</Link>
       </div>
       <Footer />
@@ -78,16 +78,16 @@ export default function LegalPage() {
       <Navbar forceLight />
       <div className="pt-28 pb-20 md:pb-28 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
-          <Link to="/" className="inline-flex items-center gap-2 text-[#174358]/60 hover:text-[#174358] text-[11px] font-semibold uppercase tracking-[0.2em] mb-10 transition-colors">
+          <Link to="/" data-reveal className="inline-flex items-center gap-2 text-[#174358]/60 hover:text-[#174358] text-[11px] font-semibold uppercase tracking-[0.2em] mb-10 transition-colors">
             <ArrowLeft size={14} /> Back to Home
           </Link>
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">Legal</p>
-          <h1 data-testid="legal-title" className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-4">{policy.title}</h1>
-          <p className="text-xs text-[#0D1B2A]/40 mb-12">Effective date: {policy.effective} &middot; Last revised: {policy.effective}</p>
-          <div className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] p-8 md:p-12 space-y-10">
+          <p data-reveal className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">Legal</p>
+          <h1 data-reveal data-testid="legal-title" className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl text-[#0D1B2A] mb-4">{policy.title}</h1>
+          <p data-reveal className="text-xs text-[#0D1B2A]/40 mb-12">Effective date: {policy.effective} &middot; Last revised: {policy.effective}</p>
+          <div data-reveal className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] p-8 md:p-12 space-y-10">
             {policy.sections.map((s, i) => (
               <div key={i}>
-                <h2 className="font-['Cormorant_Garamond'] text-2xl font-light text-[#0D1B2A] mb-3">{s.heading}</h2>
+                <h2 className="font-['Manrope'] font-bold tracking-tight text-2xl text-[#0D1B2A] mb-3">{s.heading}</h2>
                 <p className="text-sm text-[#0D1B2A]/60 leading-relaxed whitespace-pre-line font-['Manrope']">{s.text}</p>
               </div>
             ))}

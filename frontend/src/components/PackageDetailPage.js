@@ -51,7 +51,7 @@ function Sidebar({ destName, pkgTitle }) {
   return (
     <div data-testid="pkg-sidebar" className="bg-[#F8FAFB] rounded-2xl p-7 border border-[#0D1B2A]/10">
       <p className="text-[10px] tracking-[0.2em] uppercase font-semibold text-[#0D1B2A]/30 mb-2">Meet Our {destName} Experts</p>
-      <h3 className="font-['Cormorant_Garamond'] text-2xl text-[#0D1B2A] mb-3">Speak to a specialist.</h3>
+      <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-[#0D1B2A] mb-3">Speak to a specialist.</h3>
       <p className="text-xs text-[#0D1B2A]/50 leading-relaxed mb-5">
         Our {destName} team are waiting to help you plan your next journey. Speak to a specialist today and we'll begin drafting your tailored itinerary.
       </p>
@@ -113,7 +113,7 @@ function StayBlock({ stay, isOpen, onToggle }) {
           <p className="text-[11px] text-[#0D1B2A]/40 font-semibold mb-1">{stay.day_range}</p>
         </div>
         <button onClick={onToggle} className="w-full px-6 pb-4 flex items-center justify-between text-left group">
-          <h3 className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-light text-[#0D1B2A] group-hover:text-[#174358] transition-colors leading-tight">{stay.title}</h3>
+          <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl md:text-3xl text-[#0D1B2A] group-hover:text-[#174358] transition-colors leading-tight">{stay.title}</h3>
           <ChevronDown size={20} className={`text-[#0D1B2A]/30 transition-transform flex-shrink-0 ml-4 ${isOpen ? "rotate-180" : ""}`} />
         </button>
 
@@ -138,7 +138,7 @@ function StayBlock({ stay, isOpen, onToggle }) {
             {stay.hotels.length > 0 && (
               <div className="mb-8">
                 <div className="flex items-center justify-between mb-4">
-                  <p className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A]">Suggested hotels for {stay.title.split(":")[0]}</p>
+                  <p className="font-['Manrope'] font-bold tracking-tight text-xl text-[#0D1B2A]">Suggested hotels for {stay.title.split(":")[0]}</p>
                   {stay.hotels.length > 3 && (
                     <div className="flex gap-1.5">
                       <button onClick={() => setHotelScroll(p => Math.max(0, p - 1))} className="w-8 h-8 rounded-full border border-[#0D1B2A]/10 flex items-center justify-center hover:bg-[#F8FAFB] transition-colors"><ChevronLeft size={14} /></button>
@@ -155,7 +155,7 @@ function StayBlock({ stay, isOpen, onToggle }) {
                           <span className="absolute bottom-3 left-3 text-[8px] font-bold uppercase tracking-[0.15em] bg-[#0D1B2A]/80 text-white px-2.5 py-1 rounded">{h.tier}</span>
                         </div>
                         <div className="p-4">
-                          <h4 className="font-['Cormorant_Garamond'] text-lg text-[#0D1B2A] mb-1">{h.name}</h4>
+                          <h4 className="font-['Manrope'] font-bold tracking-tight text-lg text-[#0D1B2A] mb-1">{h.name}</h4>
                           <p className="text-[11px] text-[#0D1B2A]/40">{h.location}</p>
                         </div>
                       </div>
@@ -169,7 +169,7 @@ function StayBlock({ stay, isOpen, onToggle }) {
             {stay.experiences.length > 0 && (
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <p className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A]">Suggested experiences for {stay.day_range}</p>
+                  <p className="font-['Manrope'] font-bold tracking-tight text-xl text-[#0D1B2A]">Suggested experiences for {stay.day_range}</p>
                   {stay.experiences.length > 3 && (
                     <div className="flex gap-1.5">
                       <button onClick={() => setExpScroll(p => Math.max(0, p - 1))} className="w-8 h-8 rounded-full border border-[#0D1B2A]/10 flex items-center justify-center hover:bg-[#F8FAFB]"><ChevronLeft size={14} /></button>
@@ -185,7 +185,7 @@ function StayBlock({ stay, isOpen, onToggle }) {
                           <img src={exp.image} alt={exp.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <div className="p-4">
-                          <h4 className="font-['Cormorant_Garamond'] text-lg text-[#0D1B2A] mb-0.5">{exp.title}</h4>
+                          <h4 className="font-['Manrope'] font-bold tracking-tight text-lg text-[#0D1B2A] mb-0.5">{exp.title}</h4>
                           <p className="text-[10px] text-[#0D1B2A]/35 mb-2">{exp.location}</p>
                           <p className="text-xs text-[#0D1B2A]/50 leading-relaxed">{exp.description}</p>
                         </div>
@@ -276,7 +276,7 @@ export default function PackageDetailPage() {
 
   if (!pkg) return (
     <div className="min-h-screen bg-[#F4F1E8] flex flex-col items-center justify-center gap-4">
-      <h2 className="font-['Cormorant_Garamond'] text-3xl text-[#0D1B2A]">Itinerary not found</h2>
+      <h2 className="font-['Manrope'] font-bold tracking-tight text-3xl text-[#0D1B2A]">Itinerary not found</h2>
       <Link to={`/destination/${name}`} className="text-sm text-[#174358] hover:underline">Back to {name}</Link>
     </div>
   );
@@ -287,7 +287,7 @@ export default function PackageDetailPage() {
       {/* ── Hero ── */}
       <section ref={heroRef} data-testid="pkg-hero" className="relative min-h-[75vh] md:min-h-[85vh] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0">
-          <img src={pkg.hero_image} alt={pkg.title} className="w-full h-full object-cover" />
+          <img src={pkg.hero_image} alt={pkg.title} data-parallax="18" className="w-full h-full object-cover scale-110" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/80 via-[#0D1B2A]/40 to-[#0D1B2A]/10" />
         </div>
         {/* Top bar */}
@@ -299,18 +299,18 @@ export default function PackageDetailPage() {
         </div>
         <div className="relative z-10 w-full px-5 md:px-12 lg:px-20 pb-10 md:pb-16">
           <div className="max-w-[1400px] mx-auto">
-            <Link to={`/destination/${name}`} data-testid="back-to-dest" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-xs font-semibold uppercase tracking-[0.15em] mb-4 md:mb-6 transition-colors">
+            <Link to={`/destination/${name}`} data-reveal data-testid="back-to-dest" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-xs font-semibold uppercase tracking-[0.15em] mb-4 md:mb-6 transition-colors">
               <ArrowLeft size={14} /> Back to {name}
             </Link>
-            <p className="text-white/50 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] mb-3">{name} &middot; {pkg.duration}</p>
-            <h1 data-testid="pkg-title" className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-[0.95] mb-4 md:mb-6 max-w-[900px]">
+            <p data-reveal className="text-white/50 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] mb-4">{name} &middot; {pkg.duration}</p>
+            <h1 data-reveal data-testid="pkg-title" className="font-['Manrope'] font-bold tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[0.95] mb-5 md:mb-6 max-w-[900px]">
               {pkg.title}
             </h1>
-            <p className="text-white/60 text-sm md:text-base lg:text-lg max-w-xl leading-relaxed mb-6 md:mb-8">{pkg.subtitle}</p>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+            <p data-reveal className="font-['Manrope'] text-white/60 text-sm md:text-base lg:text-lg max-w-xl leading-relaxed mb-6 md:mb-8">{pkg.subtitle}</p>
+            <div data-reveal className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <div className="flex items-center gap-3">
                 <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.15em] font-semibold">Starting from</p>
-                <p className="font-['Cormorant_Garamond'] text-3xl md:text-4xl text-white">&#8377;{pkg.starting_price}</p>
+                <p className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-white">&#8377;{pkg.starting_price}</p>
                 <span className="text-white/40 text-[10px] md:text-xs">per person</span>
               </div>
               <button onClick={() => scrollTo("Pricing")} data-testid="hero-inquire-btn"
@@ -346,8 +346,8 @@ export default function PackageDetailPage() {
 
             {/* At a Glance / Highlights */}
             <section ref={sectionRefs["At a Glance"]} data-testid="pkg-highlights" className="mb-16">
-              <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-8">Highlights</h2>
-              <ul className="space-y-4">
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-8">Highlights</h2>
+              <ul data-reveal-group className="space-y-4">
                 {pkg.highlights.map((h) => (
                   <li key={h} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#174358] mt-2 flex-shrink-0" />
@@ -360,7 +360,7 @@ export default function PackageDetailPage() {
             {/* Itinerary */}
             <section ref={sectionRefs.Itinerary} data-testid="pkg-itinerary" className="mb-10">
               <div className="flex items-end justify-between mb-6">
-                <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">Itinerary</h2>
+                <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">Itinerary</h2>
                 <button onClick={expandAll} data-testid="expand-all-btn"
                   className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-[#0D1B2A]/40 hover:text-[#0D1B2A]/70 border border-[#0D1B2A]/10 px-4 py-2 rounded-full transition-colors">
                   <ChevronDown size={14} className={allExpanded ? "rotate-180" : ""} /> {allExpanded ? "Collapse" : "Expand"} All Stays
@@ -382,8 +382,8 @@ export default function PackageDetailPage() {
 
             {/* Pricing */}
             <section ref={sectionRefs.Pricing} data-testid="pkg-pricing" className="mb-10">
-              <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-2">Pricing</h2>
-              <p className="text-xs text-[#0D1B2A]/40 mb-6">Per person &middot; excluding international flights.</p>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-2">Pricing</h2>
+              <p data-reveal className="font-['Manrope'] text-xs text-[#0D1B2A]/50 mb-6">Per person &middot; excluding international flights.</p>
               <div className="border border-[#0D1B2A]/08 rounded-2xl overflow-hidden overflow-x-auto">
                 <div className="hidden md:grid grid-cols-5 bg-[#F8FAFB] px-6 py-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#0D1B2A]/40 min-w-[600px]">
                   <span>Departing</span><span>Price from</span><span>Deposit from</span><span></span><span></span>
@@ -391,10 +391,10 @@ export default function PackageDetailPage() {
                 {pkg.pricing.map((row) => (
                   <div key={`${row.month}-${row.season}`} data-testid={`pricing-row-${row.month.toLowerCase().replace(/\s+/g, '-')}`} className="grid grid-cols-2 md:grid-cols-5 items-center px-5 md:px-6 py-3.5 border-t border-[#0D1B2A]/06 hover:bg-[#F8FAFB]/50 transition-colors gap-2 md:gap-0">
                     <div>
-                      <p className="font-['Cormorant_Garamond'] text-base md:text-lg text-[#0D1B2A]">{row.month}</p>
+                      <p className="font-['Manrope'] font-bold tracking-tight text-base md:text-lg text-[#0D1B2A]">{row.month}</p>
                       <p className="text-[10px] text-[#0D1B2A]/35">{row.season}</p>
                     </div>
-                    <p className="font-['Cormorant_Garamond'] text-base md:text-lg text-[#0D1B2A] text-right md:text-left">&#8377;{row.price}</p>
+                    <p className="font-['Manrope'] font-bold tracking-tight text-base md:text-lg text-[#0D1B2A] text-right md:text-left">&#8377;{row.price}</p>
                     <p className="hidden md:block text-sm text-[#0D1B2A]/50">{row.deposit === "\u2014" ? "\u2014" : `\u20B9${row.deposit}`}</p>
                     <span className="hidden md:block"></span>
                     <button onClick={() => scrollTo("At a Glance")}
@@ -408,13 +408,13 @@ export default function PackageDetailPage() {
 
             {/* Things to Know */}
             <section ref={sectionRefs["Things to Know"]} data-testid="pkg-things-to-know" className="mb-6">
-              <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-6">Things to Know</h2>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-6">Things to Know</h2>
               <div className="border border-[#0D1B2A]/08 rounded-2xl overflow-hidden divide-y divide-[#0D1B2A]/06">
                 {pkg.things_to_know.map((faq) => (
                   <div key={faq.title} data-testid={`faq-${faq.title.toLowerCase().replace(/\s+/g, '-').slice(0, 25)}`}>
                     <button onClick={() => setOpenFaq(p => ({ ...p, [faq.title]: !p[faq.title] }))}
                       className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[#F8FAFB]/50 transition-colors">
-                      <h3 className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A]">{faq.title}</h3>
+                      <h3 className="font-['Manrope'] font-bold tracking-tight text-xl text-[#0D1B2A]">{faq.title}</h3>
                       <ChevronDown size={18} className={`text-[#0D1B2A]/30 transition-transform ${openFaq[faq.title] ? "rotate-180" : ""}`} />
                     </button>
                     {openFaq[faq.title] && (
@@ -441,14 +441,14 @@ export default function PackageDetailPage() {
       {pkg.includes && (
         <section data-testid="pkg-includes" className="py-12 px-5 md:px-12 lg:px-20 bg-gradient-to-b from-[#F8FAFB] to-[#F4F1E8] border-t border-[#0D1B2A]/06">
           <div className="max-w-[1400px] mx-auto">
-            <h2 className="font-['Cormorant_Garamond'] text-3xl font-light text-[#0D1B2A] text-center mb-2">What we include, every time</h2>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mt-10">
+            <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl leading-tight text-[#0D1B2A] text-center mb-2">What we include, every time</h2>
+            <div data-reveal-group className="grid grid-cols-2 md:grid-cols-5 gap-6 mt-10">
               {pkg.includes.map((inc) => {
                 const Icon = includeIcons[pkg.includes.indexOf(inc)] || Shield;
                 return (
                   <div key={inc.title} className="text-center">
                     <Icon size={24} className="text-[#174358]/60 mx-auto mb-3" strokeWidth={1.5} />
-                    <h4 className="font-['Cormorant_Garamond'] text-lg text-[#0D1B2A] mb-1">{inc.title}</h4>
+                    <h4 className="font-['Manrope'] font-bold tracking-tight text-lg text-[#0D1B2A] mb-1">{inc.title}</h4>
                     <p className="text-[11px] text-[#0D1B2A]/40 leading-relaxed">{inc.desc}</p>
                   </div>
                 );
@@ -463,7 +463,7 @@ export default function PackageDetailPage() {
         <section data-testid="pkg-other-tours" className="py-12 px-5 md:px-12 lg:px-20">
           <div className="max-w-[1400px] mx-auto">
             <div className="flex items-end justify-between mb-8">
-              <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">
                 Other amazing {name} tours you may like.
               </h2>
               <div className="hidden md:flex gap-1.5">
@@ -482,7 +482,7 @@ export default function PackageDetailPage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/80 via-[#0D1B2A]/20 to-transparent" />
                         <div className="absolute bottom-0 left-0 right-0 p-5">
                           <p className="text-[10px] text-white/50 font-semibold uppercase tracking-wider mb-2">{op.duration} &middot; {name}</p>
-                          <h3 className="font-['Cormorant_Garamond'] text-xl text-white leading-tight">{op.title}</h3>
+                          <h3 className="font-['Manrope'] font-bold tracking-tight text-xl text-white leading-tight">{op.title}</h3>
                         </div>
                       </div>
                     </Link>
@@ -499,7 +499,7 @@ export default function PackageDetailPage() {
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <p className="text-xs text-[#0D1B2A]/40">From</p>
-            <p className="font-['Cormorant_Garamond'] text-2xl text-[#0D1B2A]">&#8377;{pkg.starting_price} <span className="text-xs text-[#0D1B2A]/40 font-sans">pp</span></p>
+            <p className="font-['Manrope'] font-bold tracking-tight text-2xl text-[#0D1B2A]">&#8377;{pkg.starting_price} <span className="text-xs text-[#0D1B2A]/40 font-sans">pp</span></p>
           </div>
           <button onClick={() => scrollTo("At a Glance")} className="bg-[#174358] text-white rounded-full px-8 py-3 text-xs font-bold uppercase tracking-[0.15em] hover:bg-[#1e5a75] shadow-sm transition-colors">
             Enquire now

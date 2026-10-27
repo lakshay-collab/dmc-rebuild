@@ -40,33 +40,33 @@ export default function OurTechnology() {
     <section id="technology" data-testid="technology-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#0D1B2A]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3 font-['Manrope']">Agent Portal</p>
-          <h2 data-testid="technology-heading" className="font-['Cormorant_Garamond'] text-4xl md:text-5xl lg:text-6xl font-light text-white mb-5">
+        <div data-reveal className="text-center mb-20">
+          <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-white/40 mb-3 font-['Manrope']">Agent Portal</p>
+          <h2 data-testid="technology-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] mb-6">
             One portal for bookings. <em className="text-white/50">One team</em><br />for everything else.
           </h2>
-          <p className="text-white/45 max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="text-white/50 max-w-2xl mx-auto text-base leading-relaxed font-['Manrope']">
             Browse and book supported destination products in the portal. For custom itineraries, groups and MICE,
             our agent team prepares the quotation and coordinates the destination.
           </p>
         </div>
 
         {/* Three feature cards with images */}
-        <div className="space-y-16 mb-16">
+        <div className="space-y-20 md:space-y-28 mb-20">
           {features.map((f, idx) => {
             const Icon = f.icon;
             const isReversed = idx % 2 !== 0;
             return (
-              <div key={f.label} data-testid={`tech-feature-${f.label.toLowerCase()}`} className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                <div className={isReversed ? "order-2 lg:order-2" : "order-2 lg:order-1"}>
+              <div key={f.label} data-testid={`tech-feature-${f.label.toLowerCase()}`} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div data-reveal={isReversed ? "right" : "left"} className={isReversed ? "order-2 lg:order-2" : "order-2 lg:order-1"}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-white/08 flex items-center justify-center">
                       <Icon size={18} strokeWidth={1.5} className="text-white/60" />
                     </div>
                     <span className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 font-['Manrope']">{f.label}</span>
                   </div>
-                  <h3 className="font-['Cormorant_Garamond'] text-3xl font-light text-white mb-4">{f.title}</h3>
-                  <p className="text-white/45 leading-relaxed mb-6 text-sm">{f.desc}</p>
+                  <h3 className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-white leading-[1.1] mb-5">{f.title}</h3>
+                  <p className="text-white/50 leading-relaxed mb-6 text-sm md:text-[15px] font-['Manrope']">{f.desc}</p>
                   <div className="space-y-2.5 mb-6">
                     {f.points.map((p, i) => (
                       <div key={i} className="flex items-center gap-2.5">
@@ -80,7 +80,7 @@ export default function OurTechnology() {
                   </Link>
                 </div>
                 <div className={isReversed ? "order-1 lg:order-1" : "order-1 lg:order-2"}>
-                  <div className="group rounded-2xl overflow-hidden border border-white/08 bg-white/04 p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]">
+                  <div data-reveal-img className="group rounded-2xl overflow-hidden border border-white/08 bg-white/04 p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]">
                     <img src={f.image} alt={f.title} className="w-full rounded-xl object-cover group-hover:scale-[1.03] transition-transform duration-700" />
                   </div>
                 </div>
@@ -90,16 +90,16 @@ export default function OurTechnology() {
         </div>
 
         {/* Stats + CTA */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div data-reveal-group className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {[{ value: "30+", label: "Years of Excellence" }, { value: "850+", label: "Active Agents" }, { value: "500K+", label: "Live Hotel Rates" }, { value: "99.9%", label: "Platform Uptime" }].map((s) => (
-            <div key={s.label} className="bg-white/05 rounded-2xl p-6 text-center border border-white/08 hover:border-white/15 hover:bg-white/08 transition-all duration-500">
-              <p className="font-['Cormorant_Garamond'] text-3xl font-light text-white mb-1">{s.value}</p>
+            <div key={s.label} className="bg-white/05 rounded-2xl p-7 text-center border border-white/08 hover:border-white/15 hover:bg-white/08 transition-all duration-700">
+              <p className="font-['Manrope'] font-bold tracking-tight text-3xl text-white mb-1">{s.value}</p>
               <p className="text-[11px] text-white/40 uppercase tracking-wider font-semibold">{s.label}</p>
             </div>
           ))}
         </div>
 
-        <div className="text-center">
+        <div data-reveal className="text-center">
           <a href="#contact" data-testid="technology-cta">
             <Button className="bg-white text-[#174358] hover:bg-white/90 rounded-full px-8 py-5 text-sm font-semibold shadow-lg hover:shadow-xl transition-all">
               Speak to Our Team <ArrowRight size={15} className="ml-2" />

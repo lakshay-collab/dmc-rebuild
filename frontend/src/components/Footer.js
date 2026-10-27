@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer data-testid="footer" className="pt-16 pb-6 px-6 md:px-12 lg:px-24 bg-[#0D1B2A]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-14">
+        <div data-reveal-group className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-14">
           <div className="col-span-2">
             <img src="/hidmc-logo-white.png" alt="Hi DMC" className="h-10 mb-4" />
             <p className="text-xs text-white/35 leading-relaxed mb-4 max-w-xs">Technology-driven, globally connected, locally expert destination management for travel agents worldwide.</p>

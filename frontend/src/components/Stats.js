@@ -18,7 +18,7 @@ function AnimatedNumber({ value, suffix, isVisible }) {
     const t = setInterval(() => { s += inc; if (s >= value) { setCurrent(value); clearInterval(t); } else setCurrent(Math.floor(s)); }, 16);
     return () => clearInterval(t);
   }, [isVisible, value]);
-  return <span className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#174358]">{current}<span className="text-[#174358]/40">{suffix}</span></span>;
+  return <span className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl text-[#174358]">{current}<span className="text-[#174358]/40">{suffix}</span></span>;
 }
 
 export default function Stats() {
@@ -31,8 +31,8 @@ export default function Stats() {
   }, []);
 
   return (
-    <section id="stats" ref={ref} data-testid="stats-section" className="py-16 md:py-20 px-6 md:px-12 lg:px-24 border-b border-[#0D1B2A]/05">
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+    <section id="stats" ref={ref} data-testid="stats-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 border-b border-[#0D1B2A]/05">
+      <div data-reveal-group className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 md:gap-8">
         {statsData.map((s) => {
           const Icon = s.icon;
           return (

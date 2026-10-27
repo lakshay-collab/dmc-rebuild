@@ -72,7 +72,7 @@ export default function AgentDashboard() {
       <nav className="bg-white border-b border-[#0D1B2A]/06 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <span className="font-['Cormorant_Garamond'] text-xl font-bold text-[#174358]">Hi DMC</span>
+            <span className="font-['Manrope'] font-bold tracking-tight text-xl font-bold text-[#174358]">Hi DMC</span>
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#174358]/40 bg-[#174358]/06 px-2.5 py-1 rounded-full">Agent Portal</span>
           </div>
           <div className="flex items-center gap-4">
@@ -91,7 +91,7 @@ export default function AgentDashboard() {
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-8 md:py-12">
         {/* Welcome */}
         <div className="mb-10">
-          <h1 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">
+          <h1 className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-[#0D1B2A]">
             Welcome back, <span className="text-[#174358] font-medium">{agent.name}</span>
           </h1>
           <p className="text-sm text-[#0D1B2A]/45 mt-2">{agent.agency_name}</p>

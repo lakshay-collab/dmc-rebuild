@@ -138,13 +138,13 @@ export default function SignupPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left — Copy */}
             <div className="pt-4">
-              <h1 data-testid="signup-heading" className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl font-light text-white leading-[1.1] mb-5">
+              <h1 data-reveal data-testid="signup-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl sm:text-5xl text-white leading-[1.1] mb-5">
                 Get Live Rates.<br />Book at the <em className="text-white/60">Lowest Prices.</em>
               </h1>
-              <p className="text-white/45 text-base leading-relaxed mb-8">
+              <p data-reveal className="text-white/45 text-base leading-relaxed mb-8">
                 Sign up for free agent access. Start building and booking with live rates from 500K+ hotels, 200+ airlines, and 10K+ experiences worldwide.
               </p>
-              <div className="space-y-3 mb-8">
+              <div data-reveal-group className="space-y-3 mb-8">
                 {benefits.map((b) => (
                   <div key={b} className="flex items-start gap-2.5">
                     <Check size={14} className="text-white/50 mt-0.5 flex-shrink-0" />
@@ -152,19 +152,19 @@ export default function SignupPage() {
                   </div>
                 ))}
               </div>
-              <div className="flex items-center gap-6 pt-6 border-t border-white/10">
+              <div data-reveal-group className="flex items-center gap-6 pt-6 border-t border-white/10">
                 <div>
-                  <p className="text-3xl font-['Cormorant_Garamond'] font-light text-white">850+</p>
+                  <p className="text-3xl font-['Manrope'] font-bold tracking-tight text-white">850+</p>
                   <p className="text-[10px] text-white/30 uppercase tracking-wider font-semibold">Active Agents</p>
                 </div>
                 <div className="w-px h-10 bg-white/10" />
                 <div>
-                  <p className="text-3xl font-['Cormorant_Garamond'] font-light text-white">30+</p>
+                  <p className="text-3xl font-['Manrope'] font-bold tracking-tight text-white">30+</p>
                   <p className="text-[10px] text-white/30 uppercase tracking-wider font-semibold">Years of Trust</p>
                 </div>
                 <div className="w-px h-10 bg-white/10" />
                 <div>
-                  <p className="text-3xl font-['Cormorant_Garamond'] font-light text-white">45+</p>
+                  <p className="text-3xl font-['Manrope'] font-bold tracking-tight text-white">45+</p>
                   <p className="text-[10px] text-white/30 uppercase tracking-wider font-semibold">Destinations</p>
                 </div>
               </div>
@@ -173,19 +173,19 @@ export default function SignupPage() {
             {/* Right — Form */}
             <div>
               {submitted ? (
-                <div data-testid="signup-success" className="bg-white rounded-3xl p-10 text-center border border-[#0D1B2A]/06 shadow-[0_24px_60px_-24px_rgba(13,27,42,0.35)]">
+                <div data-reveal="right" data-testid="signup-success" className="bg-white rounded-3xl p-10 text-center border border-[#0D1B2A]/06 shadow-[0_24px_60px_-24px_rgba(13,27,42,0.35)]">
                   <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-5">
                     <Check size={28} className="text-emerald-500" />
                   </div>
-                  <h3 className="font-['Cormorant_Garamond'] text-2xl text-[#0D1B2A] mb-3">Thank You for Signing Up</h3>
+                  <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-[#0D1B2A] mb-3">Thank You for Signing Up</h3>
                   <p className="text-[#0D1B2A]/50 text-sm leading-relaxed">
                     Our customer success team will get in touch with you shortly.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} data-testid="signup-form" className="bg-white rounded-3xl p-7 md:p-8 space-y-4 border border-[#0D1B2A]/06 shadow-[0_24px_60px_-24px_rgba(13,27,42,0.35)]">
+                <form onSubmit={handleSubmit} data-reveal="right" data-testid="signup-form" className="bg-white rounded-3xl p-7 md:p-8 space-y-4 border border-[#0D1B2A]/06 shadow-[0_24px_60px_-24px_rgba(13,27,42,0.35)]">
                   <div className="mb-1">
-                    <h3 className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A] mb-0.5">Sign Up for Agent Access</h3>
+                    <h3 className="font-['Manrope'] font-bold tracking-tight text-xl text-[#0D1B2A] mb-0.5">Sign Up for Agent Access</h3>
                     <p className="text-[11px] text-[#0D1B2A]/40">Free account setup. Start booking in minutes.</p>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
@@ -253,8 +253,8 @@ export default function SignupPage() {
       {/* Partner Logos Strip */}
       <section data-testid="signup-partners" className="bg-white py-8 px-6 border-b border-[#0D1B2A]/05">
         <div className="max-w-6xl mx-auto">
-          <p className="text-[10px] tracking-[0.25em] uppercase font-semibold text-[#0D1B2A]/20 text-center mb-6">Trusted Supply Partners</p>
-          <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+          <p data-reveal className="text-[10px] tracking-[0.25em] uppercase font-semibold text-[#0D1B2A]/20 text-center mb-6">Trusted Supply Partners</p>
+          <div data-reveal-group className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
             {partnerLogos.map((p) => (
               <div key={p.name} className="flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                 <img src={p.src} alt={p.name} className="h-8 md:h-10 w-auto object-contain" />
@@ -265,12 +265,12 @@ export default function SignupPage() {
       </section>
 
       {/* Testimonials Scroller */}
-      <section data-testid="signup-testimonials" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
+      <section data-testid="signup-testimonials" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-end justify-between mb-10">
+          <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-2">What Agents Say</p>
-              <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A]">
+              <p data-reveal className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-2">What Agents Say</p>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-[#0D1B2A]">
                 Trusted by <em className="text-[#174358]/50">850+ Travel Agents</em>
               </h2>
             </div>
@@ -309,7 +309,7 @@ export default function SignupPage() {
             </div>
 
             {/* Mobile: stack cards */}
-            <div className="md:hidden space-y-4">
+            <div data-reveal-group className="md:hidden space-y-4">
               {testimonials.slice(0, 4).map((t) => (
                 <div key={t.name} className="bg-white rounded-2xl p-5 border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)]">
                   <div className="flex gap-0.5 mb-2">

@@ -24,23 +24,23 @@ export default function TravelThemes() {
   const themes = isUsUk ? usUkThemes : indiaThemes;
 
   return (
-    <section id="themes" data-testid="travel-themes-section" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
+    <section id="themes" data-testid="travel-themes-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">Curated Experiences</p>
-          <h2 data-testid="themes-heading" className="font-['Cormorant_Garamond'] text-3xl md:text-4xl lg:text-5xl font-light text-[#0D1B2A] mb-4 leading-tight">
+        <div className="text-center mb-16">
+          <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">Curated Experiences</p>
+          <h2 data-reveal data-testid="themes-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] mb-4 leading-tight">
             Travel <em className="text-[#174358]">Styles</em>
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {themes.map((t) => (
             <div key={t.title} data-testid={`theme-${t.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
-              className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer h-80">
-              <img src={t.image} alt={t.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              className="group relative rounded-2xl overflow-hidden shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] transition-shadow duration-500 cursor-pointer h-80 md:h-96">
+              <img src={t.image} alt={t.title} data-parallax="20" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/40 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 font-['Manrope']">
                 <p className="text-[11px] text-white/70 font-semibold uppercase tracking-[0.2em] mb-2">{t.countries}</p>
-                <h3 className="font-['Cormorant_Garamond'] text-2xl font-light text-white mb-1.5">{t.title}</h3>
+                <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-white mb-1.5">{t.title}</h3>
                 <p className="text-xs text-white/60 leading-relaxed">{t.desc}</p>
               </div>
             </div>

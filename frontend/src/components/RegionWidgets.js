@@ -8,8 +8,8 @@ export function RegionBanner() {
 
   return (
     <div data-testid="region-banner" className="fixed bottom-20 sm:bottom-6 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm z-[90] animate-fadeInUp" style={{ animationDuration: "300ms" }}>
-      <div className="bg-white rounded-2xl shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] border border-[#0D1B2A]/08 p-5 font-['Manrope']">
-        <div className="flex items-start gap-3">
+      <div className="bg-white rounded-[1.25rem] shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] border border-[#0D1B2A]/08 p-6 font-['Manrope']">
+        <div className="flex items-start gap-3.5">
           <span className="text-2xl">{detected.flag}</span>
           <div className="flex-1 min-w-0">
             <p className="text-[13px] font-semibold text-[#0D1B2A] mb-1">

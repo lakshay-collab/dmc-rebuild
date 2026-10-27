@@ -33,16 +33,16 @@ export default function AgentLogin() {
   return (
     <div className="min-h-screen bg-[#F8FAFB] flex items-center justify-center px-4" data-testid="agent-login-page">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
+        <div data-reveal className="text-center mb-8">
           <Link to="/" className="inline-block mb-6">
             <img src="/logo.png" alt="Hi DMC" className="h-10 mx-auto" onError={(e) => { e.target.style.display = "none"; }} />
-            <span className="font-['Cormorant_Garamond'] text-2xl font-bold text-[#174358]">Hi DMC</span>
+            <span className="font-['Manrope'] font-bold tracking-tight text-2xl font-bold text-[#174358]">Hi DMC</span>
           </Link>
-          <h1 className="font-['Cormorant_Garamond'] text-3xl font-light text-[#0D1B2A]">Agent Portal</h1>
+          <h1 className="font-['Manrope'] font-bold tracking-tight text-3xl text-[#0D1B2A]">Agent Portal</h1>
           <p className="text-sm text-[#0D1B2A]/50 mt-2">Sign in to access your destination tools</p>
         </div>
 
-        <form onSubmit={handleLogin} className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] p-8 space-y-5">
+        <form onSubmit={handleLogin} data-reveal className="bg-white rounded-3xl border border-[#0D1B2A]/06 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] p-8 space-y-5">
           {error && (
             <div data-testid="login-error" className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-2xl border border-red-100">
               {error}

@@ -87,16 +87,16 @@ export default function ContactCTA() {
   return (
     <section id="contact" data-testid="contact-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#174358]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           <div>
-            <p className="text-xs tracking-[0.2em] uppercase font-semibold text-white/40 mb-3">Partner With Us</p>
-            <h2 data-testid="contact-heading" className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-white mb-6">
+            <p data-reveal className="text-xs tracking-[0.2em] uppercase font-semibold text-white/40 mb-4">Partner With Us</p>
+            <h2 data-reveal data-testid="contact-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl text-white mb-6 leading-tight">
               Ready to make more destinations <em className="text-white/70">easier to sell?</em>
             </h2>
-            <p className="text-white/50 leading-relaxed mb-10 text-sm">
+            <p data-reveal className="text-white/50 leading-relaxed mb-10 text-sm">
               Register for the agent portal, or send us your next FIT, group or MICE requirement.
             </p>
-            <div className="space-y-4 mb-10">
+            <div data-reveal-group className="space-y-4 mb-10">
               {benefits.map((b, i) => (
                 <div key={i} className="flex items-start gap-2.5">
                   <Check size={14} className="text-white/50 mt-0.5 flex-shrink-0" />
@@ -116,19 +116,19 @@ export default function ContactCTA() {
 
           <div>
             {submitted ? (
-              <div data-testid="form-success" className="bg-white/08 rounded-2xl p-10 text-center border border-white/10">
+              <div data-testid="form-success" className="bg-white/08 rounded-[1.25rem] p-12 text-center border border-white/10">
                 <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-5">
                   <Check size={28} className="text-white/70" />
                 </div>
-                <h3 className="font-['Cormorant_Garamond'] text-2xl text-white mb-3">Thank You — Request Received</h3>
+                <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-white mb-3">Thank You — Request Received</h3>
                 <p className="text-white/50 text-sm leading-relaxed">
                   Our agent team will review your requirement and get back to you shortly.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} data-testid="inquiry-form" className="bg-white rounded-2xl p-7 space-y-4 shadow-xl">
+              <form onSubmit={handleSubmit} data-testid="inquiry-form" className="bg-white rounded-[1.25rem] p-8 md:p-9 space-y-4 shadow-[0_30px_70px_-28px_rgba(0,0,0,0.5)]">
                 <div className="mb-1">
-                  <h3 className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A] mb-0.5">Request a Quote</h3>
+                  <h3 className="font-['Manrope'] font-bold tracking-tight text-xl text-[#0D1B2A] mb-0.5">Request a Quote</h3>
                   <p className="text-[11px] text-[#0D1B2A]/40">Tell us the requirement and our agent team will come back to you.</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">

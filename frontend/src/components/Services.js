@@ -13,18 +13,18 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" data-testid="services-section" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
+    <section id="services" data-testid="services-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-6">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">Destination Services</p>
-          <h2 data-testid="services-heading" className="font-['Cormorant_Garamond'] text-3xl md:text-4xl lg:text-5xl font-light text-[#0D1B2A] mb-4 leading-tight">
+        <div className="text-center mb-8">
+          <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">Destination Services</p>
+          <h2 data-reveal data-testid="services-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] mb-5 leading-tight">
             Everything Behind <em className="text-[#174358]">Your Destination Booking</em>
           </h2>
-          <p className="font-['Manrope'] text-[#0D1B2A]/60 max-w-2xl mx-auto">The destination services we source and coordinate for the travel trade — bookable in the portal, or arranged with our agent team.</p>
+          <p data-reveal className="font-['Manrope'] text-[#0D1B2A]/60 max-w-2xl mx-auto leading-relaxed">The destination services we source and coordinate for the travel trade — bookable in the portal, or arranged with our agent team.</p>
         </div>
 
         {/* Stats banner */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16 mt-10">
+        <div data-reveal-group className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-20 mt-12">
           {[
             { num: "2,500+", label: "FIT Packages" },
             { num: "500K+", label: "Hotel Properties" },
@@ -32,8 +32,8 @@ export default function Services() {
             { num: "200+", label: "Airline Partners" },
           ].map((s) => (
             <div key={s.label} data-testid={`service-stat-${s.label.toLowerCase().replace(/\s+/g, '-')}`}
-              className="bg-[#0D1B2A] rounded-2xl p-6 text-center shadow-[0_12px_40px_-16px_rgba(13,27,42,0.3)]">
-              <p className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-light text-white">{s.num}</p>
+              className="bg-[#0D1B2A] rounded-2xl p-6 md:p-8 text-center shadow-[0_18px_50px_-24px_rgba(13,27,42,0.35)]">
+              <p className="font-['Manrope'] font-bold tracking-tight text-2xl md:text-3xl text-white">{s.num}</p>
               <p className="font-['Manrope'] text-[11px] text-white/50 uppercase tracking-[0.2em] font-semibold mt-1.5">{s.label}</p>
             </div>
           ))}
@@ -45,9 +45,9 @@ export default function Services() {
           const isEven = i % 2 === 0;
           return (
             <div key={s.title} data-testid={`service-card-${s.title.toLowerCase().replace(/\s+/g, "-")}`}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16 last:mb-0">
+              className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 md:mb-24 last:mb-0">
               <div className={isEven ? "order-1 lg:order-1" : "order-1 lg:order-2"}>
-                <div className="flex items-center gap-3 mb-4">
+                <div data-reveal className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[#174358]/[0.08] flex items-center justify-center">
                     <Icon size={20} strokeWidth={1.5} className="text-[#174358]" />
                   </div>
@@ -56,15 +56,15 @@ export default function Services() {
                     <span className="font-['Manrope'] text-xs text-[#174358]/60 ml-1.5">{s.statLabel}</span>
                   </div>
                 </div>
-                <h3 className="font-['Cormorant_Garamond'] text-3xl font-light text-[#0D1B2A] mb-3">{s.title}</h3>
-                <p className="font-['Manrope'] text-sm text-[#0D1B2A]/55 leading-relaxed mb-6">{s.desc}</p>
-                <a href="#contact" className="font-['Manrope'] inline-flex items-center gap-2 rounded-full bg-[#174358] text-white px-6 py-3 text-sm font-semibold hover:bg-[#1e5a75] shadow-sm transition-colors group">
+                <h3 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-[#0D1B2A] mb-4 leading-tight">{s.title}</h3>
+                <p data-reveal className="font-['Manrope'] text-sm md:text-base text-[#0D1B2A]/60 leading-relaxed mb-7">{s.desc}</p>
+                <a data-reveal href="#contact" className="font-['Manrope'] inline-flex items-center gap-2 rounded-full bg-[#174358] text-white px-6 py-3 text-sm font-semibold hover:bg-[#1e5a75] transition-colors group">
                   Learn more <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
               <div className={`${isEven ? "order-2 lg:order-2" : "order-2 lg:order-1"}`}>
-                <div className="group rounded-2xl overflow-hidden shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] hover:shadow-xl transition-shadow">
-                  <img src={s.image} alt={s.title} className="w-full h-[280px] object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div data-reveal-img className="group rounded-2xl overflow-hidden shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] transition-shadow">
+                  <img src={s.image} alt={s.title} className="w-full h-[320px] md:h-[440px] object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
               </div>
             </div>
@@ -72,12 +72,12 @@ export default function Services() {
         })}
 
         {/* Compact grid for remaining services */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-16 pt-16 border-t border-[#0D1B2A]/[0.08]">
+        <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-20 pt-20 border-t border-[#0D1B2A]/[0.08]">
           {services.slice(5).map((s) => {
             const Icon = s.icon;
             return (
               <div key={s.title} data-testid={`service-card-${s.title.toLowerCase().replace(/\s+/g, "-")}`}
-                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] transition-all duration-300 cursor-pointer border border-[#0D1B2A]/[0.04] hover:border-[#174358]/[0.12]">
+                className="group bg-white rounded-2xl p-6 md:p-8 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] transition-all duration-500 cursor-pointer">
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-9 h-9 rounded-xl bg-[#174358]/[0.08] flex items-center justify-center group-hover:bg-[#174358] transition-colors">
                     <Icon size={18} strokeWidth={1.5} className="text-[#174358] group-hover:text-white transition-colors" />

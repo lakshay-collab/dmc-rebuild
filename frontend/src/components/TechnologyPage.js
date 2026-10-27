@@ -49,14 +49,14 @@ export default function TechnologyPage() {
       <section data-testid="tech-hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-6 md:px-12 lg:px-24 bg-[#0D1B2A] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-5 font-['Manrope']">Our Technology Platform</p>
-              <h1 data-testid="tech-hero-heading" className="font-['Cormorant_Garamond'] text-4xl sm:text-5xl lg:text-6xl font-light text-white leading-[1.1] mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+            <div data-reveal-group>
+              <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-white/40 mb-5 font-['Manrope']">Our Technology Platform</p>
+              <h1 data-testid="tech-hero-heading" className="font-['Manrope'] font-bold tracking-tight text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-7">
                 Live Rates. Lowest Prices.<br />
                 <em className="text-white/50">30 Years of Trusted</em> DMC Excellence.
               </h1>
-              <p className="text-white/45 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+              <p className="text-white/50 text-base md:text-lg leading-relaxed mb-9 max-w-xl font-['Manrope']">
                 Your agents deserve live pricing from the world's largest travel inventory — combined with the superior destination management quality they've relied on for three decades. Our lowest price technology ensures every booking is the best deal available.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -72,7 +72,7 @@ export default function TechnologyPage() {
                 </a>
               </div>
             </div>
-            <div className="hidden lg:block">
+            <div data-reveal="right" className="hidden lg:block">
               <img src={IMAGES.hero} alt="Travel agent using Hi DMC platform" className="w-full max-w-lg mx-auto" />
             </div>
           </div>
@@ -82,19 +82,19 @@ export default function TechnologyPage() {
       {/* How It Works — Plan / Book / Expand */}
       <section id="how-it-works" data-testid="tech-how-it-works" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">How It Works</p>
-            <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-4">
+          <div data-reveal className="text-center mb-16">
+            <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">How It Works</p>
+            <h2 className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl text-[#0D1B2A] leading-[1.05] mb-5">
               Plan. Book. <em className="text-[#174358]/50">Expand.</em>
             </h2>
-            <p className="text-[#0D1B2A]/45 max-w-2xl mx-auto text-base leading-relaxed">
+            <p className="text-[#0D1B2A]/50 max-w-2xl mx-auto text-base leading-relaxed font-['Manrope']">
               Three steps to transform how your agency builds and sells travel. Live rates, instant confirmation, and the pricing power of 30 years of DMC relationships.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {steps.map((s) => (
-              <div key={s.num} data-testid={`tech-step-${s.num}`} className="relative bg-white rounded-2xl p-8 border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] hover:border-[#174358]/15 hover:shadow-xl transition-all duration-500 group">
-                <span className="text-6xl font-['Cormorant_Garamond'] font-light text-[#174358]/08 absolute top-4 right-6">{s.num}</span>
+              <div key={s.num} data-testid={`tech-step-${s.num}`} className="relative bg-white rounded-2xl p-8 md:p-10 border border-[#0D1B2A]/06 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] hover:border-[#174358]/15 hover:shadow-[0_24px_60px_-24px_rgba(13,27,42,0.3)] transition-all duration-700 group">
+                <span className="text-6xl font-['Manrope'] font-bold tracking-tight text-[#174358]/08 absolute top-4 right-6">{s.num}</span>
                 <h3 className="text-xl font-bold text-[#0D1B2A] mb-2 mt-4">{s.label}</h3>
                 <p className="text-sm text-[#0D1B2A]/45 leading-relaxed">{s.desc}</p>
               </div>
@@ -106,13 +106,13 @@ export default function TechnologyPage() {
       {/* PLAN Section */}
       <section data-testid="tech-plan-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Step 01</p>
-              <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+            <div data-reveal>
+              <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Step 01</p>
+              <h2 className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl text-[#0D1B2A] leading-[1.1] mb-6">
                 Plan <em className="text-[#174358]/50">Dynamic Itineraries</em>
               </h2>
-              <p className="text-[#0D1B2A]/50 leading-relaxed mb-7 text-base">
+              <p className="text-[#0D1B2A]/55 leading-relaxed mb-7 text-base font-['Manrope']">
                 Build complete multi-destination itineraries with live rates from our global inventory. Drag and drop hotels, flights, transfers, tours and experiences — with real-time pricing that updates as you build. No more spreadsheets. No more waiting for supplier quotes.
               </p>
               <div className="space-y-3 mb-8">
@@ -131,7 +131,7 @@ export default function TechnologyPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="group rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(13,27,42,0.3)] border border-[#0D1B2A]/06">
+              <div data-reveal-img className="group rounded-2xl overflow-hidden shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] border border-[#0D1B2A]/06">
                 <img src={IMAGES.plan} alt="Plan dynamic travel itineraries with live rates" className="w-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
@@ -142,18 +142,18 @@ export default function TechnologyPage() {
       {/* BOOK Section */}
       <section data-testid="tech-book-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#0D1B2A]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <div className="order-2 lg:order-1 relative">
-              <div className="group rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)] border border-white/08">
+              <div data-reveal-img className="group rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)] border border-white/08">
                 <img src={IMAGES.book} alt="Book with live rates and instant confirmation" className="w-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
-            <div className="order-1 lg:order-2">
-              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3 font-['Manrope']">Step 02</p>
-              <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-white mb-5">
+            <div data-reveal="right" className="order-1 lg:order-2">
+              <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-white/40 mb-3 font-['Manrope']">Step 02</p>
+              <h2 className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl text-white leading-[1.1] mb-6">
                 Book at <em className="text-white/50">Live Rates</em>
               </h2>
-              <p className="text-white/45 leading-relaxed mb-7 text-base">
+              <p className="text-white/50 leading-relaxed mb-7 text-base font-['Manrope']">
                 Search, select, and confirm — all at live rates with instant booking confirmation. Our lowest price technology scans multiple suppliers in real time to guarantee your agents the most competitive pricing. No callbacks, no pending confirmations. Just instant, confirmed bookings.
               </p>
               <div className="space-y-3 mb-8">
@@ -178,27 +178,27 @@ export default function TechnologyPage() {
       {/* EXPAND Section */}
       <section data-testid="tech-expand-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Step 03</p>
-            <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-5">
+          <div data-reveal className="text-center mb-16">
+            <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Step 03</p>
+            <h2 className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl text-[#0D1B2A] leading-[1.1] mb-6">
               Expand with <em className="text-[#174358]/50">Modular Packaging</em>
             </h2>
-            <p className="text-[#0D1B2A]/45 max-w-2xl mx-auto text-base leading-relaxed">
+            <p className="text-[#0D1B2A]/50 max-w-2xl mx-auto text-base leading-relaxed font-['Manrope']">
               Scale from FIT bookings to complex group tours using our modular packaging engine. Combine single products into shared or private modules, then flexibly assemble them into complete itineraries. One system — unlimited combinations.
             </p>
           </div>
-          <div className="max-w-4xl mx-auto mb-14">
-            <div className="group rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(13,27,42,0.3)] border border-[#0D1B2A]/06 bg-white p-4 md:p-6">
+          <div className="max-w-4xl mx-auto mb-16">
+            <div data-reveal-img className="group rounded-2xl overflow-hidden shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] border border-[#0D1B2A]/06 bg-white p-4 md:p-6">
               <img src={IMAGES.expand} alt="Expand with modular travel packaging" className="w-full rounded-xl object-cover group-hover:scale-[1.03] transition-transform duration-700" />
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { title: "Single Products", desc: "Flights, hotels, transfers, activities — each bookable individually with live rates from our global supplier network." },
               { title: "Flexible Modules", desc: "Combine products into shared group tour modules, fixed private packages, or fully flexible custom itineraries." },
               { title: "Complete Itineraries", desc: "Assemble modules into complete multi-destination itineraries. Any combination, any destination, any group size." },
             ].map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl p-6 border border-[#0D1B2A]/06 shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] hover:border-[#174358]/15 hover:shadow-xl transition-all duration-500">
+              <div key={item.title} className="bg-white rounded-2xl p-7 border border-[#0D1B2A]/06 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] hover:border-[#174358]/15 hover:shadow-[0_24px_60px_-24px_rgba(13,27,42,0.3)] transition-all duration-700">
                 <h4 className="text-sm font-bold text-[#0D1B2A] mb-2">{item.title}</h4>
                 <p className="text-xs text-[#0D1B2A]/40 leading-relaxed">{item.desc}</p>
               </div>
@@ -210,16 +210,16 @@ export default function TechnologyPage() {
       {/* Platform Benefits */}
       <section data-testid="tech-benefits-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-            <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Platform Benefits</p>
-              <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+            <div data-reveal>
+              <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-3 font-['Manrope']">Platform Benefits</p>
+              <h2 className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl text-[#0D1B2A] leading-[1.1] mb-6">
                 Everything Your <em className="text-[#174358]/50">Agency Needs</em>
               </h2>
-              <p className="text-[#0D1B2A]/45 leading-relaxed mb-10 text-base">
+              <p className="text-[#0D1B2A]/50 leading-relaxed mb-10 text-base font-['Manrope']">
                 Built for travel agents who demand live rates, the lowest prices, and the quality of a DMC with 30 years of on-the-ground expertise across 45+ countries.
               </p>
-              <div className="space-y-5">
+              <div data-reveal-group className="space-y-6">
                 {benefits.map((b) => {
                   const Icon = b.icon;
                   return (
@@ -239,7 +239,7 @@ export default function TechnologyPage() {
               </div>
             </div>
             <div className="relative lg:sticky lg:top-32">
-              <div className="group rounded-2xl overflow-hidden shadow-[0_24px_60px_-24px_rgba(13,27,42,0.3)] border border-[#0D1B2A]/06">
+              <div data-reveal-img className="group rounded-2xl overflow-hidden shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] border border-[#0D1B2A]/06">
                 <img src={IMAGES.info} alt="Platform features — inventory, integrations, scalability, automation" className="w-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
@@ -248,12 +248,12 @@ export default function TechnologyPage() {
       </section>
 
       {/* Trust Stats */}
-      <section data-testid="tech-trust-stats" className="py-16 px-6 md:px-12 lg:px-24 bg-[#174358]">
+      <section data-testid="tech-trust-stats" className="py-16 md:py-20 px-6 md:px-12 lg:px-24 bg-[#174358]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div data-reveal-group className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {trustStats.map((s) => (
               <div key={s.label} className="text-center py-4">
-                <p className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-white mb-1">{s.value}</p>
+                <p className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-white mb-1">{s.value}</p>
                 <p className="text-[10px] text-white/40 uppercase tracking-wider font-semibold">{s.label}</p>
               </div>
             ))}
@@ -264,13 +264,13 @@ export default function TechnologyPage() {
       {/* Final CTA */}
       <section data-testid="tech-cta" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#0D1B2A] mb-5">
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl text-[#0D1B2A] leading-[1.05] mb-6">
             Ready for <em className="text-[#174358]/50">Live Rates</em> and the Best Pricing?
           </h2>
-          <p className="text-[#0D1B2A]/45 text-base leading-relaxed mb-8">
+          <p data-reveal className="text-[#0D1B2A]/50 text-base leading-relaxed mb-9 font-['Manrope']">
             Join 850+ travel agents who trust our platform for live pricing, instant confirmations, and the superior destination management quality we've delivered for over 30 years.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div data-reveal className="flex flex-wrap justify-center gap-4">
             <Link to="/#contact" data-testid="tech-cta-demo-btn">
               <Button className="bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full px-10 py-6 text-sm font-semibold shadow-lg shadow-[#174358]/20 hover:shadow-xl transition-all">
                 Request a Demo <ArrowRight size={15} className="ml-2" />

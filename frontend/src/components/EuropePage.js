@@ -106,25 +106,25 @@ export default function EuropePage() {
       {/* Hero */}
       <section className="relative min-h-[80vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <img src={HERO} alt="Europe" className="w-full h-full object-cover" />
+          <img src={HERO} alt="Europe" data-parallax="18" className="w-full h-full object-cover scale-110" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/85 via-[#0D1B2A]/40 to-[#0D1B2A]/15" />
         </div>
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7">
-            <p className="text-white/40 text-[10px] uppercase tracking-[0.25em] font-semibold mb-3">Europe — 20+ Countries</p>
-            <h1 className="font-['Cormorant_Garamond'] text-5xl sm:text-6xl md:text-7xl font-light text-white leading-[0.95] mb-4">Your DMC<br />to Europe</h1>
-            <p className="text-white/55 text-sm md:text-base max-w-lg leading-relaxed">One DMC partnership for all of Europe. Live rates, local teams, and seamless ground handling — from Paris to the Northern Lights.</p>
+            <p data-reveal className="text-white/40 text-[10px] uppercase tracking-[0.25em] font-semibold mb-4">Europe — 20+ Countries</p>
+            <h1 data-reveal className="font-['Manrope'] font-bold tracking-tight text-5xl sm:text-6xl md:text-7xl text-white leading-[0.95] mb-5">Your DMC<br />to Europe</h1>
+            <p data-reveal className="font-['Manrope'] text-white/55 text-sm md:text-base max-w-lg leading-relaxed">One DMC partnership for all of Europe. Live rates, local teams, and seamless ground handling — from Paris to the Northern Lights.</p>
           </div>
           <div className="lg:col-span-5">
             {submitted ? (
               <div className="bg-white rounded-2xl p-8 text-center shadow-xl">
                 <Check size={28} className="text-emerald-500 mx-auto mb-3" />
-                <h3 className="font-['Cormorant_Garamond'] text-xl text-[#0D1B2A] mb-2">Thank You!</h3>
+                <h3 className="font-['Manrope'] font-bold tracking-tight text-xl text-[#0D1B2A] mb-2">Thank You!</h3>
                 <p className="text-[#0D1B2A]/40 text-xs">Our Europe team will contact you within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} data-testid="europe-inquiry-form" className="bg-white rounded-2xl p-5 space-y-2 shadow-xl border border-[#0D1B2A]/06">
-                <p className="font-['Cormorant_Garamond'] text-lg text-[#0D1B2A] mb-1">Get Europe Rates</p>
+                <p className="font-['Manrope'] font-bold tracking-tight text-lg text-[#0D1B2A] mb-1">Get Europe Rates</p>
                 <Input placeholder="Agency / Company Name *" value={form.agency_name} onChange={e => u("agency_name", e.target.value)} className={iCls} />
                 <Input placeholder="Contact Person Name *" value={form.contact_name} onChange={e => u("contact_name", e.target.value)} className={iCls} />
                 <div className="flex gap-2">
@@ -162,16 +162,16 @@ export default function EuropePage() {
       </section>
 
       {/* Our Services for Europe */}
-      <section className="py-16 px-6 md:px-12 bg-white">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">What We Do</p>
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-10">Our services for <em className="text-[#174358]">Europe</em></h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">What We Do</p>
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-12">Our services for <em className="text-[#174358]">Europe</em></h2>
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map(s => (
-              <div key={s.title} className="bg-[#F8FAFB] rounded-2xl p-5 border border-[#0D1B2A]/04 hover:border-[#174358]/15 shadow-sm hover:shadow-md transition-all group">
-                <s.icon size={20} className="text-[#174358]/40 mb-3" strokeWidth={1.5} />
+              <div key={s.title} className="bg-[#F8FAFB] rounded-2xl p-6 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.2)] hover:shadow-[0_28px_70px_-28px_rgba(13,27,42,0.28)] transition-shadow duration-500 group">
+                <s.icon size={20} className="text-[#174358]/40 mb-4" strokeWidth={1.5} />
                 <h3 className="text-sm font-bold text-[#0D1B2A] mb-1.5">{s.title}</h3>
-                <p className="text-xs text-[#0D1B2A]/45 leading-relaxed mb-3">{s.desc}</p>
+                <p className="font-['Manrope'] text-xs text-[#0D1B2A]/60 leading-relaxed mb-3">{s.desc}</p>
                 <p className="text-[10px] font-bold text-[#174358]/60 uppercase tracking-wider">{s.stat}</p>
               </div>
             ))}
@@ -181,10 +181,10 @@ export default function EuropePage() {
 
       {/* Stats */}
       <section className="py-10 px-6 md:px-12 bg-[#0D1B2A]">
-        <div className="max-w-7xl mx-auto grid grid-cols-3 md:grid-cols-6 gap-4">
+        <div data-reveal-group className="max-w-7xl mx-auto grid grid-cols-3 md:grid-cols-6 gap-4">
           {STATS.map(s => (
             <div key={s.label} className="text-center py-2">
-              <p className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-light text-white mb-0.5">{s.value}</p>
+              <p className="font-['Manrope'] font-bold tracking-tight text-2xl md:text-3xl text-white mb-0.5">{s.value}</p>
               <p className="text-[9px] text-white/40 uppercase tracking-wider font-bold">{s.label}</p>
             </div>
           ))}
@@ -192,10 +192,10 @@ export default function EuropePage() {
       </section>
 
       {/* Destinations by Region — Tag-based */}
-      <section className="py-16 px-6 md:px-12 bg-[#F8FAFB]">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-[#F8FAFB]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">20+ European Destinations</p>
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-8">Browse by <em className="text-[#174358]">region</em></h2>
+          <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">20+ European Destinations</p>
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-10">Browse by <em className="text-[#174358]">region</em></h2>
 
           {/* Region tabs */}
           <div className="flex flex-wrap gap-2 mb-8">
@@ -230,13 +230,13 @@ export default function EuropePage() {
       </section>
 
       {/* Travel Styles */}
-      <section className="py-16 px-6 md:px-12 bg-white">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Travel Styles</p>
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-10">Sell Europe <em className="text-[#174358]">by theme</em></h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">Travel Styles</p>
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-12">Sell Europe <em className="text-[#174358]">by theme</em></h2>
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {STYLES.map(t => (
-              <div key={t.title} className="rounded-2xl overflow-hidden border border-[#0D1B2A]/06 group flex flex-col sm:flex-row bg-white hover:shadow-xl transition-shadow">
+              <div key={t.title} className="rounded-2xl overflow-hidden group flex flex-col sm:flex-row bg-white shadow-[0_18px_50px_-24px_rgba(13,27,42,0.22)] hover:shadow-[0_28px_70px_-28px_rgba(13,27,42,0.3)] transition-shadow duration-500">
                 <div className="relative w-full sm:w-2/5 min-h-[180px] flex-shrink-0">
                   <img src={t.image} alt={t.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
@@ -259,19 +259,19 @@ export default function EuropePage() {
       </section>
 
       {/* Packages */}
-      <section className="py-16 px-6 md:px-12 bg-[#0D1B2A]">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-[#0D1B2A]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3">Ready-to-sell Itineraries</p>
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-white mb-3">Custom packages <em className="text-white/50">we create for your clients</em></h2>
-          <p className="text-sm text-white/35 mb-10">Customise dates, hotels, and experiences with live rates on the platform.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-white/40 mb-4">Ready-to-sell Itineraries</p>
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-white mb-4">Custom packages <em className="text-white/50">we create for your clients</em></h2>
+          <p data-reveal className="font-['Manrope'] text-sm text-white/40 mb-12 leading-relaxed">Customise dates, hotels, and experiences with live rates on the platform.</p>
+          <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {PACKAGES.map(p => (
               <Link key={p.title} to="/signup" className="bg-white/05 rounded-2xl p-5 border border-white/08 hover:border-white/20 hover:bg-white/08 transition-all group block">
                 <div className="flex items-center justify-between mb-2.5">
                   <span className="text-[9px] bg-white/10 text-white/60 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">{p.tag}</span>
                   <span className="text-[10px] text-white/35 font-semibold">{p.days}</span>
                 </div>
-                <h3 className="font-['Cormorant_Garamond'] text-lg text-white mb-1.5 group-hover:text-white/90">{p.title}</h3>
+                <h3 className="font-['Manrope'] font-bold tracking-tight text-lg text-white mb-1.5 group-hover:text-white/90">{p.title}</h3>
                 <p className="text-[10px] text-white/35 flex items-center gap-1 mb-3"><MapPin size={9} /> {p.cities}</p>
                 <span className="text-[10px] font-semibold text-white/40 group-hover:text-white/70 transition-colors flex items-center gap-1">
                   Enquire Now <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
@@ -283,11 +283,11 @@ export default function EuropePage() {
       </section>
 
       {/* Europe Experiences */}
-      <section className="py-16 px-6 md:px-12 bg-[#F4F1E8]">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-[#F4F1E8]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-3">Bookable Experiences</p>
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-[#0D1B2A] mb-10">Europe <em className="text-[#174358]">experiences</em></h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">Bookable Experiences</p>
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-12">Europe <em className="text-[#174358]">experiences</em></h2>
+          <div data-reveal-group className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {EXPERIENCES.map(e => (
               <div key={e.title} className="relative rounded-2xl overflow-hidden group cursor-pointer" style={{ height: "220px" }}>
                 <img src={e.image} alt={e.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -305,8 +305,8 @@ export default function EuropePage() {
       {/* CTA */}
       <section className="py-14 px-6 md:px-12 bg-[#174358]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-['Cormorant_Garamond'] text-3xl md:text-4xl font-light text-white mb-3">Ready to sell Europe?</h2>
-          <p className="text-white/40 text-sm mb-6">Sign up for agent access and start receiving live European hotel rates, transfers, and experiences.</p>
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-white mb-4">Ready to sell Europe?</h2>
+          <p data-reveal className="font-['Manrope'] text-white/45 text-sm mb-7 leading-relaxed">Sign up for agent access and start receiving live European hotel rates, transfers, and experiences.</p>
           <div className="flex justify-center gap-3">
             <Link to="/signup"><Button className="bg-white text-[#174358] hover:bg-white/90 rounded-full px-8 py-4 text-sm font-semibold shadow-lg">Sign Up as Partner</Button></Link>
             <a href="tel:+911244600000"><Button variant="ghost" className="text-white/60 hover:text-white rounded-full px-8 py-4 text-sm border border-white/15 font-semibold">Call Us</Button></a>

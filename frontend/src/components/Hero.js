@@ -32,7 +32,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B2A]/75 via-[#0D1B2A]/45 to-[#0D1B2A]/85" />
 
       {/* Centered content */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-10">
+      <div data-reveal-group className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-10">
         <p data-testid="hero-eyebrow" className="font-['Manrope'] text-[11px] sm:text-xs tracking-[0.25em] uppercase font-semibold text-white/60 mb-5">
           Global Destination Management · Since 1995
         </p>

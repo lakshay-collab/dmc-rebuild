@@ -194,7 +194,7 @@ export default function EgyptLandingPage() {
       <header className="bg-white border-b border-[#0D1B2A]/08 px-4 py-3.5 sticky top-0 z-50">
         <div className="max-w-[1200px] mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link to="/ads" className="text-[18px] font-bold text-[#0D1B2A] tracking-tight hover:opacity-80 transition-opacity font-['Cormorant_Garamond']">HI DMC</Link>
+            <Link to="/ads" className="text-[18px] font-bold text-[#0D1B2A] tracking-tight hover:opacity-80 transition-opacity font-['Manrope'] font-bold tracking-tight">HI DMC</Link>
             <div className="w-px h-5 bg-[#0D1B2A]/10" />
             <span className="text-[12px] text-[#0D1B2A]/55 hidden sm:inline">Destination Specialists to Egypt</span>
             <span className="text-[10px] text-[#0D1B2A]/40 sm:hidden">Egypt Specialists</span>
@@ -206,9 +206,9 @@ export default function EgyptLandingPage() {
       </header>
 
       <div className="max-w-[1200px] mx-auto px-4 py-6 sm:py-8">
-        <div className="mb-6">
-          <h1 data-testid="lp-heading" className="text-[24px] sm:text-[30px] font-bold text-[#0D1B2A] leading-tight">Egypt Tour Packages</h1>
-          <p className="text-[13px] sm:text-[14px] text-[#0D1B2A]/55 mt-1.5">Customise or choose from 44+ Egypt packages with best pricing, Nile cruises, and expert local support.</p>
+        <div className="mb-8">
+          <h1 data-reveal data-testid="lp-heading" className="text-[24px] sm:text-[30px] font-bold text-[#0D1B2A] leading-tight">Egypt Tour Packages</h1>
+          <p data-reveal className="text-[13px] sm:text-[14px] text-[#0D1B2A]/55 mt-1.5">Customise or choose from 44+ Egypt packages with best pricing, Nile cruises, and expert local support.</p>
         </div>
 
         <div className="flex gap-6">
@@ -236,7 +236,7 @@ export default function EgyptLandingPage() {
             </div>
 
             {/* Cards */}
-            <div className="space-y-4">
+            <div data-reveal-group className="space-y-4">
               {shown.slice(0, 4).map(pkg => <PackageCard key={pkg.id} pkg={pkg} onCallback={openCb} />)}
             </div>
 
@@ -263,7 +263,7 @@ export default function EgyptLandingPage() {
               </div>
             )}
 
-            {shown.length > 4 && <div className="space-y-4">{shown.slice(4).map(pkg => <PackageCard key={pkg.id} pkg={pkg} onCallback={openCb} />)}</div>}
+            {shown.length > 4 && <div data-reveal-group className="space-y-4">{shown.slice(4).map(pkg => <PackageCard key={pkg.id} pkg={pkg} onCallback={openCb} />)}</div>}
 
             {/* Load More */}
             <div className="text-center py-8">
@@ -277,9 +277,9 @@ export default function EgyptLandingPage() {
             {/* ── What Makes Us Different ── */}
             <section className="mb-10 bg-white rounded-2xl border border-[#0D1B2A]/06 overflow-hidden">
               <div className="p-6 sm:p-8">
-                <h2 className="text-[20px] sm:text-[22px] font-bold text-[#0D1B2A] mb-2">What Makes Us Different</h2>
-                <p className="text-[13px] text-[#0D1B2A]/55 mb-6">We're not an aggregator. We're the destination management company. Here's what that means for you.</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <h2 data-reveal className="text-[20px] sm:text-[22px] font-bold text-[#0D1B2A] mb-2">What Makes Us Different</h2>
+                <p data-reveal className="text-[13px] text-[#0D1B2A]/55 mb-6">We're not an aggregator. We're the destination management company. Here's what that means for you.</p>
+                <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {[
                     { icon: Building2, title: "Local Office in Egypt", desc: "Our own office in Cairo with full-time operations staff. Not outsourced, not remote. We're physically there." },
                     { icon: Users, title: "Local Specialists", desc: "Egyptian-born destination experts who've lived the itineraries they design. They know what guidebooks can't tell you." },
@@ -307,7 +307,7 @@ export default function EgyptLandingPage() {
               if (!items.length) return null;
               return (
                 <section key={sec.title} className="mb-8">
-                  <h2 className="text-[18px] sm:text-[20px] font-bold text-[#0D1B2A] mb-4">{sec.title}</h2>
+                  <h2 data-reveal className="text-[18px] sm:text-[20px] font-bold text-[#0D1B2A] mb-4">{sec.title}</h2>
                   <div className="flex gap-4 overflow-x-auto pb-2 -mx-1 px-1" style={{ scrollbarWidth: "none" }}>
                     {items.map(pkg => <MiniCard key={`${sec.fk}-${pkg.id}`} pkg={pkg} onCallback={openCb} />)}
                   </div>
@@ -317,8 +317,8 @@ export default function EgyptLandingPage() {
 
             {/* Blogs */}
             <section className="mb-8">
-              <h2 className="text-[18px] sm:text-[20px] font-bold text-[#0D1B2A] mb-4">Egypt Travel Guides</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <h2 data-reveal className="text-[18px] sm:text-[20px] font-bold text-[#0D1B2A] mb-4">Egypt Travel Guides</h2>
+              <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { title: "Best Time to Visit Egypt: Month-by-Month Guide", img: "https://images.unsplash.com/photo-1678388103961-5e1254fcc42a?w=400&q=80" },
                   { title: "10 Things First-Timers Should Know Before Visiting Egypt", img: "https://images.unsplash.com/photo-1629468855534-450d7c4c5f72?w=400&q=80" },
@@ -356,7 +356,7 @@ export default function EgyptLandingPage() {
       {/* Footer */}
       <footer className="bg-[#0D1B2A] px-4 py-8">
         <div className="max-w-[1200px] mx-auto text-center">
-          <Link to="/ads" className="text-white text-[15px] font-bold hover:opacity-80 transition-opacity font-['Cormorant_Garamond']">HI DMC</Link>
+          <Link to="/ads" className="text-white text-[15px] font-bold hover:opacity-80 transition-opacity font-['Manrope'] font-bold tracking-tight">HI DMC</Link>
           <p className="text-white/30 text-[11px] mt-1">A Division of Hi Tours India Pvt. Ltd.</p>
           <p className="text-white/20 text-[11px] mt-1">Vatika City Point, Sector 49, Gurgaon, Haryana 122002</p>
           <p className="text-white/10 text-[10px] mt-4">Prices are indicative and subject to availability.</p>

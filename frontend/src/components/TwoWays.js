@@ -10,17 +10,17 @@ const steps = [
 
 export default function TwoWays() {
   return (
-    <section id="how-we-work" data-testid="two-ways-section" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
+    <section id="how-we-work" data-testid="two-ways-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F8FAFB]">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-3xl mb-14">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">Two Ways to Work With Us</p>
-          <h2 data-testid="two-ways-heading" className="font-['Cormorant_Garamond'] text-3xl md:text-4xl lg:text-5xl font-light text-[#0D1B2A] leading-tight">
+        <div className="max-w-3xl mb-16">
+          <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">Two Ways to Work With Us</p>
+          <h2 data-reveal data-testid="two-ways-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] leading-tight">
             Book online. Or let our team <em className="text-[#174358]">take it from here.</em>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-24">
-          <div data-testid="two-ways-portal" className="group bg-white rounded-2xl p-8 md:p-10 border border-[#0D1B2A]/[0.06] shadow-sm hover:shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)] transition-all duration-300">
+        <div data-reveal-group className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 mb-28">
+          <div data-testid="two-ways-portal" className="group bg-white rounded-2xl p-8 md:p-12 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] transition-all duration-500">
             <div className="w-12 h-12 rounded-2xl bg-[#174358]/[0.08] flex items-center justify-center mb-6 group-hover:bg-[#174358] transition-colors duration-300">
               <MonitorCheck size={22} strokeWidth={1.5} className="text-[#174358] group-hover:text-white transition-colors" />
             </div>
@@ -34,7 +34,7 @@ export default function TwoWays() {
             </Link>
           </div>
 
-          <div data-testid="two-ways-contact-centre" className="group bg-[#0D1B2A] rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-[0_12px_40px_-16px_rgba(13,27,42,0.4)] transition-all duration-300">
+          <div data-testid="two-ways-contact-centre" className="group bg-[#0D1B2A] rounded-2xl p-8 md:p-12 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.45)] transition-all duration-500">
             <div className="w-12 h-12 rounded-2xl bg-white/[0.08] flex items-center justify-center mb-6 group-hover:bg-white transition-colors duration-300">
               <Headphones size={22} strokeWidth={1.5} className="text-white group-hover:text-[#174358] transition-colors" />
             </div>
@@ -51,17 +51,17 @@ export default function TwoWays() {
         </div>
 
         {/* How Hi DMC works */}
-        <div className="max-w-3xl mb-12">
-          <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-4">How Hi DMC Works</p>
-          <h2 data-testid="how-it-works-heading" className="font-['Cormorant_Garamond'] text-3xl md:text-4xl lg:text-5xl font-light text-[#0D1B2A] leading-tight">
+        <div className="max-w-3xl mb-14">
+          <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">How Hi DMC Works</p>
+          <h2 data-reveal data-testid="how-it-works-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] leading-tight">
             You bring the booking. <em className="text-[#174358]">We manage the destination.</em>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#0D1B2A]/[0.08] rounded-2xl overflow-hidden shadow-[0_12px_40px_-16px_rgba(13,27,42,0.18)]">
+        <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#0D1B2A]/[0.08] rounded-2xl overflow-hidden shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)]">
           {steps.map((s) => (
-            <div key={s.n} data-testid={`how-step-${s.n}`} className="bg-white p-8 hover:bg-[#F8FAFB] transition-colors duration-300">
-              <p className="font-['Cormorant_Garamond'] text-4xl font-light text-[#174358]/30 mb-5">{s.n}</p>
+            <div key={s.n} data-testid={`how-step-${s.n}`} className="bg-white p-8 md:p-10 hover:bg-[#F8FAFB] transition-colors duration-300">
+              <p className="font-['Manrope'] font-bold tracking-tight text-4xl text-[#174358]/30 mb-5">{s.n}</p>
               <h4 className="font-['Manrope'] text-base font-bold text-[#0D1B2A] mb-2.5">{s.title}</h4>
               <p className="font-['Manrope'] text-sm text-[#0D1B2A]/50 leading-relaxed">{s.desc}</p>
             </div>

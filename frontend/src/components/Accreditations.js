@@ -17,10 +17,10 @@ export default function Accreditations() {
   const logos = isUsUk ? allLogos.filter(l => !l.hideForUsUk) : allLogos;
 
   return (
-    <section id="credentials" data-testid="accreditations-section" className="bg-white py-14 px-6 border-y border-[#0D1B2A]/[0.06]">
+    <section id="credentials" data-testid="accreditations-section" className="bg-white py-16 md:py-20 px-6 border-y border-[#0D1B2A]/[0.06]">
       <div className="max-w-7xl mx-auto">
-        <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 text-center mb-10">Trusted Supply Partners & Certifications</p>
-        <div className="flex items-center justify-center gap-10 md:gap-16 flex-wrap">
+        <p data-reveal className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 text-center mb-12">Trusted Supply Partners & Certifications</p>
+        <div data-reveal-group className="flex items-center justify-center gap-12 md:gap-20 flex-wrap">
           {logos.map((p) => (
             <div key={p.name} data-testid={`partner-${p.name.toLowerCase().replace(/\s+/g, "-")}`} className="flex items-center justify-center grayscale opacity-45 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300">
               <img src={p.src} alt={p.name} className="h-9 md:h-11 w-auto object-contain" />
