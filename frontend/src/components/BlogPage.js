@@ -303,14 +303,14 @@ export default function BlogPage() {
           <div className="blog-tabs-scroll flex-1 min-w-0 overflow-x-auto flex items-center gap-1.5 sm:gap-2">
             <button
               data-testid="cat-tab-all"
-              onClick={() => { setActiveCategory(""); scrollToTop(); }}
+              onClick={() => setActiveCategory("")}
               className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-semibold transition-colors ${!activeCategory ? "bg-[#174358] text-white" : "text-[#0D1B2A]/60 hover:text-[#174358] hover:bg-[#174358]/08"}`}
             >All</button>
             {availableCategories.map((c) => (
               <button
                 key={c}
                 data-testid={`cat-tab-${c.toLowerCase()}`}
-                onClick={() => { setActiveCategory(c); scrollToTop(); }}
+                onClick={() => setActiveCategory(c)}
                 className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-semibold transition-colors ${activeCategory === c ? "bg-[#174358] text-white" : "text-[#0D1B2A]/60 hover:text-[#174358] hover:bg-[#174358]/08"}`}
               >{c}</button>
             ))}
