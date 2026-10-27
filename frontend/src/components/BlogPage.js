@@ -121,7 +121,6 @@ function DestinationCard({ dest, image, count, onClick }) {
       <div className="flex items-center justify-between gap-3 mt-3.5 pr-0.5">
         <div className="min-w-0">
           <h3 className="font-['Cormorant_Garamond'] text-2xl md:text-[26px] font-medium text-[#0D1B2A] leading-tight truncate">{dest}</h3>
-          <p className="text-xs text-[#0D1B2A]/45 mt-0.5">{count} article{count !== 1 ? "s" : ""}</p>
         </div>
         <span className="shrink-0 w-10 h-10 rounded-full border border-[#0D1B2A]/15 flex items-center justify-center text-[#174358] group-hover:bg-[#174358] group-hover:text-white group-hover:border-[#174358] transition-colors">
           <ArrowRight size={16} />
@@ -402,7 +401,7 @@ export default function BlogPage() {
             <div className="max-w-none mx-auto">
               <div className="flex items-end justify-between mb-8">
                 <h2 className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-light text-[#0D1B2A]">
-                  {activeDestination || activeCategory || (q && `“${searchQuery}”`)} <span className="text-[#0D1B2A]/35 text-lg">· {filtered.length} article{filtered.length !== 1 ? "s" : ""}</span>
+                  {activeDestination || activeCategory || (q && `“${searchQuery}”`)}
                 </h2>
                 <button onClick={() => { setActiveDestination(""); setActiveCategory(""); setSearchQuery(""); }} className="shrink-0 text-xs text-[#174358] font-semibold hover:underline">Clear</button>
               </div>
