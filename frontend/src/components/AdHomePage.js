@@ -118,7 +118,7 @@ export default function AdHomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-[#f5f7fa]" />
         <div className="relative max-w-[1200px] mx-auto px-5 pt-20 sm:pt-28 pb-8 sm:pb-12 text-center">
           <h1 data-reveal className="font-['Manrope'] font-bold tracking-tight text-[40px] sm:text-[56px] lg:text-[68px] text-[#0D1B2A] leading-[1.1] mb-6">
-            Travel, <em className="text-[#174358]">your way.</em>
+            Travel, <em className="not-italic text-[#174358]">your way.</em>
           </h1>
           <p data-reveal className="text-[15px] sm:text-[17px] text-[#0D1B2A]/55 max-w-xl mx-auto mb-10 leading-relaxed">
             Handcrafted tour packages across 45+ destinations. Local experts, transparent pricing, and 30 years of trust.

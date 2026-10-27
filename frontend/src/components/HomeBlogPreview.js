@@ -32,7 +32,7 @@ export default function HomeBlogPreview() {
               <BookOpen size={14} /> From Our Travel Journal
             </p>
             <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] leading-tight">
-              Destination <em className="text-[#174358]">Insights</em>
+              Destination <em className="not-italic text-[#174358]">Insights</em>
             </h2>
           </div>
           <Link data-reveal to="/blog" className="hidden sm:inline-flex items-center gap-2 font-['Manrope'] text-sm font-semibold text-[#174358] hover:text-[#1e5a75] transition-colors group">

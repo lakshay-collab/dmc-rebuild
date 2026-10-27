@@ -321,7 +321,7 @@ export default function ServiceLeadPage() {
             <div>
               <p data-reveal className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-2">What Agents Say</p>
               <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-[#0D1B2A]">
-                Trusted by <em className="text-[#174358]/50">850+ Travel Agents</em>
+                Trusted by <em className="not-italic text-[#174358]/50">850+ Travel Agents</em>
               </h2>
             </div>
             <div className="hidden md:flex items-center gap-2">

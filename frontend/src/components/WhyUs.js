@@ -25,7 +25,7 @@ export default function WhyUs() {
           <div className="font-['Manrope']">
             <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">Why Hi DMC</p>
             <h2 data-reveal data-testid="why-us-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] mb-6 leading-tight">
-              One Global DMC. More destinations. <em className="text-[#174358]">Less to manage.</em>
+              One Global DMC. More destinations. <em className="not-italic text-[#174358]">Less to manage.</em>
             </h2>
             <p data-reveal className="text-[#0D1B2A]/60 leading-relaxed mb-5">
               Selling more destinations shouldn't mean more suppliers to manage. Hi DMC brings your destination

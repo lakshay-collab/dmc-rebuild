@@ -15,7 +15,7 @@ export default function TwoWays() {
         <div className="max-w-3xl mb-16">
           <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">Two Ways to Work With Us</p>
           <h2 data-reveal data-testid="two-ways-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] leading-tight">
-            Book online. Or let our team <em className="text-[#174358]">take it from here.</em>
+            Book online. Or let our team <em className="not-italic text-[#174358]">take it from here.</em>
           </h2>
         </div>
 
@@ -54,7 +54,7 @@ export default function TwoWays() {
         <div className="max-w-3xl mb-14">
           <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">How Hi DMC Works</p>
           <h2 data-reveal data-testid="how-it-works-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] leading-tight">
-            You bring the booking. <em className="text-[#174358]">We manage the destination.</em>
+            You bring the booking. <em className="not-italic text-[#174358]">We manage the destination.</em>
           </h2>
         </div>
 

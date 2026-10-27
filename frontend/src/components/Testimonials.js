@@ -19,7 +19,7 @@ export default function Testimonials() {
         <div className="text-center">
           <p data-reveal className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-5">Testimonials</p>
           <h2 data-reveal data-testid="testimonials-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] leading-tight">
-            What Our <em className="text-[#174358]">Partners</em> Say
+            What Our <em className="not-italic text-[#174358]">Partners</em> Say
           </h2>
         </div>
       </div>

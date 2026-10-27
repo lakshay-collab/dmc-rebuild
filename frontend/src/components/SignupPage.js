@@ -139,7 +139,7 @@ export default function SignupPage() {
             {/* Left — Copy */}
             <div className="pt-4">
               <h1 data-reveal data-testid="signup-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl sm:text-5xl text-white leading-[1.1] mb-5">
-                Get Live Rates.<br />Book at the <em className="text-white/60">Lowest Prices.</em>
+                Get Live Rates.<br />Book at the <em className="not-italic text-white/60">Lowest Prices.</em>
               </h1>
               <p data-reveal className="text-white/45 text-base leading-relaxed mb-8">
                 Sign up for free agent access. Start building and booking with live rates from 500K+ hotels, 200+ airlines, and 10K+ experiences worldwide.
@@ -271,7 +271,7 @@ export default function SignupPage() {
             <div>
               <p data-reveal className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-2">What Agents Say</p>
               <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-[#0D1B2A]">
-                Trusted by <em className="text-[#174358]/50">850+ Travel Agents</em>
+                Trusted by <em className="not-italic text-[#174358]/50">850+ Travel Agents</em>
               </h2>
             </div>
             <div className="hidden md:flex items-center gap-2">

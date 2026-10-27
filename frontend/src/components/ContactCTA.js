@@ -91,7 +91,7 @@ export default function ContactCTA() {
           <div>
             <p data-reveal className="text-xs tracking-[0.2em] uppercase font-semibold text-white/40 mb-4">Partner With Us</p>
             <h2 data-reveal data-testid="contact-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl text-white mb-6 leading-tight">
-              Ready to make more destinations <em className="text-white/70">easier to sell?</em>
+              Ready to make more destinations <em className="not-italic text-white/70">easier to sell?</em>
             </h2>
             <p data-reveal className="text-white/50 leading-relaxed mb-10 text-sm">
               Register for the agent portal, or send us your next FIT, group or MICE requirement.

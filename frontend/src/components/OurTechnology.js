@@ -43,7 +43,7 @@ export default function OurTechnology() {
         <div data-reveal className="text-center mb-20">
           <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-white/40 mb-3 font-['Manrope']">Agent Portal</p>
           <h2 data-testid="technology-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] mb-6">
-            One portal for bookings. <em className="text-white/50">One team</em><br />for everything else.
+            One portal for bookings. <em className="not-italic text-white/50">One team</em><br />for everything else.
           </h2>
           <p className="text-white/50 max-w-2xl mx-auto text-base leading-relaxed font-['Manrope']">
             Browse and book supported destination products in the portal. For custom itineraries, groups and MICE,

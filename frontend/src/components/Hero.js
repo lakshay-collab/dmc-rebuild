@@ -15,7 +15,7 @@ export default function Hero() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const t = setInterval(() => setBIdx((i) => (i + 1) % banners.length), 5500);
+    const t = setInterval(() => setBIdx((i) => (i + 1) % banners.length), 4000);
     return () => clearInterval(t);
   }, []);
 
@@ -91,12 +91,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Carousel dots */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 hidden sm:flex gap-2">
-        {banners.map((_, i) => (
-          <button key={i} data-testid={`hero-dot-${i}`} onClick={() => setBIdx(i)} aria-label={`Slide ${i + 1}`} className={`h-1.5 rounded-full transition-all duration-500 ${i === bIdx ? "w-7 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70"}`} />
-        ))}
-      </div>
     </section>
   );
 }

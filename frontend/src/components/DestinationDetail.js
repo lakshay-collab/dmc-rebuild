@@ -130,7 +130,7 @@ export default function DestinationDetail() {
               <Link to="/" data-reveal data-testid="back-to-home" className="inline-flex items-center gap-2 text-white/50 hover:text-white/80 text-sm font-medium mb-6 transition-colors"><ArrowLeft size={16} /> Home</Link>
               <p data-reveal className="text-sm text-white/50 font-semibold uppercase tracking-[0.2em] mb-4">{data.region}</p>
               <h1 data-reveal data-testid="dest-name" className="font-['Manrope'] font-bold tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-5">
-                Your Destination Management<br />Company for <em className="text-white/70">{data.name}</em>
+                Your Destination Management<br />Company for <em className="not-italic text-white/70">{data.name}</em>
               </h1>
               <p data-reveal className="font-['Manrope'] text-base text-white/55 max-w-xl mb-7 leading-relaxed">Over 30 years of on-ground expertise. Your trusted DMC partner for {data.name}.</p>
               <a href={process.env.REACT_APP_AGENT_PORTAL_URL} target="_blank" rel="noopener noreferrer" data-reveal data-testid="dest-signin-btn"><Button variant="ghost" className="text-white/70 hover:text-white rounded-full px-6 py-4 text-sm border border-white/25 hover:border-white/50 font-semibold">Sign In as Agent</Button></a>
@@ -213,7 +213,7 @@ export default function DestinationDetail() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">Destination Metrics</p>
-              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">How Travel Agents Rate<br /><em className="text-[#174358]">{data.name}</em></h2>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">How Travel Agents Rate<br /><em className="not-italic text-[#174358]">{data.name}</em></h2>
             </div>
             <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {detail.case_studies.map((cs) => (
@@ -240,7 +240,7 @@ export default function DestinationDetail() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-16">
               <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">What We Offer</p>
-              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-5">Our Services for <em className="text-[#174358]">{data.name}</em></h2>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-5">Our Services for <em className="not-italic text-[#174358]">{data.name}</em></h2>
               <p data-reveal className="font-['Manrope'] text-sm text-[#0D1B2A]/60 leading-relaxed">End-to-end travel services — from FIT packages and group tours to MICE events. All with live rates.</p>
             </div>
             {detail.services_in_country.slice(0, 4).map((svc, i) => {
@@ -290,7 +290,7 @@ export default function DestinationDetail() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-white/40 mb-4">Travel Itineraries</p>
-              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-white mb-4">Suggested travel itineraries <em className="text-white/50">for your clients</em></h2>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-white mb-4">Suggested travel itineraries <em className="not-italic text-white/50">for your clients</em></h2>
               <p data-reveal className="font-['Manrope'] text-sm text-white/45 leading-relaxed">Ready-to-sell package ideas. Customise dates, hotels, and experiences with live rates on the platform.</p>
             </div>
             <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -352,7 +352,7 @@ export default function DestinationDetail() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">Explore by Region</p>
-              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">Regions of <em className="text-[#174358]">{data.name}</em></h2>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">Regions of <em className="not-italic text-[#174358]">{data.name}</em></h2>
             </div>
             <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {detail.regions.map((region) => (
@@ -379,7 +379,7 @@ export default function DestinationDetail() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">Where We Operate</p>
-              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">Key Cities in <em className="text-[#174358]">{data.name}</em></h2>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">Key Cities in <em className="not-italic text-[#174358]">{data.name}</em></h2>
             </div>
             <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {detail.key_destinations_within.map((city) => (
@@ -403,7 +403,7 @@ export default function DestinationDetail() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">Signature Experiences</p>
-              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">Key Experiences in <em className="text-[#174358]">{data.name}</em></h2>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">Key Experiences in <em className="not-italic text-[#174358]">{data.name}</em></h2>
               <p data-reveal className="font-['Manrope'] text-sm text-[#0D1B2A]/60 mt-4 leading-relaxed">Curated experiences your clients will love. Book through your agent portal.</p>
             </div>
             <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -431,7 +431,7 @@ export default function DestinationDetail() {
                 <Utensils size={18} className="text-[#174358]/40" />
                 <p className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60">Food & Cuisine</p>
               </div>
-              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-5">The Flavours of <em className="text-[#174358]">{data.name}</em></h2>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A] mb-5">The Flavours of <em className="not-italic text-[#174358]">{data.name}</em></h2>
               <p data-reveal className="font-['Manrope'] text-sm text-[#0D1B2A]/60 leading-relaxed">{detail.food.intro}</p>
             </div>
             <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -455,7 +455,7 @@ export default function DestinationDetail() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-10">
               <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">Pairs Well With</p>
-              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">Destinations That Complement <em className="text-[#174358]">{data.name}</em></h2>
+              <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-[#0D1B2A]">Destinations That Complement <em className="not-italic text-[#174358]">{data.name}</em></h2>
             </div>
             <div data-reveal-group className="grid grid-cols-2 md:grid-cols-4 gap-5">
               {data.paired_destinations.map((pd) => (
@@ -477,7 +477,7 @@ export default function DestinationDetail() {
       {/* 13. Final CTA */}
       <section id="get-started" data-testid="dest-final-cta" className="py-16 md:py-20 px-6 md:px-12 bg-[#174358]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-white mb-5">Start Selling <em className="text-white/60">{data.name}</em> Today</h2>
+          <h2 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl leading-tight text-white mb-5">Start Selling <em className="not-italic text-white/60">{data.name}</em> Today</h2>
           <p data-reveal className="font-['Manrope'] text-white/50 text-sm mb-8 max-w-xl mx-auto leading-relaxed">Sign up to access our full {data.name} inventory with live rates. Existing partners can log in to book directly.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link to="/signup"><Button className="bg-white text-[#174358] hover:bg-white/90 rounded-full px-8 py-5 text-sm font-semibold shadow-lg">Sign Up as Partner</Button></Link>
@@ -491,7 +491,7 @@ export default function DestinationDetail() {
       {!detail && (
         <section className="py-20 md:py-24 px-6 md:px-12">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-[#0D1B2A] mb-6">Your Destination Management Company for <em className="text-[#174358]">{data.name}</em></h2>
+            <h2 className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-[#0D1B2A] mb-6">Your Destination Management Company for <em className="not-italic text-[#174358]">{data.name}</em></h2>
             <p className="text-sm text-[#0D1B2A]/55 leading-relaxed mb-8">{data.description}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link to="/signup"><Button className="bg-[#174358] text-white hover:bg-[#1e5a75] rounded-full px-8 py-5 text-sm font-semibold shadow-md">Start Selling {data.name} <ArrowRight size={14} className="ml-1.5" /></Button></Link>

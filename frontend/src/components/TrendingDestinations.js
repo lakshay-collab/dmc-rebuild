@@ -41,7 +41,7 @@ export default function TrendingDestinations() {
         <div>
           <p data-reveal className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[#174358]/60 mb-5">Our Key DMC Destinations</p>
           <h2 data-reveal data-testid="trending-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] mb-5 leading-tight">
-            Destinations We <em className="text-[#174358]">Champion</em>
+            Destinations We <em className="not-italic text-[#174358]">Champion</em>
           </h2>
           <p data-reveal className="font-['Manrope'] text-[#0D1B2A]/60 max-w-lg leading-relaxed">Hand-picked destinations where our on-ground DMC teams deliver exceptional experiences for your clients.</p>
         </div>

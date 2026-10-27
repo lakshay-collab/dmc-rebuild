@@ -18,7 +18,7 @@ export default function Services() {
         <div className="text-center mb-8">
           <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">Destination Services</p>
           <h2 data-reveal data-testid="services-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] mb-5 leading-tight">
-            Everything Behind <em className="text-[#174358]">Your Destination Booking</em>
+            Everything Behind <em className="not-italic text-[#174358]">Your Destination Booking</em>
           </h2>
           <p data-reveal className="font-['Manrope'] text-[#0D1B2A]/60 max-w-2xl mx-auto leading-relaxed">The destination services we source and coordinate for the travel trade — bookable in the portal, or arranged with our agent team.</p>
         </div>

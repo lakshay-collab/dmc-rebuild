@@ -29,7 +29,7 @@ export default function TravelThemes() {
         <div className="text-center mb-16">
           <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">Curated Experiences</p>
           <h2 data-reveal data-testid="themes-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] mb-4 leading-tight">
-            Travel <em className="text-[#174358]">Styles</em>
+            Travel <em className="not-italic text-[#174358]">Styles</em>
           </h2>
         </div>
         <div data-reveal-group className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">

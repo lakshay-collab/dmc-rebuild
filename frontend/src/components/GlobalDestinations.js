@@ -69,7 +69,7 @@ export default function GlobalDestinations() {
           <div>
             <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-4">Discover</p>
             <h2 data-reveal data-testid="global-destinations-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl leading-tight text-[#0D1B2A] mb-4">
-              More Destinations. <em className="text-[#174358]">One DMC Relationship.</em>
+              More Destinations. <em className="not-italic text-[#174358]">One DMC Relationship.</em>
             </h2>
             <p data-reveal className="font-['Manrope'] text-[#0D1B2A]/60 max-w-lg text-sm leading-relaxed">
               Destinations serviced through Hi DMC's contracted suppliers and booking operations. Need something
