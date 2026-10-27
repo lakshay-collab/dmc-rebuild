@@ -34,7 +34,7 @@ export default function Hero() {
       {/* Centered content */}
       <div data-reveal-group className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-10">
         <h1 data-testid="hero-heading" className="font-['Manrope'] font-bold tracking-tight text-white text-4xl sm:text-5xl md:text-6xl leading-[1.08] max-w-4xl">
-          You sell the world, we handle <span className="text-white/70">the destination.</span>
+          You sell the world, we handle the destination
         </h1>
         <div className="mb-8" />
 
