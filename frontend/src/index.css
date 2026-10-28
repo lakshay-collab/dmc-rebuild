@@ -62,6 +62,10 @@ html { scroll-behavior: smooth; }
 @keyframes tl-node-pop { from { opacity: 0; transform: translate(-50%, -50%) scale(0.2); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
 @keyframes tl-conn-grow { from { transform: translateY(-50%) scaleX(0); } to { transform: translateY(-50%) scaleX(1); } }
 
+/* Why HI DMC — editorial composition */
+@keyframes wu-img-scale { from { transform: scale(1.06); } to { transform: scale(1); } }
+@keyframes wu-rule-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .sd-rise { animation: sd-rise-kf linear both; animation-timeline: view(); animation-range: entry 2% cover 22%; }
@@ -85,6 +89,10 @@ html { scroll-behavior: smooth; }
     .tl-conn-left { animation: tl-conn-grow linear both; animation-timeline: view(); animation-range: entry 7% cover 30%; transform-origin: right center; }
     .tl-conn-right { animation: tl-conn-grow linear both; animation-timeline: view(); animation-range: entry 7% cover 30%; transform-origin: left center; }
     .tl-img-anim { animation: sd-rv-clip linear both; animation-timeline: view(); animation-range: entry 2% cover 36%; }
+
+    /* Why HI DMC */
+    .wu-img-scale { animation: wu-img-scale linear both; animation-timeline: view(); animation-range: entry 0% cover 45%; }
+    .wu-rule { animation: wu-rule-grow linear both; animation-timeline: view(); animation-range: entry 4% cover 24%; transform-origin: left center; }
   }
 }
 
