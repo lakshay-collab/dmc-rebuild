@@ -9,6 +9,16 @@ import Footer from "./Footer";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
+// Iconic destinations we service — the panel image slowly cross-fades between them.
+const DEST_IMAGES = [
+  { id: "1564507592333-c60657eea523", name: "India" },
+  { id: "1503177119275-0aa32b3a9368", name: "Egypt" },
+  { id: "1540959733332-eab4deabeeaf", name: "Japan" },
+  { id: "1566296314736-6eaac1ca0cb9", name: "Sri Lanka" },
+  { id: "1528127269322-539801943592", name: "Vietnam" },
+  { id: "1570077188670-e3a8d69ac5ff", name: "Greece" },
+];
+
 const benefits = [
   "Full access to our booking platform with live rates",
   "Choose and dynamically package your own packages from hotels, experiences, and transfers",
@@ -79,8 +89,15 @@ export default function SignupPage() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [scrollPos, setScrollPos] = useState(0);
+  const [bIdx, setBIdx] = useState(0);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  // Slowly cross-fade the destination image.
+  useEffect(() => {
+    const t = setInterval(() => setBIdx((i) => (i + 1) % DEST_IMAGES.length), 4500);
+    return () => clearInterval(t);
+  }, []);
 
   const isIndia = form.phone_code === "+91";
 
@@ -132,61 +149,77 @@ export default function SignupPage() {
         </div>
       </div>
 
-      {/* Hero + Form */}
-      <section data-testid="signup-hero" className="py-12 md:py-16 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-[#0D1B2A] to-[#174358]">
+      {/* Hero + Form — premium card: rotating destination image panel + elegant form */}
+      <section data-testid="signup-hero" className="py-12 md:py-16 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left — Copy */}
-            <div className="pt-4">
-              <h1 data-reveal data-testid="signup-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl sm:text-5xl text-white leading-[1.1] mb-5">
-                Get Live Rates.<br />Book at the <em className="not-italic text-white/60">Lowest Prices.</em>
-              </h1>
-              <p data-reveal className="text-white/45 text-base leading-relaxed mb-8">
-                Sign up for free agent access. Start building and booking with live rates from 500K+ hotels, 200+ airlines, and 10K+ experiences worldwide.
-              </p>
-              <div data-reveal-group className="space-y-3 mb-8">
-                {benefits.map((b) => (
-                  <div key={b} className="flex items-start gap-2.5">
-                    <Check size={14} className="text-white/50 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-white/55 leading-relaxed">{b}</span>
+          <div className="bg-white rounded-[2rem] shadow-[0_44px_110px_-48px_rgba(13,27,42,0.5)] p-3 sm:p-4 lg:p-5">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-5 lg:gap-8">
+            {/* Left — rotating destination image + copy */}
+            <div className="relative min-h-[320px] lg:min-h-full overflow-hidden rounded-[1.4rem]">
+              {DEST_IMAGES.map((d, i) => (
+                <img
+                  key={d.id}
+                  src={`https://images.unsplash.com/photo-${d.id}?w=1100&q=85&auto=format&fit=crop`}
+                  alt={`${d.name} — destination we service`}
+                  loading="lazy"
+                  className={`absolute inset-0 w-full h-full object-cover transition-[opacity,transform] ease-in-out duration-[2200ms] ${i === bIdx ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}
+                />
+              ))}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B2A]/72 via-[#0D1B2A]/58 to-[#0D1B2A]/90" aria-hidden="true" />
+              <div className="relative h-full flex flex-col justify-between p-8 md:p-10 lg:p-12">
+                <div>
+                  <p className="font-['Manrope'] text-[11px] tracking-[0.3em] uppercase font-semibold text-white/55 mb-6">Agent Access</p>
+                  <h1 data-testid="signup-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-[42px] text-white leading-[1.1] mb-5">
+                    Get live rates.<br />Book at the lowest prices.
+                  </h1>
+                  <p className="font-['Manrope'] text-white/60 text-sm leading-relaxed mb-7 max-w-sm">
+                    Free agent access to live rates from 500K+ hotels, 200+ airlines and 10K+ experiences worldwide.
+                  </p>
+                  <div className="space-y-3">
+                    {benefits.map((b) => (
+                      <div key={b} className="flex items-start gap-2.5">
+                        <Check size={14} className="text-white/60 mt-0.5 flex-shrink-0" />
+                        <span className="font-['Manrope'] text-[13px] text-white/70 leading-relaxed">{b}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <div data-reveal-group className="flex items-center gap-6 pt-6 border-t border-white/10">
-                <div>
-                  <p className="text-3xl font-['Manrope'] font-bold tracking-tight text-white">850+</p>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider font-semibold">Active Agents</p>
                 </div>
-                <div className="w-px h-10 bg-white/10" />
-                <div>
-                  <p className="text-3xl font-['Manrope'] font-bold tracking-tight text-white">30+</p>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider font-semibold">Years of Trust</p>
-                </div>
-                <div className="w-px h-10 bg-white/10" />
-                <div>
-                  <p className="text-3xl font-['Manrope'] font-bold tracking-tight text-white">45+</p>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider font-semibold">Destinations</p>
+                <div className="pt-8 mt-8 border-t border-white/15 flex items-center gap-6">
+                  <div>
+                    <p className="font-['Manrope'] text-2xl font-bold tracking-tight text-white leading-none">850+</p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-wider font-semibold mt-1.5">Active Agents</p>
+                  </div>
+                  <div className="w-px h-9 bg-white/15" />
+                  <div>
+                    <p className="font-['Manrope'] text-2xl font-bold tracking-tight text-white leading-none">30+</p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-wider font-semibold mt-1.5">Years of Trust</p>
+                  </div>
+                  <div className="w-px h-9 bg-white/15" />
+                  <div>
+                    <p className="font-['Manrope'] text-2xl font-bold tracking-tight text-white leading-none">45+</p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-wider font-semibold mt-1.5">Destinations</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Right — Form */}
-            <div>
+            {/* Right — form */}
+            <div className="px-1.5 py-4 lg:px-6 lg:py-8">
               {submitted ? (
-                <div data-reveal="right" data-testid="signup-success" className="bg-white rounded-3xl p-10 text-center border border-[#0D1B2A]/06 shadow-[0_24px_60px_-24px_rgba(13,27,42,0.35)]">
-                  <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-5">
+                <div data-testid="signup-success" className="h-full flex flex-col items-center justify-center text-center py-10">
+                  <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mb-5">
                     <Check size={28} className="text-emerald-500" />
                   </div>
                   <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-[#0D1B2A] mb-3">Thank You for Signing Up</h3>
-                  <p className="text-[#0D1B2A]/50 text-sm leading-relaxed">
+                  <p className="text-[#0D1B2A]/50 text-sm leading-relaxed max-w-sm">
                     Our customer success team will get in touch with you shortly.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} data-reveal="right" data-testid="signup-form" className="bg-white rounded-3xl p-7 md:p-8 space-y-4 border border-[#0D1B2A]/06 shadow-[0_24px_60px_-24px_rgba(13,27,42,0.35)]">
-                  <div className="mb-1">
-                    <h3 className="font-['Manrope'] font-bold tracking-tight text-xl text-[#0D1B2A] mb-0.5">Sign Up for Agent Access</h3>
-                    <p className="text-[11px] text-[#0D1B2A]/40">Free account setup. Start booking in minutes.</p>
+                <form onSubmit={handleSubmit} data-testid="signup-form" className="space-y-4">
+                  <div className="mb-5">
+                    <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-[#0D1B2A] mb-1">Sign Up for Agent Access</h3>
+                    <p className="text-xs text-[#0D1B2A]/45">Free account setup. Start booking in minutes.</p>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
@@ -246,6 +279,7 @@ export default function SignupPage() {
                 </form>
               )}
             </div>
+            </div>
           </div>
         </div>
       </section>
@@ -256,7 +290,7 @@ export default function SignupPage() {
           <p data-reveal className="text-[10px] tracking-[0.25em] uppercase font-semibold text-[#0D1B2A]/20 text-center mb-6">Trusted Supply Partners</p>
           <div data-reveal-group className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
             {partnerLogos.map((p) => (
-              <div key={p.name} className="flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <div key={p.name} className="flex items-center justify-center opacity-100 hover:scale-105 transition-transform duration-300">
                 <img src={p.src} alt={p.name} className="h-8 md:h-10 w-auto object-contain" />
               </div>
             ))}

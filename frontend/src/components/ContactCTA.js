@@ -103,9 +103,10 @@ export default function ContactCTA() {
   return (
     <section id="contact" data-testid="contact-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
       <div className="max-w-6xl mx-auto">
-        <div data-reveal-img className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] bg-white rounded-[1.75rem] overflow-hidden shadow-[0_44px_110px_-48px_rgba(13,27,42,0.55)]">
+        <div data-reveal-img className="bg-white rounded-[2rem] shadow-[0_44px_110px_-48px_rgba(13,27,42,0.55)] p-3 sm:p-4 lg:p-5">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-5 lg:gap-8">
           {/* Royal destination image panel + condensed story */}
-          <div className="relative min-h-[300px] lg:min-h-full overflow-hidden">
+          <div className="relative min-h-[320px] lg:min-h-full overflow-hidden rounded-[1.4rem]">
             {DEST_IMAGES.map((d, i) => (
               <img
                 key={d.id}
@@ -146,7 +147,7 @@ export default function ContactCTA() {
           </div>
 
           {/* Elegant quote form */}
-          <div className="p-8 md:p-10 lg:p-12">
+          <div className="px-1.5 py-4 lg:px-6 lg:py-8">
             {submitted ? (
               <div data-testid="form-success" className="h-full flex flex-col items-center justify-center text-center py-10">
                 <div className="w-14 h-14 rounded-full bg-[#174358]/10 flex items-center justify-center mb-5">
@@ -232,6 +233,7 @@ export default function ContactCTA() {
                 </Button>
               </form>
             )}
+          </div>
           </div>
         </div>
       </div>

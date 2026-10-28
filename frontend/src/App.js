@@ -4,7 +4,6 @@ import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/Navbar";
 import ScrollEffects from "@/components/ScrollEffects";
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
 import WhyUs from "@/components/WhyUs";
 import TwoWays from "@/components/TwoWays";
 import WhoWeWorkWith from "@/components/WhoWeWorkWith";
@@ -59,7 +58,6 @@ const Home = () => {
     <div className="min-h-screen bg-white" data-home-root>
       <Navbar />
       <Hero />
-      <Stats />
       <WhyUs />
       <TwoWays />
       <TrendingDestinations />

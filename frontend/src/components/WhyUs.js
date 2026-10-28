@@ -20,11 +20,6 @@ export default function WhyUs() {
                 className="wu-img-scale w-full h-[400px] md:h-[520px] lg:h-[580px] object-cover"
               />
             </div>
-            {/* 30+ Years of excellence — oversized editorial type on the image baseline */}
-            <div className="pointer-events-none absolute left-2 lg:-left-6 -bottom-5 md:-bottom-7">
-              <span className="block font-['Manrope'] font-bold tracking-tight text-6xl md:text-8xl leading-[0.9] text-[#0D1B2A] [text-shadow:0_2px_24px_rgba(244,241,232,0.9)]">30+</span>
-              <span className="block font-['Manrope'] text-[10px] md:text-xs tracking-[0.3em] uppercase font-semibold text-[#174358] mt-1.5 ml-1">Years of excellence</span>
-            </div>
           </div>
 
           {/* Headline + supporting copy (~42%) */}
