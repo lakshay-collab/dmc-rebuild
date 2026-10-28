@@ -22,8 +22,8 @@ export default function Footer() {
         <div data-reveal-group className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-14">
           <div className="col-span-2">
             <img src="/hidmc-logo-color.png" alt="Hi DMC" className="h-10 mb-4" />
-            <p className="text-xs text-[#0D1B2A]/55 leading-relaxed mb-4 max-w-xs">Technology-driven, globally connected, locally expert destination management for travel agents worldwide.</p>
-            <p className="text-[11px] text-[#0D1B2A]/45 mb-5">Part of <a href="https://hitours.group" target="_blank" rel="noopener noreferrer" className="text-[#174358] hover:text-[#1e5a75] underline underline-offset-2 transition-colors">Hi Tours Group</a></p>
+            <p className="text-xs text-[#0D1B2A]/85 leading-relaxed mb-4 max-w-xs">Technology-driven, globally connected, locally expert destination management for travel agents worldwide.</p>
+            <p className="text-[11px] text-[#0D1B2A]/65 mb-5">Part of <a href="https://hitours.group" target="_blank" rel="noopener noreferrer" className="text-[#174358] hover:text-[#1e5a75] underline underline-offset-2 transition-colors">Hi Tours Group</a></p>
             <div className="space-y-2 mb-5">
               <a href="mailto:sales@hidmc.com" className="flex items-center gap-2 text-xs text-[#0D1B2A]/55 hover:text-[#174358] transition-colors"><Mail size={12} />sales@hidmc.com</a>
               <a href="tel:+911244600000" className="flex items-center gap-2 text-xs text-[#0D1B2A]/55 hover:text-[#174358] transition-colors"><Phone size={12} />+91 124 4600000</a>
@@ -40,13 +40,13 @@ export default function Footer() {
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-[10px] tracking-[0.2em] uppercase font-semibold text-[#0D1B2A]/40 mb-4">{title}</h4>
+              <h4 className="text-[10px] tracking-[0.2em] uppercase font-semibold text-[#0D1B2A]/90 mb-4">{title}</h4>
               <ul className="space-y-2">
                 {links.map((l) => {
                   const item = typeof l === "string" ? { label: l, href: "#" } : l;
                   return (
                     <li key={item.label}>
-                      <a href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener noreferrer" : undefined} className="text-xs text-[#0D1B2A]/55 hover:text-[#174358] transition-colors">{item.label}</a>
+                      <a href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener noreferrer" : undefined} className="text-xs text-[#0D1B2A]/80 hover:text-[#174358] transition-colors">{item.label}</a>
                     </li>
                   );
                 })}
@@ -58,20 +58,20 @@ export default function Footer() {
 
         {/* Region Selector */}
         <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] text-[#0D1B2A]/40 uppercase tracking-wider font-semibold">Select your region</p>
+          <p className="text-[10px] text-[#0D1B2A]/65 uppercase tracking-wider font-semibold">Select your region</p>
           <RegionFooterToggle />
         </div>
 
         <Separator className="bg-[#0D1B2A]/[0.08]" />
         <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[10px] text-[#0D1B2A]/40">&copy; {new Date().getFullYear()} {config.legalEntity}. All rights reserved.</p>
+          <p className="text-[10px] text-[#0D1B2A]/60">&copy; {new Date().getFullYear()} {config.legalEntity}. All rights reserved.</p>
           <div className="flex items-center gap-5">
             {[
               { label: "Privacy Policy", href: "/legal/privacy-policy" },
               { label: "Terms & Conditions", href: "/legal/terms-and-conditions" },
               { label: "Cookie Policy", href: "/legal/cookie-policy" },
             ].map((l) => (
-              <a key={l.label} href={l.href} className="text-[10px] text-[#0D1B2A]/40 hover:text-[#174358] transition-colors">{l.label}</a>
+              <a key={l.label} href={l.href} className="text-[10px] text-[#0D1B2A]/60 hover:text-[#174358] transition-colors">{l.label}</a>
             ))}
           </div>
         </div>
