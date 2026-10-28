@@ -15,7 +15,7 @@ export default function Hero() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const t = setInterval(() => setBIdx((i) => (i + 1) % banners.length), 4000);
+    const t = setInterval(() => setBIdx((i) => (i + 1) % banners.length), 1000);
     return () => clearInterval(t);
   }, []);
 
@@ -25,7 +25,7 @@ export default function Hero() {
     <section id="hero" data-testid="hero-section" className="relative min-h-screen flex flex-col overflow-hidden bg-[#0D1B2A]">
       {/* Background carousel */}
       {banners.map((b, i) => (
-        <div key={i} className={`absolute inset-0 transition-opacity duration-[1200ms] ${i === bIdx ? "opacity-100" : "opacity-0"}`}>
+        <div key={i} className={`absolute inset-0 transition-opacity duration-[600ms] ${i === bIdx ? "opacity-100" : "opacity-0"}`}>
           <img src={b.image} alt={b.title} className={`w-full h-full object-cover transition-transform ease-out duration-[6500ms] ${i === bIdx ? "scale-105" : "scale-100"}`} />
         </div>
       ))}
