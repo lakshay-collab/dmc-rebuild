@@ -10,10 +10,9 @@ import axios from "axios";
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const benefits = [
-  "One DMC relationship across the destinations you sell",
-  "Book available destination products in the agent portal",
-  "Specialised agent team for custom FIT, groups and MICE",
-  "Supplier sourcing and ground coordination handled by us",
+  "One DMC relationship across every destination",
+  "Book destination products in the agent portal",
+  "Specialist team for FIT, groups & MICE",
 ];
 
 const phoneCodes = [
@@ -85,51 +84,63 @@ export default function ContactCTA() {
   const update = (field, value) => setForm((f) => ({ ...f, [field]: value }));
 
   return (
-    <section id="contact" data-testid="contact-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#174358]">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          <div>
-            <p data-reveal className="text-xs tracking-[0.2em] uppercase font-semibold text-white/40 mb-4">Partner With Us</p>
-            <h2 data-reveal data-testid="contact-heading" className="font-['Manrope'] font-bold tracking-tight text-4xl md:text-5xl text-white mb-6 leading-tight">
-              Ready to make more destinations <em className="not-italic text-white/70">easier to sell?</em>
-            </h2>
-            <p data-reveal className="text-white/50 leading-relaxed mb-10 text-sm">
-              Register for the agent portal, or send us your next FIT, group or MICE requirement.
-            </p>
-            <div data-reveal-group className="space-y-4 mb-10">
-              {benefits.map((b, i) => (
-                <div key={i} className="flex items-start gap-2.5">
-                  <Check size={14} className="text-white/50 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-white/55 leading-relaxed">{b}</span>
+    <section id="contact" data-testid="contact-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
+      <div className="max-w-6xl mx-auto">
+        <div data-reveal-img className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] bg-white rounded-[1.75rem] overflow-hidden shadow-[0_44px_110px_-48px_rgba(13,27,42,0.55)]">
+          {/* Royal destination image panel + condensed story */}
+          <div className="relative min-h-[300px] lg:min-h-full">
+            <img
+              src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1100&q=85&auto=format&fit=crop"
+              alt="Iconic destination"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B2A]/70 via-[#0D1B2A]/55 to-[#0D1B2A]/88" aria-hidden="true" />
+            <div className="relative h-full flex flex-col justify-between p-8 md:p-10 lg:p-12">
+              <div>
+                <p className="font-['Manrope'] text-[11px] tracking-[0.3em] uppercase font-semibold text-white/55 mb-6">Partner With Us</p>
+                <h2 data-testid="contact-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-[42px] text-white leading-[1.1] mb-5">
+                  More destinations.<br />One DMC relationship.
+                </h2>
+                <p className="font-['Manrope'] text-white/60 text-sm leading-relaxed mb-8 max-w-xs">
+                  Register for the agent portal, or share your next requirement.
+                </p>
+                <div className="space-y-3">
+                  {benefits.map((b, i) => (
+                    <div key={i} className="flex items-start gap-2.5">
+                      <Check size={14} className="text-white/60 mt-0.5 flex-shrink-0" />
+                      <span className="font-['Manrope'] text-[13px] text-white/70 leading-relaxed">{b}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div className="pt-8 border-t border-white/10 space-y-3">
-              <a href="mailto:sales@hidmc.com" className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white/70 transition-colors">
-                <Mail size={15} className="text-white/40" /> sales@hidmc.com
-              </a>
-              <a href="tel:+911244600000" className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white/70 transition-colors">
-                <Phone size={15} className="text-white/40" /> +91 124 4600000
-              </a>
+              </div>
+              <div className="pt-8 mt-8 border-t border-white/15 flex flex-wrap gap-x-7 gap-y-2">
+                <a href="mailto:sales@hidmc.com" className="font-['Manrope'] flex items-center gap-2 text-[13px] text-white/60 hover:text-white transition-colors">
+                  <Mail size={14} className="text-white/45" /> sales@hidmc.com
+                </a>
+                <a href="tel:+911244600000" className="font-['Manrope'] flex items-center gap-2 text-[13px] text-white/60 hover:text-white transition-colors">
+                  <Phone size={14} className="text-white/45" /> +91 124 4600000
+                </a>
+              </div>
             </div>
           </div>
 
-          <div>
+          {/* Elegant quote form */}
+          <div className="p-8 md:p-10 lg:p-12">
             {submitted ? (
-              <div data-testid="form-success" className="bg-white/08 rounded-[1.25rem] p-12 text-center border border-white/10">
-                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-5">
-                  <Check size={28} className="text-white/70" />
+              <div data-testid="form-success" className="h-full flex flex-col items-center justify-center text-center py-10">
+                <div className="w-14 h-14 rounded-full bg-[#174358]/10 flex items-center justify-center mb-5">
+                  <Check size={28} className="text-[#174358]" />
                 </div>
-                <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-white mb-3">Thank You — Request Received</h3>
-                <p className="text-white/50 text-sm leading-relaxed">
+                <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-[#0D1B2A] mb-3">Thank You — Request Received</h3>
+                <p className="text-[#0D1B2A]/50 text-sm leading-relaxed max-w-sm">
                   Our agent team will review your requirement and get back to you shortly.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} data-testid="inquiry-form" className="bg-white rounded-[1.25rem] p-8 md:p-9 space-y-4 shadow-[0_30px_70px_-28px_rgba(0,0,0,0.5)]">
-                <div className="mb-1">
-                  <h3 className="font-['Manrope'] font-bold tracking-tight text-xl text-[#0D1B2A] mb-0.5">Request a Quote</h3>
-                  <p className="text-[11px] text-[#0D1B2A]/40">Tell us the requirement and our agent team will come back to you.</p>
+              <form onSubmit={handleSubmit} data-testid="inquiry-form" className="space-y-4">
+                <div className="mb-5">
+                  <h3 className="font-['Manrope'] font-bold tracking-tight text-2xl text-[#0D1B2A] mb-1">Request a Quote</h3>
+                  <p className="text-xs text-[#0D1B2A]/45">Tell us the requirement and our agent team will come back to you.</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
