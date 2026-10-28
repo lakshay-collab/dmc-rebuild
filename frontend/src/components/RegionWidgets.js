@@ -49,7 +49,7 @@ export function RegionFooterToggle() {
           className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold transition-all ${
             region === r.code
               ? "bg-[#174358] text-white"
-              : "text-white/45 border border-white/15 hover:text-white/75 hover:border-white/30"
+              : "text-[#0D1B2A]/55 border border-[#0D1B2A]/15 hover:text-[#0D1B2A] hover:border-[#0D1B2A]/30"
           }`}>
           <span className="text-sm">{r.flag}</span>
           {r.label}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight, Check, Phone, Mail } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -8,6 +8,16 @@ import { toast } from "sonner";
 import axios from "axios";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+
+// Iconic destinations we service — the panel image slowly cross-fades between them.
+const DEST_IMAGES = [
+  { id: "1564507592333-c60657eea523", name: "India" },
+  { id: "1503177119275-0aa32b3a9368", name: "Egypt" },
+  { id: "1540959733332-eab4deabeeaf", name: "Japan" },
+  { id: "1566296314736-6eaac1ca0cb9", name: "Sri Lanka" },
+  { id: "1528127269322-539801943592", name: "Vietnam" },
+  { id: "1570077188670-e3a8d69ac5ff", name: "Greece" },
+];
 
 const benefits = [
   "One DMC relationship across every destination",
@@ -55,6 +65,13 @@ export default function ContactCTA() {
   const [form, setForm] = useState({ first_name: "", last_name: "", agency_name: "", email: "", phone_code: "+91", phone: "", state: "", comments: "" });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [bIdx, setBIdx] = useState(0);
+
+  // Slowly cross-fade the destination image.
+  useEffect(() => {
+    const t = setInterval(() => setBIdx((i) => (i + 1) % DEST_IMAGES.length), 4500);
+    return () => clearInterval(t);
+  }, []);
 
   const isIndia = form.phone_code === "+91";
 
@@ -88,12 +105,16 @@ export default function ContactCTA() {
       <div className="max-w-6xl mx-auto">
         <div data-reveal-img className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] bg-white rounded-[1.75rem] overflow-hidden shadow-[0_44px_110px_-48px_rgba(13,27,42,0.55)]">
           {/* Royal destination image panel + condensed story */}
-          <div className="relative min-h-[300px] lg:min-h-full">
-            <img
-              src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1100&q=85&auto=format&fit=crop"
-              alt="Iconic destination"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+          <div className="relative min-h-[300px] lg:min-h-full overflow-hidden">
+            {DEST_IMAGES.map((d, i) => (
+              <img
+                key={d.id}
+                src={`https://images.unsplash.com/photo-${d.id}?w=1100&q=85&auto=format&fit=crop`}
+                alt={`${d.name} — destination we service`}
+                loading="lazy"
+                className={`absolute inset-0 w-full h-full object-cover transition-[opacity,transform] ease-in-out duration-[2200ms] ${i === bIdx ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}
+              />
+            ))}
             <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B2A]/70 via-[#0D1B2A]/55 to-[#0D1B2A]/88" aria-hidden="true" />
             <div className="relative h-full flex flex-col justify-between p-8 md:p-10 lg:p-12">
               <div>
