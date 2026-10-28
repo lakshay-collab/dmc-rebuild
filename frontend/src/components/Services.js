@@ -1,4 +1,9 @@
+import { useLayoutEffect, useRef } from "react";
 import { ArrowRight, Package, Sparkles, Users, Hotel, Plane, Compass, Car, Map } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   { icon: Package, title: "FIT Packages", stat: "2,500+", statLabel: "Packages", desc: "Fully independent travel packages for individual customers — flexible itineraries, accommodation and complete ground arrangements across the destinations we service.", image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&q=80" },
@@ -11,11 +16,71 @@ const services = [
   { icon: Map, title: "MICE", stat: "45+", statLabel: "Countries", desc: "Meetings, incentives, conferences and exhibitions — destination ground arrangements coordinated by our dedicated team.", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80" },
 ];
 
-export default function Services() {
+/* Compact horizontal service card — small image beside label + title + description + CTA.
+   On desktop the image sits toward the central line (reversed for left-side items). */
+function ServiceCard({ s, left }) {
+  const Icon = s.icon;
   return (
-    <section id="services" data-testid="services-section" className="py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-[#F4F1E8]">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8">
+    <div className={`group flex items-center gap-4 md:gap-5 ${left ? "md:flex-row-reverse md:text-right" : ""}`}>
+      <div className="tl-img-anim relative overflow-hidden rounded-xl shrink-0 w-28 h-24 sm:w-36 sm:h-28 md:w-44 md:h-32">
+        <img
+          src={s.image}
+          alt={s.title}
+          loading="lazy"
+          data-parallax="6"
+          className="absolute inset-x-0 top-[-9%] h-[118%] w-full object-cover will-change-transform"
+        />
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className={`flex items-center gap-2 mb-1.5 ${left ? "md:justify-end" : ""}`}>
+          <Icon size={13} strokeWidth={1.75} className="text-[#174358]/70 shrink-0" />
+          <span className="font-['Manrope'] text-[10px] tracking-[0.14em] uppercase font-semibold text-[#174358]/70">
+            {s.stat} · {s.statLabel}
+          </span>
+        </div>
+        <h3 className="font-['Manrope'] font-bold tracking-tight text-lg md:text-xl text-[#0D1B2A] leading-snug mb-1.5">{s.title}</h3>
+        <p className="font-['Manrope'] text-xs md:text-[13px] text-[#0D1B2A]/55 leading-relaxed mb-2.5 line-clamp-2">{s.desc}</p>
+        <a
+          href="#contact"
+          className={`font-['Manrope'] inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#174358] hover:text-[#1e5a75] transition-colors group/cta ${left ? "md:flex-row-reverse" : ""}`}
+        >
+          Learn more <ArrowRight size={14} className="transition-transform duration-300 group-hover/cta:translate-x-1" />
+        </a>
+      </div>
+    </div>
+  );
+}
+
+export default function Services() {
+  const timelineRef = useRef(null);
+  const progressRef = useRef(null);
+
+  // GSAP: draw the central progress line downward as the section scrolls past.
+  // Reveals/nodes/connectors are CSS scroll-driven (bulletproof), so nothing is
+  // ever left hidden if ScrollTrigger can't run. Respects prefers-reduced-motion.
+  useLayoutEffect(() => {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const ctx = gsap.context(() => {
+      if (!progressRef.current) return;
+      gsap.fromTo(
+        progressRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: { trigger: timelineRef.current, start: "top 78%", end: "bottom 62%", scrub: 0.5 },
+        }
+      );
+    }, timelineRef);
+    const t = setTimeout(() => ScrollTrigger.refresh(), 500);
+    return () => { ctx.revert(); clearTimeout(t); };
+  }, []);
+
+  return (
+    <section id="services" data-testid="services-section" className="py-16 md:py-24 px-6 md:px-12 bg-[#F4F1E8]">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-10 md:mb-14">
           <p data-reveal className="text-[11px] tracking-[0.25em] uppercase font-semibold text-[#174358]/60 mb-5">Destination Services</p>
           <h2 data-reveal data-testid="services-heading" className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0D1B2A] mb-5 leading-tight">
             Everything Behind <em className="not-italic text-[#174358]">Your Destination Booking</em>
@@ -24,7 +89,7 @@ export default function Services() {
         </div>
 
         {/* Stats banner */}
-        <div data-reveal-group className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-20 mt-12">
+        <div data-reveal-group className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-16 md:mb-20">
           {[
             { num: "2,500+", label: "FIT Packages" },
             { num: "500K+", label: "Hotel Properties" },
@@ -32,63 +97,44 @@ export default function Services() {
             { num: "200+", label: "Airline Partners" },
           ].map((s) => (
             <div key={s.label} data-testid={`service-stat-${s.label.toLowerCase().replace(/\s+/g, '-')}`}
-              className="bg-[#0D1B2A] rounded-2xl p-6 md:p-8 text-center shadow-[0_18px_50px_-24px_rgba(13,27,42,0.35)]">
-              <p className="font-['Manrope'] font-bold tracking-tight text-2xl md:text-3xl text-white">{s.num}</p>
-              <p className="font-['Manrope'] text-[11px] text-white/50 uppercase tracking-[0.2em] font-semibold mt-1.5">{s.label}</p>
+              className="bg-[#0D1B2A] rounded-2xl p-5 md:p-6 text-center shadow-[0_18px_50px_-24px_rgba(13,27,42,0.35)]">
+              <p className="font-['Manrope'] font-bold tracking-tight text-xl md:text-2xl text-white">{s.num}</p>
+              <p className="font-['Manrope'] text-[10px] md:text-[11px] text-white/50 uppercase tracking-[0.2em] font-semibold mt-1.5">{s.label}</p>
             </div>
           ))}
         </div>
 
-        {/* Featured services - first 5 with alternating rows (includes Experiences) */}
-        {services.slice(0, 5).map((s, i) => {
-          const Icon = s.icon;
-          const isEven = i % 2 === 0;
-          return (
-            <div key={s.title} data-testid={`service-card-${s.title.toLowerCase().replace(/\s+/g, "-")}`}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 md:mb-24 last:mb-0">
-              <div className={isEven ? "order-1 lg:order-1" : "order-1 lg:order-2"}>
-                <div data-reveal className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-[#174358]/[0.08] flex items-center justify-center">
-                    <Icon size={20} strokeWidth={1.5} className="text-[#174358]" />
-                  </div>
-                  <div className="bg-[#174358]/[0.08] rounded-full px-4 py-2">
-                    <span className="font-['Manrope'] text-[13px] font-semibold text-[#174358]">{s.stat}</span>
-                    <span className="font-['Manrope'] text-xs text-[#174358]/60 ml-1.5">{s.statLabel}</span>
-                  </div>
-                </div>
-                <h3 data-reveal className="font-['Manrope'] font-bold tracking-tight text-3xl md:text-4xl text-[#0D1B2A] mb-4 leading-tight">{s.title}</h3>
-                <p data-reveal className="font-['Manrope'] text-sm md:text-base text-[#0D1B2A]/60 leading-relaxed mb-7">{s.desc}</p>
-                <a data-reveal href="#contact" className="font-['Manrope'] inline-flex items-center gap-2 rounded-full bg-[#174358] text-white px-6 py-3 text-sm font-semibold hover:bg-[#1e5a75] transition-colors group">
-                  Learn more <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
-              <div className={`${isEven ? "order-2 lg:order-2" : "order-2 lg:order-1"}`}>
-                <div data-reveal-img className="group rounded-2xl overflow-hidden shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] transition-shadow">
-                  <img src={s.image} alt={s.title} className="w-full h-[320px] md:h-[440px] object-cover transition-transform duration-700 group-hover:scale-105" />
-                </div>
-              </div>
-            </div>
-          );
-        })}
+        {/* Journey timeline — alternating left/right around a central drawn line */}
+        <div ref={timelineRef} className="relative">
+          {/* Central line: static base + scroll-drawn accent (left on mobile, centered on desktop) */}
+          <div className="pointer-events-none absolute top-0 bottom-0 left-[18px] md:left-1/2 md:-translate-x-1/2 w-px bg-[#174358]/15" aria-hidden="true" />
+          <div ref={progressRef} className="pointer-events-none absolute top-0 bottom-0 left-[18px] md:left-1/2 md:-translate-x-1/2 w-px origin-top bg-gradient-to-b from-[#174358] via-[#174358]/70 to-[#174358]/20" aria-hidden="true" />
 
-        {/* Compact grid for remaining services */}
-        <div data-reveal-group className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-20 pt-20 border-t border-[#0D1B2A]/[0.08]">
-          {services.slice(5).map((s) => {
-            const Icon = s.icon;
-            return (
-              <div key={s.title} data-testid={`service-card-${s.title.toLowerCase().replace(/\s+/g, "-")}`}
-                className="group bg-white rounded-2xl p-6 md:p-8 shadow-[0_18px_50px_-24px_rgba(13,27,42,0.25)] transition-all duration-500 cursor-pointer">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-9 h-9 rounded-xl bg-[#174358]/[0.08] flex items-center justify-center group-hover:bg-[#174358] transition-colors">
-                    <Icon size={18} strokeWidth={1.5} className="text-[#174358] group-hover:text-white transition-colors" />
+          <ol className="relative space-y-12 md:space-y-16">
+            {services.map((s, i) => {
+              const left = i % 2 === 0; // FIT Packages → left, Experiences → right, …
+              return (
+                <li
+                  key={s.title}
+                  data-testid={`service-card-${s.title.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="relative"
+                >
+                  {/* Node on the central line */}
+                  <span className="tl-node-anim absolute top-5 left-[18px] md:left-1/2 z-10 h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-[#174358] ring-4 ring-[#F4F1E8] shadow-[0_0_0_1px_rgba(23,67,88,0.25)]" aria-hidden="true" />
+                  {/* Connector from node toward the card */}
+                  <span
+                    aria-hidden="true"
+                    className={`${left ? "tl-conn-left" : "tl-conn-right"} absolute top-[27px] h-px bg-[#174358]/30 left-[18px] w-7 ${left ? "md:left-auto md:right-1/2 md:w-12" : "md:left-1/2 md:w-12"}`}
+                  />
+
+                  {/* Card: full width (mobile, right of line) / half width alternating (desktop) */}
+                  <div className={`pl-11 md:pl-0 md:w-1/2 ${left ? "tl-reveal-left md:mr-auto md:pr-14" : "tl-reveal-right md:ml-auto md:pl-14"}`}>
+                    <ServiceCard s={s} left={left} />
                   </div>
-                  <span className="font-['Manrope'] text-xs font-semibold text-[#174358]">{s.stat} <span className="font-normal text-[#174358]/50">{s.statLabel}</span></span>
-                </div>
-                <h4 className="font-['Manrope'] font-semibold text-[#0D1B2A] text-sm mb-2">{s.title}</h4>
-                <p className="font-['Manrope'] text-xs text-[#0D1B2A]/45 leading-relaxed">{s.desc}</p>
-              </div>
-            );
-          })}
+                </li>
+              );
+            })}
+          </ol>
         </div>
       </div>
     </section>

@@ -56,6 +56,12 @@ html { scroll-behavior: smooth; }
 @keyframes sd-rv-right { from { opacity: 0; transform: translateX(48px); } to { opacity: 1; transform: none; } }
 @keyframes sd-rv-clip { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
 
+/* Services journey timeline reveals */
+@keyframes tl-in-left { from { opacity: 0; transform: translate3d(-44px, 36px, 0); } to { opacity: 1; transform: none; } }
+@keyframes tl-in-right { from { opacity: 0; transform: translate3d(44px, 36px, 0); } to { opacity: 1; transform: none; } }
+@keyframes tl-node-pop { from { opacity: 0; transform: translate(-50%, -50%) scale(0.2); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+@keyframes tl-conn-grow { from { transform: translateY(-50%) scaleX(0); } to { transform: translateY(-50%) scaleX(1); } }
+
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .sd-rise { animation: sd-rise-kf linear both; animation-timeline: view(); animation-range: entry 2% cover 22%; }
@@ -71,5 +77,21 @@ html { scroll-behavior: smooth; }
     [data-reveal-group] > *:nth-child(4) { animation-range: entry 13% entry 68%; }
     [data-reveal-group] > *:nth-child(5) { animation-range: entry 16% entry 71%; }
     [data-reveal-group] > *:nth-child(n+6) { animation-range: entry 19% entry 74%; }
+
+    /* Services journey timeline */
+    .tl-reveal-left { animation: tl-in-left linear both; animation-timeline: view(); animation-range: entry 2% cover 40%; }
+    .tl-reveal-right { animation: tl-in-right linear both; animation-timeline: view(); animation-range: entry 2% cover 40%; }
+    .tl-node-anim { animation: tl-node-pop linear both; animation-timeline: view(); animation-range: entry 4% cover 26%; }
+    .tl-conn-left { animation: tl-conn-grow linear both; animation-timeline: view(); animation-range: entry 7% cover 30%; transform-origin: right center; }
+    .tl-conn-right { animation: tl-conn-grow linear both; animation-timeline: view(); animation-range: entry 7% cover 30%; transform-origin: left center; }
+    .tl-img-anim { animation: sd-rv-clip linear both; animation-timeline: view(); animation-range: entry 2% cover 36%; }
+  }
+}
+
+/* On mobile every card sits to the right of a left-aligned line, so all reveals come from the right and connectors grow from the node outward (left origin). */
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .tl-reveal-left { animation-name: tl-in-right; }
+    .tl-conn-left { transform-origin: left center; }
   }
 }
