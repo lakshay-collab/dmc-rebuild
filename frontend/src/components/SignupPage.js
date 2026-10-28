@@ -95,7 +95,7 @@ export default function SignupPage() {
 
   // Slowly cross-fade the destination image.
   useEffect(() => {
-    const t = setInterval(() => setBIdx((i) => (i + 1) % DEST_IMAGES.length), 4500);
+    const t = setInterval(() => setBIdx((i) => (i + 1) % DEST_IMAGES.length), 1200);
     return () => clearInterval(t);
   }, []);
 
@@ -162,7 +162,7 @@ export default function SignupPage() {
                   src={`https://images.unsplash.com/photo-${d.id}?w=1100&q=85&auto=format&fit=crop`}
                   alt={`${d.name} — destination we service`}
                   loading="lazy"
-                  className={`absolute inset-0 w-full h-full object-cover transition-[opacity,transform] ease-in-out duration-[2200ms] ${i === bIdx ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-[opacity,transform] ease-in-out duration-[900ms] ${i === bIdx ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}
                 />
               ))}
               <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B2A]/72 via-[#0D1B2A]/58 to-[#0D1B2A]/90" aria-hidden="true" />
